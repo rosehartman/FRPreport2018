@@ -1,0 +1,619 @@
+"","SampleID","Station","Region","Sampletype","total"
+"1","EAV_801-1-12MAR2018","WinBR","Winter Island","sweep net",4
+"2","EAV1-02MAR2018","724 FRP","Miner Slough","sweep net",6
+"3","EAV1-09APR2018","801 FRP","Confluence","sweep net",5
+"4","EAV1-10APR2017","TR2","Tule Red","sweep net",434
+"5","EAV1-11APR2017","Ryer1","Suisun","sweep net",51
+"6","EAV1-12MAR2018","TR6","Tule Red","sweep net",55
+"7","EAV1-13APR2017","Browns Channel","Browns Island","sweep net",207
+"8","EAV1-13APR2018","Decker Breach","Decker Island","sweep net",449
+"9","EAV1-14FEB2017","Decker Breach","Decker Island","sweep net",14
+"10","EAV1-20MAR2018","Flyway","Flyway Farms","sweep net",371
+"11","EAV1-22MAR2018","Browns Channel","Browns Island","sweep net",4
+"12","EAV1-23JAN2018","Decker Breach","Decker Island","sweep net",11
+"13","EAV1-23MAR2018","SWLiberty","Liberty Island","sweep net",7
+"14","EAV1-25APR2017","SoPro4","Prospect Island","sweep net",192
+"15","EAV1-25jan2017","Decker Breach","Decker Island","sweep net",24
+"16","EAV1-27MAR2017","SoPro2","Prospect Island","sweep net",43
+"17","EAV1-27MAR2018","609 FRP","Nurse-Denverton","sweep net",22
+"18","EAV1-29MAR2018","Ryer1","Suisun","sweep net",575
+"19","EAV1-30MAR2017","Decker Breach","Decker Island","sweep net",64
+"20","EAV1-3APR2017","Stacy's Island","San Joaquin","sweep net",37
+"21","EAV1-4APR2017","Dow 2","Dow Wetlands","sweep net",30
+"22","EAV1-5JUN2018","Decker Breach","Decker Island","sweep net",102
+"23","EAV1-6APR2017","Winter 1","Winter Island","sweep net",22
+"24","EAV10-26MAR2018","Bradmoor","Bradmoor Island","sweep net",11
+"25","EAV10-27MAR2017","Miner Tules","Miner Slough","sweep net",10
+"26","EAV10-29MAR2018","501 FRP","Ryer Island","sweep net",26
+"27","EAV10-3APR2017","801 FRP","Confluence","sweep net",6
+"28","EAV11-29MAR2018","501 FRP","Ryer Island","sweep net",4
+"29","EAV11-3APR2017","801 FRP","Confluence","sweep net",12
+"30","EAV12-3APR2017","801 FRP","Confluence","sweep net",34
+"31","EAV1B-13MAR2018","Blacklock","Nurse-Denverton","sweep net",52
+"32","EAV1S-13MAR2018","Stacy's Island","San Joaquin","sweep net",8
+"33","EAV1W-12MAR2018","WinBR","Winter Island","sweep net",1
+"34","EAV2-02MAR2018","724 FRP","Miner Slough","sweep net",23
+"35","EAV2-09APR2018","801 FRP","Confluence","sweep net",9
+"36","EAV2-10APR2017","TR3","Tule Red","sweep net",970
+"37","EAV2-10MAY2018","Decker Breach","Decker Island","sweep net",220
+"38","EAV2-11APR2017","Ryer1","Suisun","sweep net",7
+"39","EAV2-12MAR2018","TR7","Tule Red","sweep net",14
+"40","EAV2-13APR2017","Browns Channel","Browns Island","sweep net",153
+"41","EAV2-14FEB2017","Decker Breach","Decker Island","sweep net",1
+"42","EAV2-20MAR2018","Flyway","Flyway Farms","sweep net",25
+"43","EAV2-23JAN2018","Decker Breach","Decker Island","sweep net",158
+"44","EAV2-23MAR2018","SWLiberty","Liberty Island","sweep net",15
+"45","EAV2-25APR2017","SoPro5","Prospect Island","sweep net",377
+"46","EAV2-25jan2017","Decker Breach","Decker Island","sweep net",21
+"47","EAV2-26MAR2018","Bradmoor","Bradmoor Island","sweep net",165
+"48","EAV2-27MAR2017","SoPro1","Prospect Island","sweep net",89
+"49","EAV2-30MAR2017","Decker Breach","Decker Island","sweep net",39
+"50","EAV2-3APR2017","Stacy's Island","San Joaquin","sweep net",64
+"51","EAV2-4APR2017","Dow 2","Dow Wetlands","sweep net",25
+"52","EAV2-5JUN2018","Decker Breach","Decker Island","sweep net",63
+"53","EAV2-6APR2017","Winter 1","Winter Island","sweep net",68
+"54","EAV2B-13MAR2018","Blacklock","Nurse-Denverton","sweep net",142
+"55","EAV2P-29MAR2018","SoPro2","Prospect Island","sweep net",517
+"56","EAV2S-13MAR2018","Stacy's Island","San Joaquin","sweep net",3
+"57","EAV3-10APR2017","TR4","Tule Red","sweep net",69
+"58","EAV3-10MAY2018","Decker Breach","Decker Island","sweep net",34
+"59","EAV3-11APR2017","Ryer2","Suisun","sweep net",13
+"60","EAV3-12MAR2018","TR4","Tule Red","sweep net",103
+"61","EAV3-13APR2017","Browns Channel","Browns Island","sweep net",141
+"62","EAV3-13APR2018","705 FRP","Horseshoe Bend","sweep net",790
+"63","EAV3-17OCT2018","Browns Channel","Browns Island","sweep net",95
+"64","EAV3-22MAR2018","Browns Channel","Browns Island","sweep net",18
+"65","EAV3-23MAR2018","SWLiberty","Liberty Island","sweep net",94
+"66","EAV3-25APR2017","SoPro6","Prospect Island","sweep net",509
+"67","EAV3-26MAR2018","Bradmoor","Bradmoor Island","sweep net",68
+"68","EAV3-29MAR2018","Ryer1","Suisun","sweep net",197
+"69","EAV3-3APR2017","Stacy's Island","San Joaquin","sweep net",23
+"70","EAV3-4APR2017","Dow 3","Dow Wetlands","sweep net",105
+"71","EAV3-6APR2017","Winter 2","Winter Island","sweep net",845
+"72","EAV4-09APR2018","801 FRP","Confluence","sweep net",5
+"73","EAV4-10APR2017","TR5","Tule Red","sweep net",253
+"74","EAV4-10MAY2018","Decker Breach","Decker Island","sweep net",173
+"75","EAV4-11APR2017","Ryer3","Suisun","sweep net",19
+"76","EAV4-12MAR2018","TR5","Tule Red","sweep net",195
+"77","EAV4-13APR2017","Browns Channel","Browns Island","sweep net",99
+"78","EAV4-13APR2018","705 FRP","Horseshoe Bend","sweep net",350
+"79","EAV4-20MAR2018","Flyway","Flyway Farms","sweep net",34
+"80","EAV4-22MAR2018","Browns Channel","Browns Island","sweep net",5
+"81","EAV4-23MAR2018","NELiberty","Liberty Island","sweep net",27
+"82","EAV4-25APR2017","SoPro6","Prospect Island","sweep net",49
+"83","EAV4-26MAR2018","Bradmoor","Bradmoor Island","sweep net",120
+"84","EAV4-27MAR2018","609 FRP","Nurse-Denverton","sweep net",4
+"85","EAV4-29MAR2017","LinBR","Lindsey Slough","sweep net",277
+"86","EAV4-29MAR2018","Ryer1","Suisun","sweep net",334
+"87","EAV4-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",113
+"88","EAV4-3APR2017","Stacy's Island","San Joaquin","sweep net",34
+"89","EAV4-4APR2017","Dow 3","Dow Wetlands","sweep net",116
+"90","EAV4-6APR2017","Winter 2","Winter Island","sweep net",149
+"91","EAV4B-13MAR2018","Blacklock","Nurse-Denverton","sweep net",45
+"92","EAV5-10APR2017","TR7","Tule Red","sweep net",102
+"93","EAV5-11APR2017","Ryer3","Suisun","sweep net",8
+"94","EAV5-13APR2017","Browns Channel","Browns Island","sweep net",411
+"95","EAV5-13APR2018","705 FRP","Horseshoe Bend","sweep net",63
+"96","EAV5-17OCT2018","Browns Channel","Browns Island","sweep net",118
+"97","EAV5-20MAR2018","Flyway","Flyway Farms","sweep net",130
+"98","EAV5-23MAR2018","NELiberty","Liberty Island","sweep net",56
+"99","EAV5-25APR2017","SoPro7","Prospect Island","sweep net",247
+"100","EAV5-26MAR2018","Bradmoor","Bradmoor Island","sweep net",80
+"101","EAV5-29MAR2018","Ryer1","Suisun","sweep net",26
+"102","EAV5-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",102
+"103","EAV5-3APR2017","Stacy's Island","San Joaquin","sweep net",21
+"104","EAV5-4APR2017","Dow 4","Dow Wetlands","sweep net",74
+"105","EAV5-6APR2017","Winter 3","Winter Island","sweep net",70
+"106","EAV5B-13MAR2018","Blacklock","Nurse-Denverton","sweep net",24
+"107","EAV6-23MAR2018","SWLiberty","Liberty Island","sweep net",26
+"108","EAV6-26MAR2018","Bradmoor","Bradmoor Island","sweep net",14
+"109","EAV6-27MAR2018","609 FRP","Nurse-Denverton","sweep net",5
+"110","EAV6-29MAR2018","Ryer1","Suisun","sweep net",27
+"111","EAV6-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",172
+"112","EAV6-3APR2017","Stacy's Island","San Joaquin","sweep net",351
+"113","EAV6-4APR2017","Dow 4","Dow Wetlands","sweep net",79
+"114","EAV6-6APR2017","Winter 4","Winter Island","sweep net",29
+"115","EAV7-1-6APR2017","Winter 4","Winter Island","sweep net",45
+"116","EAV7-2-6APR2017","Winter 5","Winter Island","sweep net",61
+"117","EAV7-23MAR2018","NWLiberty","Liberty Island","sweep net",147
+"118","EAV7-27MAR2018","609 FRP","Nurse-Denverton","sweep net",12
+"119","EAV7-29MAR2018","Ryer1","Suisun","sweep net",33
+"120","EAV7-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",35
+"121","eav7-3APR2017","801 FRP","Confluence","sweep net",12
+"122","EAV7-4APR2017","Dow 5","Dow Wetlands","sweep net",132
+"123","EAV8-26MAR2018","Bradmoor","Bradmoor Island","sweep net",24
+"124","EAV8-27MAR2017","Miner Tules","Miner Slough","sweep net",192
+"125","EAV8-27MAR2018","609 FRP","Nurse-Denverton","sweep net",10
+"126","EAV8-29MAR2018","Ryer1","Suisun","sweep net",62
+"127","EAV8-30MAR2017","Decker Breach","Decker Island","sweep net",134
+"128","eav8-3APR2017","801 FRP","Confluence","sweep net",14
+"129","EAV8-4APR2017","Dow 5","Dow Wetlands","sweep net",38
+"130","EAV8-6APR2017","Winter 5","Winter Island","sweep net",119
+"131","EAV9-22MAR2018","BrownsPond","Browns Island","sweep net",132
+"132","EAV9-26MAR2018","Bradmoor","Bradmoor Island","sweep net",41
+"133","EAV9-27MAR2017","Miner Tules","Miner Slough","sweep net",16
+"134","EAV9-29MAR2018","Ryer1","Suisun","sweep net",107
+"135","EAV9-3APR2017","801 FRP","Confluence","sweep net",6
+"136","FAV1-13APR2017","Browns Channel","Browns Island","sweep net",380
+"137","FAV1-14FEB2017","Decker Breach","Decker Island","sweep net",250
+"138","FAV1-23JAN2018","Decker Breach","Decker Island","sweep net",557
+"139","FAV1-25APR2017","SoPro4","Prospect Island","sweep net",294
+"140","FAV1-27MAR2017","SoPro2","Prospect Island","sweep net",19
+"141","FAV1-29MAR2018","Ryer1","Suisun","sweep net",0
+"142","FAV1-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",327
+"143","FAV1-3APR2017","Stacy's Island","San Joaquin","sweep net",237
+"144","FAV1-4APR2017","Dow 2","Dow Wetlands","sweep net",539
+"145","FAV1-5JUN2018","705 FRP","Horseshoe Bend","sweep net",627
+"146","FAV1-6APR2017","Winter 3","Winter Island","sweep net",621
+"147","FAV1-7JUN2017","Decker Breach","Decker Island","sweep net",339
+"148","FAV1P-29MAR2018","SoPro3","Prospect Island","sweep net",202
+"149","FAV2-13APR2018","705 FRP","Horseshoe Bend","sweep net",114
+"150","FAV2-14FEB2017","Decker Breach","Decker Island","sweep net",439
+"151","FAV2-25APR2017","SoPro5","Prospect Island","sweep net",566
+"152","FAV2-27MAR2017","SoPro1","Prospect Island","sweep net",11
+"153","FAV2-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",111
+"154","FAV2-3APR2017","Stacy's Island","San Joaquin","sweep net",316
+"155","FAV2-4APR2017","Dow 2","Dow Wetlands","sweep net",397
+"156","FAV2-6APR2017","Winter 3","Winter Island","sweep net",117
+"157","FAV2-7JUN2017","Decker Breach","Decker Island","sweep net",1102
+"158","FAV2P-29MAR2018","ProBr","Miner Slough","sweep net",232
+"159","FAV2S-13MAR2018","Stacy's Island","San Joaquin","sweep net",151
+"160","FAV3-13APR2018","705 FRP","Horseshoe Bend","sweep net",364
+"161","FAV3-14FEB2017","Decker Breach","Decker Island","sweep net",251
+"162","FAV3-25APR2017","SoPro7","Prospect Island","sweep net",403
+"163","FAV3-27MAR2017","SoPro1","Prospect Island","sweep net",17
+"164","FAV3-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",117
+"165","FAV3-3APR2017","Stacy's Island","San Joaquin","sweep net",865
+"166","FAV3-4APR2017","Dow 3","Dow Wetlands","sweep net",184
+"167","FAV3-6APR2017","Winter 5","Winter Island","sweep net",72
+"168","FAV4-1-30MAR2017","Decker Breach","Decker Island","sweep net",209
+"169","FAV4-27MAR2017","SoPro1","Prospect Island","sweep net",967
+"170","FAV4-29MAR2017","LinBR","Lindsey Slough","sweep net",528
+"171","FAV4-4APR2017","Dow 3","Dow Wetlands","sweep net",61
+"172","FAV4-6APR2017","Winter 5","Winter Island","sweep net",58
+"173","FAV5-27MAR-2017","ProBr","Miner Slough","sweep net",454
+"174","FAV5-29MAR2017","LinBR","Lindsey Slough","sweep net",614
+"175","FAV5-30MAR2017","Decker Breach","Decker Island","sweep net",214
+"176","FAV5-4APR2017","Dow 4","Dow Wetlands","sweep net",58
+"177","FAV5P-29MAR2018","SoPro1","Prospect Island","sweep net",297
+"178","FAV6-27MAR-2017","ProBr","Miner Slough","sweep net",473
+"179","FAV6-29MAR2017","LinBR","Lindsey Slough","sweep net",1117
+"180","FAV6-30MAR2017","Decker Breach","Decker Island","sweep net",182
+"181","FAV6-4APR2017","Dow 4","Dow Wetlands","sweep net",99
+"182","FAV7-27MAR-2017","ProBr","Miner Slough","sweep net",408
+"183","MAC1-02MAR2018","724 FRP","Miner Slough","Mysid net (no sled)",7
+"184","MAC1-04OCT2018","WinBR","Winter Island","Mysid net (no sled)",2
+"185","MAC1-07SEP2018","801 FRP","Confluence","Mysid net (no sled)",2
+"186","MAC1-09APR2018","Winter 1","Winter Island","Mysid net (no sled)",637
+"187","MAC1-10APR2017","705 FRP","Horseshoe Bend","larval sled oblique",465
+"188","MAC1-11APR2017","609 FRP","Nurse-Denverton","larval sled oblique",866
+"189","MAC1-11JUN2018","Wings 1","Wings Landing","Mysid net (no sled)",55
+"190","MAC1-12APR2018","602FRP","Grizzly Bay","Mysid net (no sled)",570
+"191","MAC1-12OCT2018","Horsebend1","Horseshoe Bend","Mysid net (no sled)",18
+"192","MAC1-12SEP2018","ProBr","Miner Slough","Mysid net (no sled)",29
+"193","MAC1-13APR2017","Browns Channel","Browns Island","Mysid net (no sled)",212
+"194","MAC1-13APR2018","Decker Breach","Decker Island","Mysid net (no sled)",192
+"195","MAC1-13MAR2017","705 FRP","Horseshoe Bend","larval sled oblique",530
+"196","MAC1-13SEP2018","Decker Breach","Decker Island","Mysid net (no sled)",3
+"197","MAC1-14FEB2017","Decker Breach","Decker Island","Mysid net (no sled)",53
+"198","MAC1-14MAR2017","609 FRP","Nurse-Denverton","larval sled oblique",1397
+"199","MAC1-14MAR2018","720 FRP","Lindsey Slough","Mysid net (no sled)",365
+"200","MAC1-15MAR2017","Lindsey tules","Lindsey Slough","larval sled oblique",947
+"201","MAC1-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",387
+"202","MAC1-17OCT2018","Browns1","Browns Island","Mysid net (no sled)",5
+"203","MAC1-18OCT2018","602FRP","Grizzly Bay","Mysid net (no sled)",0
+"204","MAC1-18SEP2018","Browns1","Browns Island","Mysid net (no sled)",16
+"205","MAC1-19MAY2017","602FRP","Grizzly Bay","Mysid net (no sled)",189
+"206","MAC1-19SEP2018","602FRP","Grizzly Bay","Mysid net (no sled)",6
+"207","MAC1-22MAR2018","Browns Channel","Browns Island","Mysid net (no sled)",19
+"208","MAC1-23JAN2018","Decker Breach","Decker Island","Mysid net (no sled)",668
+"209","MAC1-23MAR2018","SWLiberty","Liberty Island","Mysid net (no sled)",17
+"210","MAC1-27MAR2017","ProBr","Miner Slough","Mysid net (no sled)",614
+"211","MAC1-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",125
+"212","MAC1-29MAR2018","Ryer3","Suisun","Mysid net (no sled)",92
+"213","MAC1-30MAR2017","Decker Breach","Decker Island","Mysid net (no sled)",159
+"214","MAC1-3APR2017","Stacy's Island","San Joaquin","Mysid net (no sled)",493
+"215","MAC1-4APR2017","Dow 2","Dow Wetlands","Mysid net (no sled)",189
+"216","MAC1-5JUN2017","705 FRP","Horseshoe Bend","larval sled oblique",164
+"217","MAC1-5JUN2018","705 FRP","Horseshoe Bend","Mysid net (no sled)",158
+"218","MAC1-5OCT2017","602FRP","Grizzly Bay","Mysid net (no sled)",24
+"219","MAC1-609-10APR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",19
+"220","MAC1-6APR2017","Winter 1","Winter Island","Mysid net (no sled)",49
+"221","MAC1-6APR2018","Decker Breach","Decker Island","Mysid net (no sled)",962
+"222","MAC1-6JUN2017","609 FRP","Nurse-Denverton","larval sled oblique",188
+"223","MAC1-6JUN2018","720 FRP","Lindsey Slough","Mysid net (no sled)",14
+"224","MAC1-7MAY2018","801 FRP","Confluence","Mysid net (no sled)",11
+"225","MAC1-801-4JUN2018","WinBR","Winter Island","Mysid net (no sled)",231
+"226","MAC1-8MAY2017","705 FRP","Horseshoe Bend","larval sled oblique",681
+"227","MAC1-9MAR2018","Decker Breach","Decker Island","Mysid net (no sled)",571
+"228","MAC1-9MAY2017","609 FRP","Nurse-Denverton","larval sled oblique",583
+"229","MAC1-LHB-10MAY2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",274
+"230","MAC1-LHB-7JUN2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",1117
+"231","MAC1-S-9MAY2018","Stacy's Island","San Joaquin","Mysid net (no sled)",169
+"232","MAC1CS-9MAY2018","LinBR","Lindsey Slough","Mysid net (no sled)",88
+"233","MAC1D-7JUN2017","Decker Breach","Decker Island","Mysid net (no sled)",812
+"234","MAC1S-10APR2018","Stacy's Island","San Joaquin","Mysid net (no sled)",86
+"235","MAC1S-13MAR2018","Stacy's Island","San Joaquin","Mysid net (no sled)",31
+"236","MAC1W-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",19
+"237","MAC2-01NOV2018","501 FRP","Ryer Island","Mysid net (no sled)",173
+"238","MAC2-02MAR2018","724 FRP","Miner Slough","Mysid net (no sled)",79
+"239","MAC2-09APR2018","Winter 1","Winter Island","Mysid net (no sled)",199
+"240","MAC2-10APR2017","706 FRP","Horseshoe Bend","larval sled oblique",648
+"241","MAC2-11APR2017","602FRP","Grizzly Bay","larval sled oblique",491
+"242","MAC2-11APR2018","726 FRP","Miner Slough","Mysid net (no sled)",277
+"243","MAC2-11MAY2017","ProBr","Miner Slough","larval sled oblique",972
+"244","MAC2-11MAY2018","Wings 1","Wings Landing","Mysid net (no sled)",263
+"245","MAC2-12APR2017","726 FRP","Miner Slough","larval sled oblique",1715
+"246","MAC2-12APR2018","Wings 1","Wings Landing","Mysid net (no sled)",8
+"247","MAC2-13APR2017","Browns Channel","Browns Island","Mysid net (no sled)",251
+"248","MAC2-13APR2018","Decker Breach","Decker Island","Mysid net (no sled)",224
+"249","MAC2-13MAR2017","706 FRP","Horseshoe Bend","larval sled oblique",362
+"250","MAC2-14FEB2017","Decker Breach","Decker Island","Mysid net (no sled)",81
+"251","MAC2-14MAR2017","602FRP","Grizzly Bay","larval sled oblique",309
+"252","MAC2-14MAR2018","723 FRP","Liberty Island","Mysid net (no sled)",13
+"253","MAC2-15MAR2017","726 FRP","Miner Slough","larval sled oblique",416
+"254","MAC2-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",436
+"255","MAC2-15OCT2018","Winter 2","Winter Island","Mysid net (no sled)",64
+"256","MAC2-17OCT2018","Browns Channel","Browns Island","Mysid net (no sled)",7
+"257","MAC2-19MAY2017","602FRP","Grizzly Bay","Mysid net (no sled)",281
+"258","MAC2-19SEP2018","Wings 1","Wings Landing","Mysid net (no sled)",42
+"259","MAC2-22MAR2018","520 FRP","Browns Island","Mysid net (no sled)",13
+"260","MAC2-23JAN2018","Decker Breach","Decker Island","Mysid net (no sled)",73
+"261","MAC2-23MAR2018","SWLiberty","Liberty Island","Mysid net (no sled)",28
+"262","MAC2-26MAR2018","Bradmoor","Bradmoor Island","Mysid net (no sled)",149
+"263","MAC2-27MAR2017","SoPro2","Prospect Island","Mysid net (no sled)",153
+"264","MAC2-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",14
+"265","MAC2-29MAR2018","Ryer3","Suisun","Mysid net (no sled)",214
+"266","MAC2-30MAR2017","Decker Breach","Decker Island","Mysid net (no sled)",584
+"267","MAC2-3APR2017","Stacy's Island","San Joaquin","Mysid net (no sled)",563
+"268","MAC2-4APR2017","Dow 3","Dow Wetlands","Mysid net (no sled)",122
+"269","MAC2-5JUN2017","706 FRP","Horseshoe Bend","larval sled oblique",299
+"270","MAC2-5JUN2018","Decker Breach","Decker Island","Mysid net (no sled)",20
+"271","MAC2-5OCT2017","602FRP","Grizzly Bay","Mysid net (no sled)",22
+"272","MAC2-6APR2017","Winter 2","Winter Island","Mysid net (no sled)",58
+"273","MAC2-6JUN2017","602FRP","Grizzly Bay","larval sled oblique",144
+"274","MAC2-6JUN2018","723 FRP","Liberty Island","Mysid net (no sled)",294
+"275","MAC2-7JUN2017","ProBr","Miner Slough","larval sled oblique",458
+"276","MAC2-8MAY2017","706 FRP","Horseshoe Bend","larval sled oblique",1543
+"277","MAC2-9MAY2017","602FRP","Grizzly Bay","larval sled oblique",640
+"278","MAC2-9OCT2018","ProBr","Miner Slough","Mysid net (no sled)",308
+"279","MAC2B-13MAR2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",22
+"280","MAC2CS-9MAY2018","723 FRP","Liberty Island","Mysid net (no sled)",29
+"281","MAC2S-13MAR2018","Stacy's Island","San Joaquin","Mysid net (no sled)",5
+"282","MAC2W-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",13
+"283","MAC3-02MAR2018","724 FRP","Miner Slough","Mysid net (no sled)",125
+"284","MAC3-09APR2018","Winter 1","Winter Island","Mysid net (no sled)",110
+"285","MAC3-10APR2017","703 FRP","Confluence","larval sled oblique",605
+"286","MAC3-11APR2017","602FRP","Grizzly Bay","larval sled oblique",175
+"287","MAC3-11APR2018","720 FRP","Lindsey Slough","Mysid net (no sled)",51
+"288","MAC3-11MAY2017","726 FRP","Miner Slough","larval sled oblique",2582
+"289","MAC3-12APR2017","ProBr","Miner Slough","larval sled oblique",283
+"290","MAC3-13APR2017","Browns Channel","Browns Island","Mysid net (no sled)",271
+"291","MAC3-13APR2018","705 FRP","Horseshoe Bend","Mysid net (no sled)",22
+"292","MAC3-13MAR2017","703 FRP","Confluence","larval sled oblique",235
+"293","MAC3-14FEB2017","Decker Breach","Decker Island","Mysid net (no sled)",85
+"294","MAC3-14MAR2018","ProBr","Miner Slough","Mysid net (no sled)",129
+"295","MAC3-15MAR2017","ProBr","Miner Slough","larval sled benthic",453
+"296","MAC3-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",157
+"297","MAC3-17OCT2018","Browns Channel","Browns Island","Mysid net (no sled)",1
+"298","MAC3-18APR2018","Dow Breach","Dow Wetlands","Mysid net (no sled)",587
+"299","MAC3-19MAY2017","602FRP","Grizzly Bay","Mysid net (no sled)",285
+"300","MAC3-22MAR2018","Browns Channel","Browns Island","Mysid net (no sled)",204
+"301","MAC3-23JAN2018","Decker Breach","Decker Island","Mysid net (no sled)",19
+"302","MAC3-23MAR2018","NELiberty","Liberty Island","Mysid net (no sled)",261
+"303","MAC3-27MAR2017","ProBr","Miner Slough","Mysid net (no sled)",281
+"304","MAC3-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",18
+"305","MAC3-29MAR2018","Ryer1","Suisun","Mysid net (no sled)",210
+"306","MAC3-30MAR2017","Decker Breach","Decker Island","Mysid net (no sled)",260
+"307","MAC3-4APR2017","Dow 4","Dow Wetlands","Mysid net (no sled)",206
+"308","MAC3-5JUN2017","703 FRP","Confluence","larval sled oblique",107
+"309","MAC3-5JUN2018","Decker Breach","Decker Island","Mysid net (no sled)",35
+"310","MAC3-5OCT2017","602FRP","Grizzly Bay","Mysid net (no sled)",20
+"311","MAC3-6APR2017","Winter 3","Winter Island","Mysid net (no sled)",199
+"312","MAC3-6JUN2018","724 FRP","Miner Slough","Mysid net (no sled)",6
+"313","MAC3-7JUN2017","726 FRP","Miner Slough","larval sled oblique",1504
+"314","MAC3-8MAY2017","703 FRP","Confluence","larval sled oblique",1011
+"315","MAC3-9OCT2018","SWLiberty","Liberty Island","Mysid net (no sled)",47
+"316","MAC3-D-10MAY2018","Horsebend1","Horseshoe Bend","Mysid net (no sled)",15
+"317","MAC3B-13MAR2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",69
+"318","MAC3CS-9MAY2018","ProBr","Miner Slough","Mysid net (no sled)",23
+"319","MAC3S-13MAR2018","Stacy's Island","San Joaquin","Mysid net (no sled)",10
+"320","MAC3W-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",31
+"321","MAC4-02MAR2018","724 FRP","Miner Slough","Mysid net (no sled)",39
+"322","MAC4-09APR2018","Winter 1","Winter Island","Mysid net (no sled)",193
+"323","MAC4-10APR2017","801 FRP","Confluence","larval sled oblique",232
+"324","MAC4-11APR2017","602FRP","Grizzly Bay","larval sled oblique",307
+"325","MAC4-11APR2018","723 FRP","Liberty Island","Mysid net (no sled)",14
+"326","MAC4-13APR2017","Browns Channel","Browns Island","Mysid net (no sled)",104
+"327","MAC4-13APR2018","Decker Breach","Decker Island","Mysid net (no sled)",115
+"328","MAC4-13Mar2017","Browns Channel","Browns Island","larval sled oblique",76
+"329","MAC4-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",39
+"330","MAC4-22MAR2018","Browns Channel","Browns Island","Mysid net (no sled)",29
+"331","MAC4-23MAR2018","NELiberty","Liberty Island","Mysid net (no sled)",73
+"332","MAC4-27MAR2017","SoPro1","Prospect Island","Mysid net (no sled)",306
+"333","MAC4-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",23
+"334","MAC4-29MAR2017","LinBR","Lindsey Slough","Mysid net (no sled)",394
+"335","MAC4-29MAR2018","Ryer1","Suisun","Mysid net (no sled)",184
+"336","MAC4-30MAR2017","Horsebend1","Horseshoe Bend","Mysid net (no sled)",1606
+"337","MAC4-3APR2017","801 FRP","Confluence","Mysid net (no sled)",193
+"338","MAC4-4APR2017","Dow 5","Dow Wetlands","Mysid net (no sled)",818
+"339","MAC4-5JUN2017","801 FRP","Confluence","larval sled oblique",135
+"340","MAC4-8MAY2017","801 FRP","Confluence","larval sled oblique",190
+"341","MAC4-D-10MAY2018","Decker Breach","Decker Island","Mysid net (no sled)",85
+"342","MAC4B-13MAR2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",856
+"343","MAC4S-13MAR2018","Stacy's Island","San Joaquin","Mysid net (no sled)",85
+"344","MAC5-10APR2017","801 FRP","Confluence","larval sled oblique",539
+"345","MAC5-11APR2017","Ryer1","Suisun","larval sled oblique",870
+"346","MAC5-13MAR2018","Blacklock","Nurse-Denverton","Mysid net (no sled)",66
+"347","MAC5-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",10
+"348","MAC5-18APR2018","Dow Outside","Confluence","Mysid net (no sled)",33
+"349","MAC5-22MAR2018","Browns Channel","Browns Island","Mysid net (no sled)",94
+"350","MAC5-23MAR2018","SWLiberty","Liberty Island","Mysid net (no sled)",60
+"351","MAC5-27MAR2017","ProBr","Miner Slough","Mysid net (no sled)",128
+"352","MAC5-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",1
+"353","MAC5-29MAR2017","LinBR","Lindsey Slough","Mysid net (no sled)",359
+"354","MAC5-29MAR2018","501 FRP","Ryer Island","Mysid net (no sled)",32
+"355","MAC5-30MAR2017","Horsebend1","Horseshoe Bend","Mysid net (no sled)",612
+"356","MAC5-3APR2017","801 FRP","Confluence","Mysid net (no sled)",180
+"357","MAC5-4APR2017","Dow Breach","Dow Wetlands","Mysid net (no sled)",115
+"358","MAC5-5JUN2017","Browns Channel","Browns Island","larval sled oblique",598
+"359","MAC5-8MAY2017","Browns Channel","Browns Island","larval sled oblique",233
+"360","MAC6-10APR2017","Browns Channel","Browns Island","larval sled oblique",137
+"361","MAC6-11APR2017","Ryer2","Suisun","larval sled oblique",989
+"362","MAC6-15MAR2018","602FRP","Grizzly Bay","Mysid net (no sled)",4
+"363","MAC6-18APR2018","WinBR","Winter Island","Mysid net (no sled)",17
+"364","MAC6-22MAR2018","BrownsPond","Browns Island","Mysid net (no sled)",440
+"365","MAC6-23MAR2018","NWLiberty","Liberty Island","Mysid net (no sled)",559
+"366","MAC6-27MAR2017","SoPro1","Prospect Island","Mysid net (no sled)",24
+"367","MAC6-27MAR2018","609 FRP","Nurse-Denverton","Mysid net (no sled)",3
+"368","MAC6-29MAR2017","LinBR","Lindsey Slough","Mysid net (no sled)",632
+"369","MAC6-29MAR2018","Ryer3","Suisun","Mysid net (no sled)",21
+"370","MAC6-30MAR2017","Horsebend1","Horseshoe Bend","Mysid net (no sled)",893
+"371","MAC6-3APR2017","801 FRP","Confluence","Mysid net (no sled)",123
+"372","MAC7-10APR2017","Browns1","Browns Island","larval sled oblique",145
+"373","MAC7-11APR2017","Ryer3","Suisun","larval sled oblique",767
+"374","MAC7-30MAR2017","Horsebend1","Horseshoe Bend","Mysid net (no sled)",766
+"375","MAC8-15MAR2018","Wings 1","Wings Landing","Mysid net (no sled)",33
+"376","MAC801-1-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",173
+"377","MAC801-2-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",10
+"378","MAC801-3-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",10
+"379","MAC801-4-12MAR2018","801 FRP","Confluence","Mysid net (no sled)",15
+"380","MYSID1-14feb2017","Decker Breach","Decker Island","Mysid net (no sled)",87
+"381","MYSID1-25jan2017","Decker Breach","Decker Island","Mysid net (no sled)",87
+"382","MYSID2-25JAN2017","Decker Breach","Decker Island","Mysid net (no sled)",78
+"383","NT1-02MAR2018","724 FRP","Miner Slough","neuston trawl",28
+"384","NT1-09APR2018","Winter 1","Winter Island","neuston trawl",496
+"385","NT1-10APR2017","705 FRP","Horseshoe Bend","neuston trawl",279
+"386","NT1-11APR2017","602FRP","Grizzly Bay","neuston trawl",240
+"387","NT1-12APR2018","602FRP","Grizzly Bay","neuston trawl",10
+"388","NT1-12MAR2018","TR6","Tule Red","neuston trawl",12
+"389","NT1-13APR2017","Browns Channel","Browns Island","neuston trawl",243
+"390","NT1-13APR2018","Decker Breach","Decker Island","neuston trawl",62
+"391","NT1-14FEB2017","Decker Breach","Decker Island","neuston trawl",6
+"392","NT1-22MAR2018","Browns Channel","Browns Island","neuston trawl",113
+"393","NT1-23JAN2018","Decker Breach","Decker Island","neuston trawl",701
+"394","NT1-23MAR2018","SWLiberty","Liberty Island","neuston trawl",32
+"395","NT1-27MAR2017","ProBr","Miner Slough","neuston trawl",270
+"396","NT1-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",95
+"397","NT1-29MAR2018","Ryer3","Suisun","neuston trawl",394
+"398","NT1-30MAR2017","Decker Breach","Decker Island","neuston trawl",158
+"399","NT1-3APR2017","Stacy's Island","San Joaquin","neuston trawl",110
+"400","NT1-4APR2017","Dow 2","Dow Wetlands","neuston trawl",98
+"401","NT1-5JUN2018","705 FRP","Horseshoe Bend","neuston trawl",27
+"402","NT1-6APR2017","Winter 1","Winter Island","neuston trawl",427
+"403","NT1-7JUN2017","Decker Breach","Decker Island","neuston trawl",1797
+"404","NT10-09APR2018","801 FRP","Confluence","neuston trawl",494
+"405","NT1B-13MAR2018","Blacklock","Nurse-Denverton","neuston trawl",76
+"406","NT1S-13MAR2018","Stacy's Island","San Joaquin","neuston trawl",2
+"407","NT1W-12MAR2018","801 FRP","Confluence","neuston trawl",110
+"408","NT2-02MAR2018","724 FRP","Miner Slough","neuston trawl",42
+"409","NT2-09APR2018","Winter 1","Winter Island","neuston trawl",220
+"410","NT2-10APR2017","706 FRP","Horseshoe Bend","neuston trawl",162
+"411","NT2-11APR2017","602FRP","Grizzly Bay","neuston trawl",71
+"412","NT2-12APR2018","602FRP","Grizzly Bay","neuston trawl",365
+"413","NT2-12MAR2018","TR7","Tule Red","neuston trawl",81
+"414","NT2-13APR2017","Browns Channel","Browns Island","neuston trawl",67
+"415","NT2-13APR2018","Decker Breach","Decker Island","neuston trawl",88
+"416","NT2-14FEB2017","Decker Breach","Decker Island","neuston trawl",16
+"417","NT2-22MAR2018","520 FRP","Browns Island","neuston trawl",8
+"418","NT2-23JAN2018","Decker Breach","Decker Island","neuston trawl",41
+"419","NT2-23MAR2018","SWLiberty","Liberty Island","neuston trawl",78
+"420","NT2-26MAR2018","Bradmoor","Bradmoor Island","neuston trawl",482
+"421","NT2-27MAR2017","SoPro2","Prospect Island","neuston trawl",30
+"422","NT2-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",16
+"423","NT2-29MAR2018","Ryer3","Suisun","neuston trawl",437
+"424","NT2-30MAR2017","Decker Breach","Decker Island","neuston trawl",68
+"425","NT2-3APR2017","Stacy's Island","San Joaquin","neuston trawl",151
+"426","NT2-4APR2017","Dow 3","Dow Wetlands","neuston trawl",100
+"427","NT2-5JUN2018","Decker Breach","Decker Island","neuston trawl",28
+"428","NT2-6APR2017","Winter 2","Winter Island","neuston trawl",78
+"429","NT2B-13MAR2018","Blacklock","Nurse-Denverton","neuston trawl",74
+"430","NT3-02MAR2018","724 FRP","Miner Slough","neuston trawl",259
+"431","NT3-09APR2018","Winter 1","Winter Island","neuston trawl",349
+"432","NT3-11APR2017","602FRP","Grizzly Bay","neuston trawl",186
+"433","NT3-12APR2018","602FRP","Grizzly Bay","neuston trawl",15
+"434","NT3-12MAR2018","TR1","Tule Red","neuston trawl",99
+"435","NT3-13APR2017","Browns Channel","Browns Island","neuston trawl",66
+"436","NT3-13APR2018","705 FRP","Horseshoe Bend","neuston trawl",117
+"437","NT3-14FEB2017","Decker Breach","Decker Island","neuston trawl",26
+"438","NT3-18APR2018","Dow Breach","Dow Wetlands","neuston trawl",292
+"439","NT3-22MAR2018","Browns Channel","Browns Island","neuston trawl",49
+"440","NT3-23JAN2018","Decker Breach","Decker Island","neuston trawl",7
+"441","NT3-23MAR2018","NELiberty","Liberty Island","neuston trawl",315
+"442","NT3-27MAR2017","ProBr","Miner Slough","neuston trawl",143
+"443","NT3-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",45
+"444","NT3-29MAR2018","Ryer1","Suisun","neuston trawl",745
+"445","NT3-30MAR2017","Decker Breach","Decker Island","neuston trawl",187
+"446","NT3-3APR2017","Stacy's Island","San Joaquin","neuston trawl",244
+"447","NT3-4APR2017","Dow 4","Dow Wetlands","neuston trawl",327
+"448","NT3-5JUN2018","Decker Breach","Decker Island","neuston trawl",24
+"449","NT3-6APR2017","Winter 3","Winter Island","neuston trawl",176
+"450","NT3-D-10MAY2018","Horsebend1","Horseshoe Bend","neuston trawl",11
+"451","NT3B-13MAR2018","Blacklock","Nurse-Denverton","neuston trawl",1236
+"452","NT3S-13MAR2018","Stacy's Island","San Joaquin","neuston trawl",9
+"453","NT3W-12MAR2018","801 FRP","Confluence","neuston trawl",47
+"454","NT4-02MAR2018","724 FRP","Miner Slough","neuston trawl",239
+"455","NT4-09APR2018","Winter 1","Winter Island","neuston trawl",585
+"456","NT4-10APR2017","801 FRP","Confluence","neuston trawl",298
+"457","NT4-11APR2017","Ryer1","Suisun","neuston trawl",351
+"458","NT4-12APR2018","602FRP","Grizzly Bay","neuston trawl",814
+"459","NT4-12MAR2018","TR2","Tule Red","neuston trawl",109
+"460","NT4-13APR2017","Browns Channel","Browns Island","neuston trawl",43
+"461","NT4-13APR2018","Decker Breach","Decker Island","neuston trawl",228
+"462","NT4-13MAR2018","Blacklock","Nurse-Denverton","neuston trawl",55
+"463","NT4-22MAR2018","Browns Channel","Browns Island","neuston trawl",151
+"464","NT4-23MAR2018","NELiberty","Liberty Island","neuston trawl",493
+"465","NT4-27MAR2017","SoPro1","Prospect Island","neuston trawl",16
+"466","NT4-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",68
+"467","NT4-29MAR2017","LinBR","Lindsey Slough","neuston trawl",190
+"468","NT4-29MAR2018","Ryer1","Suisun","neuston trawl",389
+"469","NT4-30MAR2017","Horsebend1","Horseshoe Bend","neuston trawl",749
+"470","NT4-3APR2017","801 FRP","Confluence","neuston trawl",54
+"471","NT4-4APR2017","Dow 5","Dow Wetlands","neuston trawl",142
+"472","NT4-D-10MAY2018","Decker Breach","Decker Island","neuston trawl",72
+"473","NT4W-12MAR2018","801 FRP","Confluence","neuston trawl",124
+"474","NT5-09APR2018","801 FRP","Confluence","neuston trawl",47
+"475","NT5-10APR2017","801 FRP","Confluence","neuston trawl",27
+"476","NT5-11APR2017","Ryer2","Suisun","neuston trawl",665
+"477","NT5-12APR2018","602FRP","Grizzly Bay","neuston trawl",27
+"478","NT5-13APR2018","705 FRP","Horseshoe Bend","neuston trawl",157
+"479","NT5-22MAR2018","Browns Channel","Browns Island","neuston trawl",110
+"480","NT5-23MAR2018","SWLiberty","Liberty Island","neuston trawl",327
+"481","NT5-27MAR2017","ProBr","Miner Slough","neuston trawl",104
+"482","NT5-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",3
+"483","NT5-29MAR2017","LinBR","Lindsey Slough","neuston trawl",239
+"484","NT5-29MAR2018","501 FRP","Ryer Island","neuston trawl",101
+"485","NT5-30MAR2017","Horsebend1","Horseshoe Bend","neuston trawl",271
+"486","NT5-3APR2017","801 FRP","Confluence","neuston trawl",18
+"487","NT5-4APR2017","Dow Breach","Dow Wetlands","neuston trawl",216
+"488","NT5W-12MAR2018","801 FRP","Confluence","neuston trawl",89
+"489","NT6-09APR2018","Winter 1","Winter Island","neuston trawl",574
+"490","NT6-10APR2017","Browns Channel","Browns Island","neuston trawl",81
+"491","NT6-11APR2017","Ryer3","Suisun","neuston trawl",553
+"492","NT6-12APR2018","602FRP","Grizzly Bay","neuston trawl",34
+"493","NT6-13APR2018","705 FRP","Horseshoe Bend","neuston trawl",120
+"494","NT6-22MAR2018","BrownsPond","Browns Island","neuston trawl",69
+"495","NT6-23MAR2018","NWLiberty","Liberty Island","neuston trawl",583
+"496","NT6-27MAR2017","SoPro1","Prospect Island","neuston trawl",9
+"497","NT6-27MAR2018","609 FRP","Nurse-Denverton","neuston trawl",38
+"498","NT6-29MAR2017","LinBR","Lindsey Slough","neuston trawl",97
+"499","NT6-29MAR2018","Ryer3","Suisun","neuston trawl",110
+"500","NT6-30MAR2017","Horsebend1","Horseshoe Bend","neuston trawl",342
+"501","NT6-3APR2017","801 FRP","Confluence","neuston trawl",48
+"502","NT7-09APR2018","801 FRP","Confluence","neuston trawl",516
+"503","NT7-10APR2017","Browns1","Browns Island","neuston trawl",39
+"504","NT7-30MAR2017","Horsebend1","Horseshoe Bend","neuston trawl",240
+"505","NT8-09APR2018","801 FRP","Confluence","neuston trawl",714
+"506","NT9-09APR2018","801 FRP","Confluence","neuston trawl",631
+"507","PG_801-1-12MAR2018","801 FRP","Confluence","PCV core",3
+"508","PG_801-2-12MAR2018","801 FRP","Confluence","PCV core",0
+"509","PG_801-3-12MAR2018","801 FRP","Confluence","PCV core",0
+"510","PG_801-4-12MAR2018","801 FRP","Confluence","PCV core",0
+"511","PG1-10APR2017","705 FRP","Horseshoe Bend","Ponar grab",91
+"512","PG1-11APR2017","602FRP","Grizzly Bay","Ponar grab",11
+"513","PG1-12APR2017","706 FRP","Horseshoe Bend","Ponar grab",73
+"514","PG1W-12MAR2018","801 FRP","Confluence","PCV core",1
+"515","PG2-10APR2017","706 FRP","Horseshoe Bend","Ponar grab",226
+"516","PG2-11APR2017","602FRP","Grizzly Bay","Ponar grab",15
+"517","PG2-12APR2017","706 FRP","Horseshoe Bend","Ponar grab",235
+"518","PG2W-12MAR2018","801 FRP","Confluence","PCV core",0
+"519","PG3-10APR2017","801 FRP","Confluence","Ponar grab",34
+"520","PG3-11APR2017","602FRP","Grizzly Bay","Ponar grab",6
+"521","PG3-12APR2017","705 FRP","Horseshoe Bend","Ponar grab",54
+"522","PG3W-12MAR2018","801 FRP","Confluence","PCV core",0
+"523","PG4-10APR2017","801 FRP","Confluence","Ponar grab",32
+"524","PG4-11APR2017","Ryer1","Suisun","Ponar grab",17
+"525","PG4-12APR2017","705 FRP","Horseshoe Bend","Ponar grab",143
+"526","PG4-27MAR2018","609 FRP","Nurse-Denverton","Ponar grab",6
+"527","PG4W-12MAR2018","801 FRP","Confluence","PCV core",0
+"528","PG5-10APR2017","801 FRP","Confluence","Ponar grab",13
+"529","PG5-11APR2017","Ryer2","Suisun","Ponar grab",20
+"530","PG6-10APR2017","Browns Channel","Browns Island","Ponar grab",3
+"531","PG6-11APR2017","Ryer3","Suisun","Ponar grab",19
+"532","PG6-29MAR2018","Ryer3","Suisun","Ponar grab",11
+"533","PG6W-12MAR2018","801 FRP","Confluence","PCV core",0
+"534","PG7-10APR2017","Browns1","Browns Island","Ponar grab",18
+"535","PVC1-02MAR2018","724 FRP","Miner Slough","PCV core",0
+"536","PVC1-09APR2018","Winter 1","Winter Island","PCV core",10
+"537","PVC1-10APR2017","TR1","Tule Red","PCV core",14
+"538","PVC1-10MAY2018","Decker Inside","Decker Island","PCV core",0
+"539","PVC1-12MAR2018","TR6","Tule Red","PCV core",0
+"540","PVC1-13APR2017","Browns Channel","Browns Island","PCV core",163
+"541","PVC1-13APR2018","Decker Breach","Decker Island","PCV core",1
+"542","PVC1-20MAR2018","Flyway","Flyway Farms","PCV core",0
+"543","PVC1-23JAN2018","Decker Breach","Decker Island","PCV core",0
+"544","PVC1-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"545","PVC1-30MAR2017","Decker Breach","Decker Island","PCV core",6
+"546","PVC1-3APR2017","Stacy's Island","San Joaquin","PCV core",146
+"547","PVC1-6APR2017","Winter 1","Winter Island","PCV core",54
+"548","PVC1P-29MAR2018","SoPro2","Prospect Island","PCV core",0
+"549","PVC2-09APR2018","Winter 1","Winter Island","PCV core",1
+"550","PVC2-10APR2017","TR2","Tule Red","PCV core",375
+"551","PVC2-12MAR2018","TR7","Tule Red","PCV core",2
+"552","PVC2-13APR2017","Browns Channel","Browns Island","PCV core",3
+"553","PVC2-13APR2018","705 FRP","Horseshoe Bend","PCV core",1
+"554","PVC2-20MAR2018","Flyway","Flyway Farms","PCV core",0
+"555","PVC2-23JAN2018","Decker Breach","Decker Island","PCV core",0
+"556","PVC2-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"557","PVC2-3APR2017","Stacy's Island","San Joaquin","PCV core",186
+"558","PVC2-6APR2017","Winter 2","Winter Island","PCV core",22
+"559","PVC2P-29MAR2018","SoPro2","Prospect Island","PCV core",1
+"560","PVC3-09APR2018","Winter 1","Winter Island","PCV core",2
+"561","PVC3-10APR2017","TR3","Tule Red","PCV core",25
+"562","PVC3-12MAR2018","TR1","Tule Red","PCV core",0
+"563","PVC3-13APR2017","Browns Channel","Browns Island","PCV core",31
+"564","PVC3-20MAR2018","Flyway","Flyway Farms","PCV core",0
+"565","PVC3-23JAN2018","Decker Breach","Decker Island","PCV core",0
+"566","PVC3-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"567","PVC3-3APR2017","801 FRP","Confluence","PCV core",7
+"568","PVC3-6APR2017","Winter 3","Winter Island","PCV core",16
+"569","PVC3-D-10MAY2018","Horsebend1","Horseshoe Bend","PCV core",1
+"570","PVC4-10APR2017","TR5","Tule Red","PCV core",451
+"571","PVC4-12MAR2018","TR2","Tule Red","PCV core",0
+"572","PVC4-20MAR2018","Flyway","Flyway Farms","PCV core",2
+"573","PVC4-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"574","PVC4-29MAR2017","LinBR","Lindsey Slough","PCV core",7
+"575","PVC4-3APR2017","801 FRP","Confluence","PCV core",96
+"576","PVC4-6APR2017","Winter 5","Winter Island","PCV core",24
+"577","PVC4-D-10MAY2018","Decker Breach","Decker Island","PCV core",1
+"578","PVC5-10APR2017","TR7","Tule Red","PCV core",143
+"579","PVC5-12MAR2018","TR4","Tule Red","PCV core",0
+"580","PVC5-22MAR2018","Browns Channel","Browns Island","PCV core",0
+"581","PVC5-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"582","PVC6-26MAR2018","Bradmoor","Bradmoor Island","PCV core",0
+"583","SAV1-02MAR2018","724 FRP","Miner Slough","sweep net",2783
+"584","SAV1-10APR2017","TR1","Tule Red","sweep net",460
+"585","SAV1-12MAR2018","TR1","Tule Red","sweep net",568
+"586","SAV1-13APR2017","Browns Channel","Browns Island","sweep net",1395
+"587","SAV1-13APR2018","705 FRP","Horseshoe Bend","sweep net",1139
+"588","SAV1-13sep2017","Decker Breach","Decker Island","sweep net",501
+"589","SAV1-19MAY2017","Ryer4","Suisun","sweep net",274
+"590","SAV1-25APR2017","SoPro4","Prospect Island","sweep net",651
+"591","SAV1-27MAR2018","609 FRP","Nurse-Denverton","sweep net",19
+"592","SAV1-29MAR2017","LinBR","Lindsey Slough","sweep net",285
+"593","SAV1-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",178
+"594","SAV1-7JUN2017","Decker Breach","Decker Island","sweep net",2128
+"595","SAV1P-29MAR2018","SoPro2","Prospect Island","sweep net",536
+"596","SAV2-10APR2017","TR2","Tule Red","sweep net",484
+"597","SAV2-12MAR2018","TR2","Tule Red","sweep net",86
+"598","SAV2-13APR2017","Browns Channel","Browns Island","sweep net",926
+"599","SAV2-13APR2018","Decker Breach","Decker Island","sweep net",899
+"600","SAV2-13sep2017","Decker Breach","Decker Island","sweep net",696
+"601","SAV2-19MAY2017","Ryer4","Suisun","sweep net",297
+"602","SAV2-23JAN2018","Decker Breach","Decker Island","sweep net",551
+"603","SAV2-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",344
+"604","SAV2-7JUN2017","Decker Breach","Decker Island","sweep net",1984
+"605","SAV3-10APR2017","TR3","Tule Red","sweep net",208
+"606","SAV3-13APR2017","Browns Channel","Browns Island","sweep net",595
+"607","SAV3-19MAY2017","Ryer4","Suisun","sweep net",939
+"608","SAV3-30MAR2017","Horsebend1","Horseshoe Bend","sweep net",418
+"609","SAV3-7JUN2017","Decker Breach","Decker Island","sweep net",933
+"610","SAV4-13APR2017","Browns Channel","Browns Island","sweep net",280
+"611","SAV4-13sep2017","Decker Breach","Decker Island","sweep net",249
+"612","SAV4-30MAR2017","Decker Breach","Decker Island","sweep net",172
+"613","SAV4P-29MAR2018","SoPro1","Prospect Island","sweep net",357
+"614","SAV5-13APR2017","Browns Channel","Browns Island","sweep net",1525
+"615","SAV5-13sep2017","Decker Breach","Decker Island","sweep net",415
+"616","SAV5-30MAR2017","Decker Breach","Decker Island","sweep net",143
+"617","SAV6-13APR2017","Browns Channel","Browns Island","sweep net",335
+"618","SAV6-30MAR2017","Decker Breach","Decker Island","sweep net",93
