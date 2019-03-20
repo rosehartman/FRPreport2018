@@ -89,51 +89,78 @@ Regionalbugs("Cache", bugsblitz)
 Regionalbugs("Grizzly", bugsblitz)
 Regionalbugs("Confluence", bugsblitz)
 
+
+####################################################################################################
   #now, are there differences in community composition
-  , scales = 
-  ComConf = dcast(Conf.1x, formula = SampleID~Analy2, value.var="CPUE", 
-                  fun.aggregate = sum, fill = 0)
-  row.names(ComConf) = ComConf$SampleID
-  ComConf2 = ComConf[,2:ncol(ComConf)]
-  Conf2 = Conf.1[which(rowSums(ComConf2 )!=0),]
-  ComConf2 = ComConf2[which(rowSums(ComConf2)!=0),]
+RegMultibugs = function(region, data) {
+  require(tidyverse)
+  require(reshape2)
+  require(lubridate)
+  require(vegan)
+  source("plotNMDS.R")
+  Reg = filter(data, Region2 == region & targets2 != "benthic")
+  #turn tyear into a factor
+  Reg$Year = as.factor(year(Reg$Date))
+  
+  #make a summary data set for the environmental matrix
+  Reg.1 = summarize(group_by(Reg, SampleID, Station, Region2, Target, targets2, 
+                             Region, Sampletype, site, sitetype, Date),
+                    tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), 
+                    richness = length(unique(Analy)))
+  
+  #convert from strings to factors
+  Reg.1$site = as.factor(Reg.1$site)
+  Reg.1$sitetype = as.factor(Reg.1$sitetype)
+  Reg.1$targets2 = as.factor(Reg.1$targets2)
+  
+  #set up the community matrix
+  RegMat.1 = dcast(Reg, formula = SampleID~Analy2, value.var="CPUE", 
+                   fun.aggregate = sum, fill = 0)
+  
+
+    row.names(RegMat.1) = RegMat.1$SampleID
+  RegMat.12 = RegMat.1[,2:ncol(RegMat.1)]
+  Reg2 = Reg.1[which(rowSums(RegMat.12 )!=0),]
+  RegMat.12 = RegMat.12[which(rowSums(RegMat.12)!=0),]
   #make one based on proportion of total catch for each sample
-  ComConf2p = ComConf2/rowSums(ComConf2)
+  RegMat.12p = RegMat.12/rowSums(RegMat.12)
   
   
   #PERMANOVA with relative abundance
-  Conf2$Year = as.factor(year(Conf2$Date))
-  pn1 = adonis(ComConf2p~site + Year + targets2, data = Conf2)
-  pn1
+  Reg2$Year = as.factor(year(Reg2$Date))
+  pn1 = adonis(RegMat.12p~site + Year + targets2, data = Reg2)
+  print(pn1)
   #NMDS
   
-  NMDSconf = metaMDS(ComConf2p, try = 50, trymax = 500)
-  NMDSconf
+  NMDSReg = metaMDS(RegMat.12p, try = 50, trymax = 500)
+ print( NMDSReg)
   
   #plot it
-  PlotNMDS(NMDSconf, data = Conf2, group = "site")
+  PlotNMDS(NMDSReg, data = Reg2, group = "site")
   #test significance
-  envfit(NMDSconf~site, data = Conf2)
+print(  envfit(NMDSReg~site, data = Reg2))
   
   #plot by year
-  PlotNMDS(NMDSconf, data = Conf2, group = "Year")
+  PlotNMDS(NMDSReg, data = Reg2, group = "Year")
   #test significance
-  envfit(NMDSconf~Year,data = Conf2)
+ print( envfit(NMDSReg~Year,data = Reg2))
   
   #plot by year
-  PlotNMDS(NMDSconf, data = Conf2, group = "targets2")
+  PlotNMDS(NMDSReg, data = Reg2, group = "targets2")
   #test significance
-  envfit(NMDSconf~targets2,data = Conf2)
+  print(envfit(NMDSReg~targets2,data = Reg2))
   
   #More differences by year and gear type than site
   
   #stacked bar plot
-  ggplot(Conf, aes(x=site, y = CPUE, fill = Analy2)) + 
+ print( ggplot(Reg, aes(x=site, y = CPUE, fill = Analy2)) + 
     geom_bar(stat = "identity", position = "fill")+
     facet_grid(targets2~Year, scales = "free", space = "free_x") +
     scale_fill_manual(values = mypal, name = NULL) + 
-    xlab("Site")+ ylab("Relative percent composition") + mytheme
+    xlab("Site")+ ylab("Relative percent composition") + mytheme)
   
   
   
-  }
+}
+
+RegMultibugs("Confluence", bugsblitz)
