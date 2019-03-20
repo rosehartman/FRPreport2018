@@ -51,7 +51,7 @@ bugsblitz <- filter(inverts2, year(Date) >= 2017 & (month(Date) >= 3 & month(Dat
 
 
 #add some more info
-targets <- read.csv("phaseIV/targets.csv")
+targets <- read.csv("blitz2/targets.csv")
 
 bugsblitz = merge(bugsblitz, targets, by = "SampleID")
 
@@ -90,7 +90,7 @@ bugsblitz$atotal = bugsblitz$TotalCount*(1/(bugsblitz$subsampled/100))
 bugsblitz$CPUE = bugsblitz$atotal/bugsblitz$effort
 
 #add some analysis groups
-zoocodes <- read_excel("phaseIV/zoocodes.xlsx")
+zoocodes <- read_excel("blitz2/zoocodes.xlsx")
 zoocodes <- zoocodes[,c(3,12,13, 14)]
 bugsblitz = merge(bugsblitz, zoocodes)
 bugsblitz = bugsblitz[order(bugsblitz$SampleID),]
@@ -105,7 +105,7 @@ bugsblitz = filter(bugsblitz, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Ana
 sites = group_by(bugsblitz, Station, Region, Region2) %>% summarize(count = length(Station))
 
 #import some info on the sites
-sitetypes = read_excel("phaseIV/sites.xlsx")
+sitetypes = read_excel("blitz2/sites.xlsx")
 bugsblitz = merge(bugsblitz, sitetypes[,c(2,6,7)])
 
 #put the sties in order along the estuarine/fresh gradient
