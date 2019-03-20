@@ -53,7 +53,7 @@ Regionalbugs = function(region, data) {
   
   #Mean CPUE, sample size, and standard error for each location and habitat so I can make a pretty graph.
   Regtotave = summarize(group_by(Regtot, site, sitetype, targets2, 
-                                  Region2), mCPUE = mean(tCPUE, na.rm = T), 
+                                  Region2, Year2), mCPUE = mean(tCPUE, na.rm = T), 
                          sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID))
   
   #Some sites didn't have samples for a particular habitat type, so I added rows to make it easier to graph
@@ -72,7 +72,7 @@ Regionalbugs = function(region, data) {
   p1 = ggplot(Regtotave2, aes(x=site, y = mCPUE, fill = site))
   print(p1+geom_bar(stat = "identity") + 
           geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE))+
-      facet_grid(targets2~., scales = "free_y"))
+      facet_grid(targets2~Year2, scales = "free_y"))
   
   #First, are there differences in catch?
   blitzReg = aov(logtot ~ site+ targets2 +Year2, 
@@ -133,6 +133,7 @@ RegMultibugs = function(region, data) {
   #NMDS
   
   NMDSReg = metaMDS(RegMat.12p, try = 50, trymax = 500)
+  print("NMDS of relative abundance"  )
  print( NMDSReg)
   
   #plot it
