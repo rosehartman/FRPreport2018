@@ -60,9 +60,10 @@ bugsx = summarize(group_by(bugsblitz, SampleID, Station, Region, Volume, Samplet
 
 bugsx$effort = rep(NA, nrow(bugsx))
 
-#effort for trawls is volume
+#effort for trawls and sweepnets is volume
 bugsx$effort[which(bugsx$Sampletype=="Mysid net")]= bugsx$Volume[which(bugsx$Sampletype=="Mysid net")]
 bugsx$effort[which(bugsx$Sampletype=="neuston trawl")]= bugsx$Volume[which(bugsx$Sampletype=="neuston trawl")]
+bugsx$effort[which(bugsx$Sampletype=="sweepnet")]= bugsx$Volume[which(bugsx$Sampletype=="sweepnet")]
 
 
 #effort for benthic cores and grabs is per unit area
@@ -99,7 +100,7 @@ bugsblitz = bugsblitz[order(bugsblitz$SampleID),]
 
 #I'm going to go ahead and remove the mesozooplanktoton from all the blitz bugs samples. I may want to make some extra notes 
 #on the catch of cladocera in sweep nets, but just to make stuff clearer for now...
-bugsblitz = filter(bugsblitz, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracods")
+bugsblitz = filter(bugsblitz, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracoda")
 
 
 sites = group_by(bugsblitz, Station, Region, Region2) %>% summarize(count = length(Station))
