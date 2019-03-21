@@ -1,0 +1,37 @@
+"","SampleID","Station","Region","Volume","Sampletype","total","Region2","Target"
+"2","EAV1-01NOV2018","Ryer1","Suisun",0.375,"sweep net",752,NA,NA
+"8","EAV1-15OCT2018","Winter 5","Winter Island",0.375,"sweep net",195,NA,NA
+"25","EAV2-15OCT2018",NA,NA,0.375,"sweep net",5,NA,NA
+"26","EAV2-17OCT2018","Browns1","Browns Island",0.375,"sweep net",835,NA,NA
+"33","EAV3-01NOV2018","Ryer1","Suisun",0.375,"sweep net",1009,NA,NA
+"37","EAV3-15OCT2018","Winter 2","Winter Island",0.375,"sweep net",151,NA,NA
+"41","EAV3-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",276,NA,NA
+"44","EAV4-01NOV2018","Ryer3","Suisun",0.375,"sweep net",546,NA,NA
+"49","EAV4-17OCT2018","Browns Channel","Browns Island",0.375,"sweep net",487,NA,NA
+"78","FAV1-15OCT2018","Winter 5","Winter Island",0.375,"sweep net",414,NA,NA
+"81","FAV1-9OCT2018","ProBr","Miner Slough",0.375,"sweep net",2732,NA,NA
+"82","FAV10-18APR2018",NA,NA,0.375,"sweep net",261,NA,NA
+"85","FAV2-15OCT2018",NA,NA,0.375,"sweep net",553,NA,NA
+"86","FAV2-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",733,NA,NA
+"90","FAV4-18APR2018","Dow 4","Dow Wetlands",0.375,"sweep net",372,NA,NA
+"91","FAV4-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",284,NA,NA
+"93","FAV6-17OCT2018","Browns Channel","Browns Island",0.375,"sweep net",728,NA,NA
+"96","MAC1-08NOV2018","724 FRP","Miner Slough",45.35307020736,"Mysid net",7,NA,NA
+"102","MAC1-13NOV2018","705 FRP","Horseshoe Bend",45.44336357808,"Mysid net",22,NA,NA
+"105","MAC1-15OCT2018",NA,NA,35.364903532,"Mysid net",46,NA,NA
+"107","MAC1-18APR2018","Dow 4","Dow Wetlands",24.53399872992,"Mysid net",202,NA,NA
+"109","MAC1-1NOV2018","Ryer1","Suisun",48.64232871216,"Mysid net",82,NA,NA
+"112","MAC1-23OCT2018","SoPro2","Prospect Island",2.33472858576,"Mysid net",1664,NA,NA
+"115","MAC1-2NOV2018","WinBR","Winter Island",24.65009020656,"Mysid net",64,NA,NA
+"120","MAC1-9OCT2018","ProBr","Miner Slough",29.1088628464,"Mysid net",1264,NA,NA
+"132","MAC2-11MAY2018","Wings 1","Wings Landing",11.61774703264,"Mysid net",263,NA,NA
+"133","MAC2-12APR2018","Wings 1","Wings Landing",29.47863569792,"Mysid net",8,NA,NA
+"139","MAC2-18OCT2018","Wings 1","Wings Landing",35.84216849152,"Mysid net",34,NA,NA
+"151","MAC3-01NOV2018","501 FRP","Ryer Island",37.05467946976,"Mysid net",6,NA,NA
+"196","MAC8-15MAR2018","Wings 1","Wings Landing",35.02952815504,"Mysid net",33,NA,NA
+"207","NT1-18APR2018","Dow 4","Dow Wetlands",169.218797014233,"neuston trawl",110,NA,NA
+"310","SAV1-01NOV2018","Ryer3","Suisun",0.375,"sweep net",166,NA,NA
+"314","SAV1-15OCT2018","Winter 2","Winter Island",0.375,"sweep net",8,NA,NA
+"315","SAV1-17OCT2018","Browns1","Browns Island",0.375,"sweep net",437,NA,NA
+"316","SAV1-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",942,NA,NA
+"318","SAV1-9OCT2018","ProBr","Miner Slough",0.375,"sweep net",5908,NA,NA
