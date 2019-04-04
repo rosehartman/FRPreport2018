@@ -100,18 +100,88 @@ bugsblitzSF$targets2[which(bugsblitzSF$Target == "EAV" | bugsblitzSF$Target == "
 bugsblitzSF$season = rep(NA, nrow(bugsblitzSF))
 bugsblitzSF$season[which(month(bugsblitzSF$Date)> 9)] = "fall"
 bugsblitzSF$season[which(month(bugsblitzSF$Date)< 9)] = "spring"
+bugsblitzSF$season= factor(bugsblitzSF$season, levels = c("spring", "fall"))
 
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
 bugsblitzSF.1 = summarize(group_by(bugsblitzSF, SampleID, Station, Region2, Target, targets2, 
                                  Region, Sampletype, site, sitetype, Date, season),
                         tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), richness = length(unique(Analy)))
 
+
 bugsblitzSF.1$site = as.factor(bugsblitzSF.1$site)
 bugsblitzSF.1$sitetype = as.factor(bugsblitzSF.1$sitetype)
 bugsblitzSF.1$targets2 = as.factor(bugsblitzSF.1$targets2)
 
+#stacked bar plot of community composition
 ggplot(bugsblitzSF, aes(x=site, y = CPUE, fill = Analy2)) + 
   geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2~season, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
   xlab("Site")+ ylab("Relative percent composition") + mytheme
+
+#mean and standard deviation by site and gear type
+bugsblitzSF.ave = summarize(group_by(bugsblitzSF.1, Region2, targets2, 
+                                     site, sitetype, season),
+                            mCPUE = mean(tCPUE, na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE))
+
+
+#graph of meanCPUE
+ggplot(bugsblitzSF.ave, aes(x=site, y = mCPUE)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") + geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
+
+#hmmmmm.... there was really high catch in mac1-09apr2018. that might make everything hard to interpret.
+#lets take it out and see what happens
+#mean and standard deviation by site and gear type
+bugsblitzSF.avex = summarize(group_by(bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC1-09APR2018"),], Region2, targets2, 
+                                     site, sitetype, season),
+                            mCPUE = mean(tCPUE, na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE))
+
+
+#graph of meanCPUE
+ggplot(bugsblitzSF.avex, aes(x=site, y = mCPUE)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") + geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
+
+#try a linear model
+lm1 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC1-09APR2018"),])
+summary(lm1)
+
+lm2 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1)
+summary(lm2)
+#so it's seriously affected by that one outlier
+
+
+########################################################################################################
+
+#multivariates
+
+#set up the community matrix
+sf = dcast(bugsblitzSF, formula = SampleID~Analy2, value.var="CPUE", 
+                 fun.aggregate = sum, fill = 0)
+
+
+row.names(sf) = sf$SampleID
+sf.12 = sf[,2:ncol(sf)]
+sf2 = bugsblitzSF.1[which(rowSums(sf.12 )!=0),]
+sf.12 = sf.12[which(rowSums(sf.12)!=0),]
+#make one based on proportion of total catch for each sample
+sf.12p = sf.12/rowSums(sf.12)
+
+
+#PERMANOVA with relative abundance
+pn1 = adonis(sf.12p~site +  targets2 +season , data = sf2)
+print(pn1)
+#NMDS
+
+NMDSsf = metaMDS(sf.12p, try = 50, trymax = 500)
+print( NMDSsf)
+
+#plot it
+source("plotNMDS.R")
+PlotNMDS(NMDSsf, data = sf2, group = "site")
+#test significance
+envfit(NMDSsf~site, data = sf2)
+
+
+PlotNMDS(NMDSsf, data = sf2, group = "season")
+#test significance
+envfit(NMDSsf~season, data = sf2)
