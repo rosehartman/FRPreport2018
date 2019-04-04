@@ -50,8 +50,8 @@ bugsxSF = summarize(group_by(bugsblitzSF, SampleID, Station, Region, Volume, Sam
 bugsxSF$effort = rep(NA, nrow(bugsxSF))
 
 #effort for trawls ad sweep nets is volume
-bugsxSF$effort[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="sweepnet")]= 
-  bugsxSF$Volume[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="sweepnet")]
+bugsxSF$effort[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="sweep net")]= 
+  bugsxSF$Volume[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="swee pnet")]
 
 
 
@@ -95,9 +95,15 @@ bugsblitzSF$site = factor(bugsblitzSF$site, levels = c("Ryer",  "Browns",
 bugsblitzSF$targets2 = as.character(bugsblitzSF$Target)
 bugsblitzSF$targets2[which(bugsblitzSF$Target == "EAV" | bugsblitzSF$Target == "SAV"| bugsblitzSF$Target == "FAV" )] = "sweep net"
 
+
+#add a new spring versus fall factor
+bugsblitzSF$season = rep(NA, nrow(bugsblitzSF))
+bugsblitzSF$season[which(month(bugsblitzSF$Date)> 9)] = "fall"
+bugsblitzSF$season[which(month(bugsblitzSF$Date)< 9)] = "spring"
+
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
 bugsblitzSF.1 = summarize(group_by(bugsblitzSF, SampleID, Station, Region2, Target, targets2, 
-                                 Region, Sampletype, site, sitetype, Date),
+                                 Region, Sampletype, site, sitetype, Date, season),
                         tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), richness = length(unique(Analy)))
 
 bugsblitzSF.1$site = as.factor(bugsblitzSF.1$site)
@@ -106,6 +112,6 @@ bugsblitzSF.1$targets2 = as.factor(bugsblitzSF.1$targets2)
 
 ggplot(bugsblitzSF, aes(x=site, y = CPUE, fill = Analy2)) + 
   geom_bar(stat = "identity", position = "fill")+
-  facet_grid(targets2~., scales = "free", space = "free_x") +
+  facet_grid(targets2~season, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
   xlab("Site")+ ylab("Relative percent composition") + mytheme
