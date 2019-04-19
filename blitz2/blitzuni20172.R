@@ -1,5 +1,6 @@
 #Linear MOdels and power analysis from teh 2017 and 2018 blitz
-source("blitzclean.R")
+source("blitz2/blitzclean.R")
+library(visreg)
 
 ################################################################################
 
@@ -89,7 +90,25 @@ tot4 + geom_bar(stat = "identity", aes(fill = Region2)) +
   theme(strip.text = element_text(size = 16), axis.text.y = element_text(size = 16), 
         axis.title = element_text(size = 16), legend.position = "bottom")
 
+#######################################################################################
+#for the 2018 report, it is probably better to do it by year and region
+# probably also just call it "pre-restoration" rather than seperating by diked versud muted tidal.
 
+
+tot2017 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), aes(x = site, y = mCPUE, fill = sitetype))
+tot2017 + geom_bar(stat = "identity", position = "dodge") + 
+  facet_grid(targets2~Region2, scales = "free", space = "free_x") +
+  geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal) + ylab("CPUE") 
+
+tot2018 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey"), 
+                 aes(x = site, y = log(mCPUE), fill = sitetype))
+tot2018 + geom_bar(stat = "identity", position = "dodge") + 
+  facet_grid(targets2~Region2, scales = "free", space = "free_x") +
+  #geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal) + ylab("CPUE") 
 
 ####################################################################################
 #Look at the coefficient of variation within sites for each sample type

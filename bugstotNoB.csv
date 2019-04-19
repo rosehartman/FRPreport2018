@@ -1,0 +1,433 @@
+"","SampleID","Date","site","sitetype","Target","targets2","Region","Region2","Sampletype","tCPUE","Year","Year2","logtot"
+"1","EAV_801-1-12MAR2018",2018-03-12,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",4,2018,"2018",1.6094379124341
+"2","EAV1-02MAR2018",2018-03-02,"Miner","channel","EAV","sweep net","Miner Slough","Cache","sweep net",6,2018,"2018",1.94591014905531
+"3","EAV1-09APR2018",2018-04-09,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",5,2018,"2018",1.79175946922805
+"4","EAV1-10APR2017",2017-04-10,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",858,2017,"2017",6.75576892198425
+"5","EAV1-10MAY2018",2018-05-10,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",177,2018,"2018",5.18178355029209
+"6","EAV1-11APR2017",2017-04-11,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",48,2017,"2017",3.89182029811063
+"7","EAV1-12MAR2018",2018-03-12,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",55,2018,"2018",4.02535169073515
+"8","EAV1-13APR2017",2017-04-13,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",196,2017,"2017",5.28320372873799
+"9","EAV1-13APR2018",2018-04-13,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",449,2018,"2018",6.10924758276437
+"10","EAV1-20MAR2018",2018-03-20,"Flyway","diked","EAV","sweep net","Flyway Farms","Cache","sweep net",371,2018,"2018",5.91889385427315
+"11","EAV1-22MAR2018",2018-03-22,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",4,2018,"2018",1.6094379124341
+"12","EAV1-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",7,2018,"2018",2.07944154167984
+"13","EAV1-25APR2017",2017-04-25,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",95,2017,"2017",4.56434819146784
+"14","EAV1-27MAR2017",2017-03-27,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",37,2017,"2017",3.63758615972639
+"15","EAV1-27MAR2018",2018-03-27,"LHB","channel","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",22,2018,"2018",3.13549421592915
+"16","EAV1-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",575,2018,"2018",6.35610766069589
+"17","EAV1-30MAR2017",2017-03-30,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",50,2017,"2017",3.93182563272433
+"18","EAV1-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",33,2017,"2017",3.52636052461616
+"19","EAV1-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",22,2017,"2017",3.13549421592915
+"20","EAV10-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",11,2018,"2018",2.484906649788
+"21","EAV10-27MAR2017",2017-03-27,"Miner","channel","EAV","sweep net","Miner Slough","Cache","sweep net",10,2017,"2017",2.39789527279837
+"22","EAV10-29MAR2018",2018-03-29,"Grizzly","channel","EAV","sweep net","Ryer Island","Grizzly","sweep net",13,2018,"2018",2.63905732961526
+"23","EAV10-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",5,2017,"2017",1.79175946922805
+"24","EAV11-29MAR2018",2018-03-29,"Grizzly","channel","EAV","sweep net","Ryer Island","Grizzly","sweep net",4,2018,"2018",1.6094379124341
+"25","EAV11-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",10,2017,"2017",2.39789527279837
+"26","EAV12-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",24,2017,"2017",3.2188758248682
+"27","EAV1B-13MAR2018",2018-03-13,"Blacklock","tidal","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",52,2018,"2018",3.97029191355212
+"28","EAV1P-29MAR2018",2018-03-29,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",787,2018,"2018",6.66949808985788
+"29","EAV1S-13MAR2018",2018-03-13,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",8,2018,"2018",2.19722457733622
+"30","EAV1W-12MAR2018",2018-03-12,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",1,2018,"2018",0.693147180559945
+"31","EAV2-02MAR2018",2018-03-02,"Miner","channel","EAV","sweep net","Miner Slough","Cache","sweep net",23,2018,"2018",3.17805383034795
+"32","EAV2-09APR2018",2018-04-09,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",9,2018,"2018",2.30258509299405
+"33","EAV2-10APR2017",2017-04-10,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",2692,2017,"2017",7.8984110928116
+"34","EAV2-10MAY2018",2018-05-10,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",220,2018,"2018",5.39816270151775
+"35","EAV2-11APR2017",2017-04-11,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",5,2017,"2017",1.79175946922805
+"36","EAV2-12MAR2018",2018-03-12,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",14,2018,"2018",2.70805020110221
+"37","EAV2-13APR2017",2017-04-13,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",66,2017,"2017",4.20469261939097
+"38","EAV2-20MAR2018",2018-03-20,"Flyway","diked","EAV","sweep net","Flyway Farms","Cache","sweep net",25,2018,"2018",3.25809653802148
+"39","EAV2-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",15,2018,"2018",2.77258872223978
+"40","EAV2-25APR2017",2017-04-25,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",70,2017,"2017",4.26267987704132
+"41","EAV2-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",165,2018,"2018",5.11198778835654
+"42","EAV2-27MAR2017",2017-03-27,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",63,2017,"2017",4.15888308335967
+"43","EAV2-30MAR2017",2017-03-30,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",35,2017,"2017",3.58351893845611
+"44","EAV2-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",39,2017,"2017",3.68887945411394
+"45","EAV2-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",68,2017,"2017",4.23410650459726
+"46","EAV2B-13MAR2018",2018-03-13,"Blacklock","tidal","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",142,2018,"2018",4.96284463025991
+"47","EAV2P-29MAR2018",2018-03-29,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",517,2018,"2018",6.24997524225948
+"48","EAV2S-13MAR2018",2018-03-13,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",3,2018,"2018",1.38629436111989
+"49","EAV3-10APR2017",2017-04-10,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",1104,2017,"2017",7.00760061395185
+"50","EAV3-10MAY2018",2018-05-10,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",34,2018,"2018",3.55534806148941
+"51","EAV3-11APR2017",2017-04-11,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",13,2017,"2017",2.63905732961526
+"52","EAV3-12MAR2018",2018-03-12,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",103,2018,"2018",4.64439089914137
+"53","EAV3-13APR2017",2017-04-13,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",114,2017,"2017",4.74493212836325
+"54","EAV3-13APR2018",2018-04-13,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",790,2018,"2018",6.67329796776765
+"55","EAV3-22MAR2018",2018-03-22,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",18,2018,"2018",2.94443897916644
+"56","EAV3-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",94,2018,"2018",4.55387689160054
+"57","EAV3-25APR2017",2017-04-25,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",115,2017,"2017",4.75359019110636
+"58","EAV3-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",68,2018,"2018",4.23410650459726
+"59","EAV3-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",197,2018,"2018",5.28826703069454
+"60","EAV3-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",15,2017,"2017",2.77258872223978
+"61","EAV3-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",445,2017,"2017",6.10031895202006
+"62","EAV4-09APR2018",2018-04-09,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",5,2018,"2018",1.79175946922805
+"63","EAV4-10APR2017",2017-04-10,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",980,2017,"2017",6.88857245956536
+"64","EAV4-10MAY2018",2018-05-10,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",173,2018,"2018",5.15905529921453
+"65","EAV4-11APR2017",2017-04-11,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",18,2017,"2017",2.94443897916644
+"66","EAV4-12MAR2018",2018-03-12,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",195,2018,"2018",5.27811465923052
+"67","EAV4-13APR2017",2017-04-13,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",94,2017,"2017",4.55387689160054
+"68","EAV4-13APR2018",2018-04-13,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",350,2018,"2018",5.86078622346587
+"69","EAV4-20MAR2018",2018-03-20,"Flyway","diked","EAV","sweep net","Flyway Farms","Cache","sweep net",34,2018,"2018",3.55534806148941
+"70","EAV4-22MAR2018",2018-03-22,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",5,2018,"2018",1.79175946922805
+"71","EAV4-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",27,2018,"2018",3.3322045101752
+"72","EAV4-25APR2017",2017-04-25,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",92,2017,"2017",4.53259949315326
+"73","EAV4-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",120,2018,"2018",4.79579054559674
+"74","EAV4-27MAR2018",2018-03-27,"LHB","channel","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",4,2018,"2018",1.6094379124341
+"75","EAV4-29MAR2017",2017-03-29,"Lindsey","tidal","EAV","sweep net","Lindsey Slough","Cache","sweep net",237,2017,"2017",5.47227067367148
+"76","EAV4-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",334,2018,"2018",5.81413053182507
+"77","EAV4-30MAR2017",2017-03-30,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",73,2017,"2017",4.30406509320417
+"78","EAV4-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",30,2017,"2017",3.43398720448515
+"79","EAV4-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",114,2017,"2017",4.74493212836325
+"80","EAV4B-13MAR2018",2018-03-13,"Blacklock","tidal","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",45,2018,"2018",3.8286413964891
+"81","EAV5-10APR2017",2017-04-10,"Tule Red","diked","EAV","sweep net","Tule Red","Grizzly","sweep net",102,2017,"2017",4.63472898822964
+"82","EAV5-11APR2017",2017-04-11,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",8,2017,"2017",2.19722457733622
+"83","EAV5-13APR2017",2017-04-13,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",126,2017,"2017",4.84418708645859
+"84","EAV5-13APR2018",2018-04-13,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",63,2018,"2018",4.15888308335967
+"85","EAV5-20MAR2018",2018-03-20,"Flyway","diked","EAV","sweep net","Flyway Farms","Cache","sweep net",130,2018,"2018",4.87519732320115
+"86","EAV5-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",56,2018,"2018",4.04305126783455
+"87","EAV5-25APR2017",2017-04-25,"Prospect","muted","EAV","sweep net","Prospect Island","Cache","sweep net",112,2017,"2017",4.72738781871234
+"88","EAV5-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",80,2018,"2018",4.39444915467244
+"89","EAV5-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",26,2018,"2018",3.29583686600433
+"90","EAV5-30MAR2017",2017-03-30,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",82,2017,"2017",4.4188406077966
+"91","EAV5-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",21,2017,"2017",3.09104245335832
+"92","EAV5-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",51,2017,"2017",3.95124371858143
+"93","EAV5B-13MAR2018",2018-03-13,"Blacklock","tidal","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",24,2018,"2018",3.2188758248682
+"94","EAV6-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",26,2018,"2018",3.29583686600433
+"95","EAV6-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",14,2018,"2018",2.70805020110221
+"96","EAV6-27MAR2018",2018-03-27,"LHB","channel","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",5,2018,"2018",1.79175946922805
+"97","EAV6-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",27,2018,"2018",3.3322045101752
+"98","EAV6-30MAR2017",2017-03-30,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",130,2017,"2017",4.87519732320115
+"99","EAV6-3APR2017",2017-04-03,"Stacys","tidal","EAV","sweep net","San Joaquin","SacSanJ","sweep net",338,2017,"2017",5.82600010738045
+"100","EAV6-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",21,2017,"2017",3.09104245335832
+"101","EAV7-1-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",34,2017,"2017",3.55534806148941
+"102","EAV7-2-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",55,2017,"2017",4.02535169073515
+"103","EAV7-23MAR2018",2018-03-23,"Liberty","tidal","EAV","sweep net","Liberty Island","Cache","sweep net",147,2018,"2018",4.99721227376411
+"104","EAV7-27MAR2018",2018-03-27,"LHB","channel","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",12,2018,"2018",2.56494935746154
+"105","EAV7-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",33,2018,"2018",3.52636052461616
+"106","EAV7-30MAR2017",2017-03-30,"Horseshoe","channel","EAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",24,2017,"2017",3.2188758248682
+"107","eav7-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",11,2017,"2017",2.484906649788
+"108","EAV8-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",24,2018,"2018",3.2188758248682
+"109","EAV8-27MAR2017",2017-03-27,"Miner","channel","EAV","sweep net","Miner Slough","Cache","sweep net",175,2017,"2017",5.17048399503815
+"110","EAV8-27MAR2018",2018-03-27,"LHB","channel","EAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",10,2018,"2018",2.39789527279837
+"111","EAV8-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",62,2018,"2018",4.14313472639153
+"112","EAV8-30MAR2017",2017-03-30,"Decker","muted","EAV","sweep net","Decker Island","SacSanJ","sweep net",62,2017,"2017",4.14313472639153
+"113","eav8-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",11,2017,"2017",2.484906649788
+"114","EAV8-6APR2017",2017-04-06,"Winter","muted","EAV","sweep net","Winter Island","Confluence","sweep net",105,2017,"2017",4.66343909411207
+"115","EAV9-22MAR2018",2018-03-22,"Browns","tidal","EAV","sweep net","Browns Island","Confluence","sweep net",132,2018,"2018",4.89034912822175
+"116","EAV9-26MAR2018",2018-03-26,"Bradmoor","diked","EAV","sweep net","Bradmoor Island","NurseDenverton","sweep net",41,2018,"2018",3.73766961828337
+"117","EAV9-27MAR2017",2017-03-27,"Miner","channel","EAV","sweep net","Miner Slough","Cache","sweep net",10,2017,"2017",2.39789527279837
+"118","EAV9-29MAR2018",2018-03-29,"Ryer","tidal","EAV","sweep net","Suisun","Grizzly","sweep net",107,2018,"2018",4.68213122712422
+"119","EAV9-3APR2017",2017-04-03,"Broad","channel","EAV","sweep net","Confluence","Confluence","sweep net",5,2017,"2017",1.79175946922805
+"120","FAV1-13APR2017",2017-04-13,"Browns","tidal","FAV","sweep net","Browns Island","Confluence","sweep net",756,2017,"2017",6.62936325343745
+"121","FAV1-13APR2018",2018-04-13,"Decker","muted","FAV","sweep net","Decker Island","SacSanJ","sweep net",474,2018,"2018",6.16331480403464
+"122","FAV1-20MAR2018",2018-03-20,"Flyway","diked","FAV","sweep net","Flyway Farms","Cache","sweep net",563,2018,"2018",6.33505425149806
+"123","FAV1-25APR2017",2017-04-25,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",225,2017,"2017",5.42053499927229
+"124","FAV1-27MAR2017",2017-03-27,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",17,2017,"2017",2.89037175789616
+"125","FAV1-30MAR2017",2017-03-30,"Horseshoe","channel","FAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",143,2017,"2017",4.969813299576
+"126","FAV1-3APR2017",2017-04-03,"Stacys","tidal","FAV","sweep net","San Joaquin","SacSanJ","sweep net",234,2017,"2017",5.45958551414416
+"127","FAV1-6APR2017",2017-04-06,"Winter","muted","FAV","sweep net","Winter Island","Confluence","sweep net",617,2017,"2017",6.42648845745769
+"128","FAV1P-29MAR2018",2018-03-29,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",202,2018,"2018",5.31320597904179
+"129","FAV2-13APR2018",2018-04-13,"Horseshoe","channel","FAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",114,2018,"2018",4.74493212836325
+"130","FAV2-25APR2017",2017-04-25,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",86,2017,"2017",4.46590811865458
+"131","FAV2-27MAR2017",2017-03-27,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",8,2017,"2017",2.19722457733622
+"132","FAV2-30MAR2017",2017-03-30,"Horseshoe","channel","FAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",105,2017,"2017",4.66343909411207
+"133","FAV2-3APR2017",2017-04-03,"Stacys","tidal","FAV","sweep net","San Joaquin","SacSanJ","sweep net",1252,2017,"2017",7.13329595489607
+"134","FAV2-6APR2017",2017-04-06,"Winter","muted","FAV","sweep net","Winter Island","Confluence","sweep net",912,2017,"2017",6.81673588059497
+"135","FAV2P-29MAR2018",2018-03-29,"Prospect","muted","FAV","sweep net","Miner Slough","Cache","sweep net",232,2018,"2018",5.4510384535657
+"136","FAV2S-13MAR2018",2018-03-13,"Stacys","tidal","FAV","sweep net","San Joaquin","SacSanJ","sweep net",151,2018,"2018",5.02388052084628
+"137","FAV3-13APR2018",2018-04-13,"Horseshoe","channel","FAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",364,2018,"2018",5.89989735358249
+"138","FAV3-25APR2017",2017-04-25,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",1000,2017,"2017",6.90875477931522
+"139","FAV3-27MAR2017",2017-03-27,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",16,2017,"2017",2.83321334405622
+"140","FAV3-30MAR2017",2017-03-30,"Horseshoe","channel","FAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",226,2017,"2017",5.4249500174814
+"141","FAV3-3APR2017",2017-04-03,"Stacys","tidal","FAV","sweep net","San Joaquin","SacSanJ","sweep net",862,2017,"2017",6.76041469108343
+"142","FAV3-6APR2017",2017-04-06,"Winter","muted","FAV","sweep net","Winter Island","Confluence","sweep net",72,2017,"2017",4.29045944114839
+"143","FAV4-1-30MAR2017",2017-03-30,"Decker","muted","FAV","sweep net","Decker Island","SacSanJ","sweep net",185,2017,"2017",5.2257466737132
+"144","FAV4-27MAR2017",2017-03-27,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",1916,2017,"2017",7.55851674304564
+"145","FAV4-29MAR2017",2017-03-29,"Lindsey","tidal","FAV","sweep net","Lindsey Slough","Cache","sweep net",464,2017,"2017",6.14203740558736
+"146","FAV4-6APR2017",2017-04-06,"Winter","muted","FAV","sweep net","Winter Island","Confluence","sweep net",58,2017,"2017",4.07753744390572
+"147","FAV5-27MAR-2017",2017-03-27,"Prospect","muted","FAV","sweep net","Miner Slough","Cache","sweep net",131,2017,"2017",4.88280192258637
+"148","FAV5-29MAR2017",2017-03-29,"Lindsey","tidal","FAV","sweep net","Lindsey Slough","Cache","sweep net",586,2017,"2017",6.3750248198281
+"149","FAV5-30MAR2017",2017-03-30,"Decker","muted","FAV","sweep net","Decker Island","SacSanJ","sweep net",214,2017,"2017",5.37063802812766
+"150","FAV5P-29MAR2018",2018-03-29,"Prospect","muted","FAV","sweep net","Prospect Island","Cache","sweep net",297,2018,"2018",5.6970934865054
+"151","FAV6-27MAR-2017",2017-03-27,"Prospect","muted","FAV","sweep net","Miner Slough","Cache","sweep net",676,2017,"2017",6.51767127291227
+"152","FAV6-29MAR2017",2017-03-29,"Lindsey","tidal","FAV","sweep net","Lindsey Slough","Cache","sweep net",1176,2017,"2017",7.07072410726028
+"153","FAV6-30MAR2017",2017-03-30,"Decker","muted","FAV","sweep net","Decker Island","SacSanJ","sweep net",180,2017,"2017",5.19849703126583
+"154","FAV7-27MAR-2017",2017-03-27,"Prospect","muted","FAV","sweep net","Miner Slough","Cache","sweep net",224,2017,"2017",5.41610040220442
+"155","MAC1-02MAR2018",2018-03-02,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",0.324955388544049,2018,"2018",0.281378789848012
+"156","MAC1-09APR2018",2018-04-09,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",749.1803347212,2018,"2018",6.62031362392271
+"157","MAC1-10APR2017",2017-04-10,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.939947780678851,2017,"2017",0.662661055537113
+"158","MAC1-11APR2017",2017-04-11,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",2.544080604534,2017,"2017",1.2652787764272
+"159","MAC1-12APR2018",2018-04-12,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",3.97224959523164,2018,"2018",1.60387237255574
+"160","MAC1-13APR2017",2017-04-13,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",2.4739018951792,2017,"2017",1.24527842769052
+"161","MAC1-13APR2018",2018-04-13,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",10.018262457605,2018,"2018",2.39955411956959
+"162","MAC1-13MAR2017",2017-03-13,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.932203389830509,2017,"2017",0.658661004488776
+"163","MAC1-14MAR2017",2017-03-14,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",11.3026819923372,2017,"2017",2.50981728676682
+"164","MAC1-14MAR2018",2018-03-14,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",31.8655979869731,2018,"2018",3.4924264568025
+"165","MAC1-15MAR2017",2017-03-15,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",272.307692307692,2017,"2017",5.61059823855949
+"166","MAC1-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",11.1948517090689,2018,"2018",2.501013871616
+"167","MAC1-19MAY2017",2017-05-19,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.803091207875733,2017,"2017",0.58950252967257
+"168","MAC1-22MAR2018",2018-03-22,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.513411067992963,2018,"2018",0.414366088581106
+"169","MAC1-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",0.749389430366529,2018,"2018",0.559266830123315
+"170","MAC1-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",26.3585242307587,2017,"2017",3.30902815236534
+"171","MAC1-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",5.89574157880785,2018,"2018",1.93090405858843
+"172","MAC1-29MAR2018",2018-03-29,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",629.321166755139,2018,"2018",6.44622947798779
+"173","MAC1-30MAR2017",2017-03-30,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",5.71797266634358,2017,"2017",1.9047864224625
+"174","MAC1-3APR2017",2017-04-03,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",0.289602839639903,2017,"2017",0.254334294721822
+"175","MAC1-609-10APR2018",2018-04-10,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.364838925215937,2018,"2018",0.311036418169154
+"176","MAC1-6APR2017",2017-04-06,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",3.39880270690122,2017,"2017",1.48133239182711
+"177","MAC1-6APR2018",2018-04-06,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",804.810631929429,2018,"2018",6.69184876692365
+"178","MAC1-7MAY2018",2018-05-07,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.344741591673485,2018,"2018",0.296201869445577
+"179","MAC1-8MAY2017",2017-05-08,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",860,2017,"2017",6.75809450442773
+"180","MAC1-9MAR2018",2018-03-09,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",1.56173350754126,2018,"2018",0.940684180711226
+"181","MAC1-9MAY2017",2017-05-09,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",7.64872521246459,2017,"2017",2.15741193580158
+"182","MAC1-LHB-10MAY2018",2018-05-10,"Blacklock","tidal","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",12.7963069440608,2018,"2018",2.62440094359926
+"183","MAC1-S-9MAY2018",2018-05-09,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",56.0902049694431,2018,"2018",4.04463256025599
+"184","MAC1B-13MAR2018",2018-03-13,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",1.18853767796002,2018,"2018",0.78323359384058
+"185","MAC1CS-9MAY2018",2018-05-09,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",2.15915379412084,2018,"2018",1.15030420506695
+"186","MAC1S-10APR2018",2018-04-10,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",7.33191656410185,2018,"2018",2.12009350943858
+"187","MAC1S-13MAR2018",2018-03-13,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",31.2113923282475,2018,"2018",3.47232018899215
+"188","MAC1W-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.781419816483719,2018,"2018",0.577410696060484
+"189","MAC2-02MAR2018",2018-03-02,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",2.55151255245996,2018,"2018",1.26737358386028
+"190","MAC2-09APR2018",2018-04-09,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",8.14258753454638,2018,"2018",2.21294344546058
+"191","MAC2-10APR2017",2017-04-10,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.979381443298969,2017,"2017",0.682784393524399
+"192","MAC2-11APR2017",2017-04-11,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.272812793979304,2017,"2017",0.24122924982884
+"193","MAC2-11APR2018",2018-04-11,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",0.471686656991362,2018,"2018",0.386409128755148
+"194","MAC2-11MAY2017",2017-05-11,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",1.58150851581509,2017,"2017",0.948373924117749
+"195","MAC2-12APR2017",2017-04-12,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",12.5396825396825,2017,"2017",2.60562482110015
+"196","MAC2-13APR2017",2017-04-13,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",1.06685877890281,2017,"2017",0.72602995659627
+"197","MAC2-13APR2018",2018-04-13,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",1628.02649660569,2018,"2018",7.39573787403495
+"198","MAC2-13MAR2017",2017-03-13,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.176470588235294,2017,"2017",0.162518929497775
+"199","MAC2-14MAR2017",2017-03-14,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",1.53354632587859,2017,"2017",0.929620031094695
+"200","MAC2-14MAR2018",2018-03-14,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",1.23155917694931,2018,"2018",0.802700523646305
+"201","MAC2-15MAR2017",2017-03-15,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",8.57142857142857,2017,"2017",2.25878247033565
+"202","MAC2-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",20.211838392895,2018,"2018",3.05455944058166
+"203","MAC2-19MAY2017",2017-05-19,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",1.40349438524338,2017,"2017",0.876923672274002
+"204","MAC2-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",1.34076713741461,2018,"2018",0.850478712144935
+"205","MAC2-26MAR2018",2018-03-26,"Bradmoor","diked","mysid","mysid","Bradmoor Island","NurseDenverton","Mysid net",135.454545454545,2018,"2018",4.91599155883509
+"206","MAC2-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Prospect Island","Cache","Mysid net",46.7548110218128,2017,"2017",3.86607981623487
+"207","MAC2-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.673294663608638,2018,"2018",0.514794535371273
+"208","MAC2-29MAR2018",2018-03-29,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",43.5442657509832,2018,"2018",3.79648343072737
+"209","MAC2-30MAR2017",2017-03-30,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",5.5447817069088,2017,"2017",1.87866804615612
+"210","MAC2-3APR2017",2017-04-03,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",0.624298529715168,2017,"2017",0.485076048562214
+"211","MAC2-6APR2017",2017-04-06,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",0.841309053137986,2017,"2017",0.610476760588876
+"212","MAC2-8MAY2017",2017-05-08,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",2.60377358490566,2017,"2017",1.28198151449451
+"213","MAC2-9MAY2017",2017-05-09,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.404761904761905,2017,"2017",0.339867825622351
+"214","MAC2-D-10MAY2018",2018-05-10,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",124.955006172486,2018,"2018",4.83592474930912
+"215","MAC2B-13MAR2018",2018-03-13,"Blacklock","tidal","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.632622985115958,2018,"2018",0.490187914777099
+"216","MAC2CS-9MAY2018",2018-05-09,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",1.11611471127314,2018,"2018",0.749581723903387
+"217","MAC2S-13MAR2018",2018-03-13,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",0.281636248245111,2018,"2018",0.248137580518993
+"218","MAC2W-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.583908416263144,2018,"2018",0.459895473705016
+"219","MAC3-02MAR2018",2018-03-02,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",4.94083985810699,2018,"2018",1.7818505136336
+"220","MAC3-09APR2018",2018-04-09,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",4.7045372412816,2018,"2018",1.74126186543715
+"221","MAC3-11APR2017",2017-04-11,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.238907849829352,2017,"2017",0.214230225247783
+"222","MAC3-11APR2018",2018-04-11,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",1.45004106403929,2018,"2018",0.896104785248539
+"223","MAC3-11MAY2017",2017-05-11,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",5.92445328031809,2017,"2017",1.93505910026626
+"224","MAC3-12APR2017",2017-04-12,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",2.3758865248227,2017,"2017",1.21665796385325
+"225","MAC3-13APR2017",2017-04-13,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.552366132776929,2017,"2017",0.439780304232982
+"226","MAC3-13APR2018",2018-04-13,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.880511909072082,2018,"2018",0.631544031836721
+"227","MAC3-14MAR2018",2018-03-14,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",39.6330285076681,2018,"2018",3.70458124592883
+"228","MAC3-15MAR2017",2017-03-15,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",0.340909090909091,2017,"2017",0.293347809987458
+"229","MAC3-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",7.70506616727738,2018,"2018",2.16390517425702
+"230","MAC3-19MAY2017",2017-05-19,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.850205622113142,2017,"2017",0.615296780002038
+"231","MAC3-22MAR2018",2018-03-22,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",17.2090473759034,2018,"2018",2.90191857913134
+"232","MAC3-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",13.2624275293887,2018,"2018",2.65762863397554
+"233","MAC3-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",0.192608872712888,2017,"2017",0.176143237485405
+"234","MAC3-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.802598513883171,2018,"2018",0.589229242710215
+"235","MAC3-29MAR2018",2018-03-29,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",9.31365272657715,2018,"2018",2.33346852496081
+"236","MAC3-30MAR2017",2017-03-30,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",4.23505700396016,2017,"2017",1.65537773327184
+"237","MAC3-6APR2017",2017-04-06,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",6.11360243608207,2017,"2017",1.96200878724186
+"238","MAC3-D-10MAY2018",2018-05-10,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",1.34644083636132,2018,"2018",0.852899642365886
+"239","MAC3B-13MAR2018",2018-03-13,"Blacklock","tidal","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",2.8011327897113,2018,"2018",1.33529912486421
+"240","MAC3CS-9MAY2018",2018-05-09,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",0.702367373610646,2018,"2018",0.532019855044183
+"241","MAC3S-13MAR2018",2018-03-13,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",0.41657749203083,2018,"2018",0.348243745485215
+"242","MAC3W-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",1.33342549062792,2018,"2018",0.847337355590653
+"243","MAC4-02MAR2018",2018-03-02,"Miner","channel","mysid","mysid","Miner Slough","Cache","Mysid net",1.82100649231714,2018,"2018",1.03709373344122
+"244","MAC4-09APR2018",2018-04-09,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",5.8325843327465,2018,"2018",1.92170298162668
+"245","MAC4-10APR2017",2017-04-10,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",1.44404332129964,2017,"2017",0.893653766724937
+"246","MAC4-11APR2017",2017-04-11,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.232558139534884,2017,"2017",0.209091797858559
+"247","MAC4-11APR2018",2018-04-11,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",0.379228161333726,2018,"2018",0.321524039319274
+"248","MAC4-13APR2017",2017-04-13,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.231671694193458,2017,"2017",0.208372347612865
+"249","MAC4-13APR2018",2018-04-13,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",3.56235343461553,2018,"2018",1.51783859447274
+"250","MAC4-13Mar2017",2017-03-13,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.662650602409638,2017,"2017",0.508413077360607
+"251","MAC4-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",1.76330352609481,2018,"2018",1.01642689372422
+"252","MAC4-22MAR2018",2018-03-22,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",11.1944916186283,2018,"2018",2.50098434310957
+"253","MAC4-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",4.12788490334532,2018,"2018",1.63469327462103
+"254","MAC4-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Prospect Island","Cache","Mysid net",23.4378122434927,2017,"2017",3.19613161489128
+"255","MAC4-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.572906706374497,2018,"2018",0.452925312955858
+"256","MAC4-29MAR2017",2017-03-29,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",33.2920164916485,2017,"2017",3.53491257173464
+"257","MAC4-29MAR2018",2018-03-29,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",12.5679410688251,2018,"2018",2.60770973564574
+"258","MAC4-30MAR2017",2017-03-30,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",16.5523249987638,2017,"2017",2.86518641969941
+"259","MAC4-3APR2017",2017-04-03,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.198994835337593,2017,"2017",0.181483568561199
+"260","MAC4-8MAY2017",2017-05-08,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",2.68041237113402,2017,"2017",1.30302480327626
+"261","MAC4-D-10MAY2018",2018-05-10,"Decker","muted","mysid","mysid","Decker Island","SacSanJ","Mysid net",11.9233372575808,2018,"2018",2.55903476667067
+"262","MAC4B-13MAR2018",2018-03-13,"Blacklock","tidal","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",31.5506153745634,2018,"2018",3.48279627399241
+"263","MAC4S-13MAR2018",2018-03-13,"Stacys","tidal","mysid","mysid","San Joaquin","SacSanJ","Mysid net",7.86665068566217,2018,"2018",2.18229712474899
+"264","MAC5-10APR2017",2017-04-10,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",1.54609929078014,2017,"2017",0.934562498110111
+"265","MAC5-11APR2017",2017-04-11,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",2.03508771929825,2017,"2017",1.11024032666323
+"266","MAC5-13MAR2018",2018-03-13,"Blacklock","tidal","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.574192240011314,2018,"2018",0.453742277233256
+"267","MAC5-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.503191721767227,2018,"2018",0.407590662028529
+"268","MAC5-18APR2018",2018-04-18,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",1.08419014768001,2018,"2018",0.734380361417916
+"269","MAC5-22MAR2018",2018-03-22,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",1.81623910420174,2018,"2018",1.03540234385377
+"270","MAC5-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",3.4110273351378,2018,"2018",1.48410761814232
+"271","MAC5-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Miner Slough","Cache","Mysid net",1.8606017104065,2017,"2017",1.05103199095728
+"272","MAC5-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.0521352194128698,2018,"2018",0.0508216416190949
+"273","MAC5-29MAR2017",2017-03-29,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",6.66404624071095,2017,"2017",2.03654007414605
+"274","MAC5-29MAR2018",2018-03-29,"Grizzly","channel","mysid","mysid","Ryer Island","Grizzly","Mysid net",26.1137082162316,2018,"2018",3.30003943822995
+"275","MAC5-30MAR2017",2017-03-30,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",6.04290146037302,2017,"2017",1.95202022452143
+"276","MAC5-3APR2017",2017-04-03,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.101273770433622,2017,"2017",0.0964674829920511
+"277","MAC5-8MAY2017",2017-05-08,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.455840455840456,2017,"2017",0.375583366737839
+"278","MAC6-10APR2017",2017-04-10,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.166666666666667,2017,"2017",0.154150679827258
+"279","MAC6-11APR2017",2017-04-11,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",1.62790697674419,2017,"2017",0.966187703018778
+"280","MAC6-15MAR2018",2018-03-15,"Grizzly","channel","mysid","mysid","Grizzly Bay","Grizzly","Mysid net",0.0935822206219947,2018,"2018",0.0894587486345044
+"281","MAC6-18APR2018",2018-04-18,"Winter","muted","mysid","mysid","Winter Island","Confluence","Mysid net",0.530352600216473,2018,"2018",0.425498166510883
+"282","MAC6-22MAR2018",2018-03-22,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",14.8152057325088,2018,"2018",2.76097186536783
+"283","MAC6-23MAR2018",2018-03-23,"Liberty","tidal","mysid","mysid","Liberty Island","Cache","Mysid net",27.7501695869059,2018,"2018",3.35864366590095
+"284","MAC6-27MAR2017",2017-03-27,"Prospect","muted","mysid","mysid","Prospect Island","Cache","Mysid net",1.38712851173447,2017,"2017",0.870091184086971
+"285","MAC6-27MAR2018",2018-03-27,"LHB","channel","mysid","mysid","Nurse-Denverton","NurseDenverton","Mysid net",0.141814154756593,2018,"2018",0.132618361350313
+"286","MAC6-29MAR2017",2017-03-29,"Lindsey","tidal","mysid","mysid","Lindsey Slough","Cache","Mysid net",12.5393568416356,2017,"2017",2.60560076573818
+"287","MAC6-29MAR2018",2018-03-29,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",1.00268517549108,2018,"2018",0.694488867840438
+"288","MAC6-30MAR2017",2017-03-30,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.712952264771485,2017,"2017",0.538218352503902
+"289","MAC6-3APR2017",2017-04-03,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.199073917413266,2017,"2017",0.181549523363879
+"290","MAC7-10APR2017",2017-04-10,"Browns","tidal","mysid","mysid","Browns Island","Confluence","Mysid net",0.256849315068493,2017,"2017",0.228608045786289
+"291","MAC7-11APR2017",2017-04-11,"Ryer","tidal","mysid","mysid","Suisun","Grizzly","Mysid net",1.73633440514469,2017,"2017",1.00661921639414
+"292","MAC7-30MAR2017",2017-03-30,"Horseshoe","channel","mysid","mysid","Horseshoe Bend","SacSanJ","Mysid net",0.454741890985729,2017,"2017",0.374828490375662
+"293","MAC801-1-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",6.94074728092815,2018,"2018",2.07200738681633
+"294","MAC801-2-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.433423805070466,2018,"2018",0.36006585185604
+"295","MAC801-3-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.433828042903959,2018,"2018",0.360347820694219
+"296","MAC801-4-12MAR2018",2018-03-12,"Broad","channel","mysid","mysid","Confluence","Confluence","Mysid net",0.612147430603998,2018,"2018",0.477567098093457
+"297","NT1-02MAR2018",2018-03-02,"Miner","channel","neuston","neuston","Miner Slough","Cache","neuston trawl",0.356936758974749,2018,"2018",0.30522977621093
+"298","NT1-09APR2018",2018-04-09,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",54.9549372056878,2018,"2018",4.02454667404057
+"299","NT1-10APR2017",2017-04-10,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",25.7199689236606,2017,"2017",3.28541118563112
+"300","NT1-11APR2017",2017-04-11,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",1.45242817372821,2017,"2017",0.897078625067535
+"301","NT1-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.0763740005410914,2018,"2018",0.0735979854922132
+"302","NT1-12MAR2018",2018-03-12,"Tule Red","diked","neuston","neuston","Tule Red","Grizzly","neuston trawl",0.1648595495329,2018,"2018",0.152600521409065
+"303","NT1-13APR2017",2017-04-13,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",1.57692466179853,2017,"2017",0.94659669639559
+"304","NT1-13APR2018",2018-04-13,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",6.47046545606345,2018,"2018",2.01095730725219
+"305","NT1-22MAR2018",2018-03-22,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.850510688952029,2018,"2018",0.61546164907815
+"306","NT1-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",0.524591130087583,2018,"2018",0.421726262693104
+"307","NT1-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Miner Slough","Cache","neuston trawl",0.178597845327309,2017,"2017",0.164325465257192
+"308","NT1-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",1.29786548271901,2018,"2018",0.831980641037424
+"309","NT1-29MAR2018",2018-03-29,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",3.99292337678336,2018,"2018",1.60802158527281
+"310","NT1-30MAR2017",2017-03-30,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",8.24468085106383,2017,"2017",2.22404834299539
+"311","NT1-3APR2017",2017-04-03,"Stacys","tidal","neuston","neuston","San Joaquin","SacSanJ","neuston trawl",1.22270832570234,2017,"2017",0.798726418862285
+"312","NT1-6APR2017",2017-04-06,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",5.7426076420627,2017,"2017",1.90844674061513
+"313","NT10-09APR2018",2018-04-09,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",3.11610115356757,2018,"2018",1.41490639336651
+"314","NT1B-13MAR2018",2018-03-13,"Blacklock","tidal","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.675477467607804,2018,"2018",0.516098179944732
+"315","NT1S-13MAR2018",2018-03-13,"Stacys","tidal","neuston","neuston","San Joaquin","SacSanJ","neuston trawl",0.0339182992167179,2018,"2018",0.0333557586672654
+"316","NT1W-12MAR2018",2018-03-12,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",1.63642621607273,2018,"2018",0.969424294037417
+"317","NT2-02MAR2018",2018-03-02,"Miner","channel","neuston","neuston","Miner Slough","Cache","neuston trawl",0.577008423365152,2018,"2018",0.455529649352274
+"318","NT2-09APR2018",2018-04-09,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",56.2796550058231,2018,"2018",4.04794549969122
+"319","NT2-10APR2017",2017-04-10,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",1.23984693839211,2017,"2017",0.806407532457324
+"320","NT2-11APR2017",2017-04-11,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.750468457794512,2017,"2017",0.559883442281095
+"321","NT2-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.0408814864461673,2018,"2018",0.0400679372788604
+"322","NT2-12MAR2018",2018-03-12,"Tule Red","diked","neuston","neuston","Tule Red","Grizzly","neuston trawl",1.11280195934708,2018,"2018",0.748015009370233
+"323","NT2-13APR2017",2017-04-13,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.781643930501839,2017,"2017",0.577536494549835
+"324","NT2-13APR2018",2018-04-13,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",1.20897002990794,2018,"2018",0.792526357079279
+"325","NT2-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",1.2382758691279,2018,"2018",0.805705868212642
+"326","NT2-26MAR2018",2018-03-26,"Bradmoor","diked","neuston","neuston","Bradmoor Island","NurseDenverton","neuston trawl",6.62185857290483,2018,"2018",2.03102024716339
+"327","NT2-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Prospect Island","Cache","neuston trawl",0.219812732710534,2017,"2017",0.198697349184925
+"328","NT2-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.222250621985019,2018,"2018",0.200693931361757
+"329","NT2-29MAR2018",2018-03-29,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",3.89359213439461,2018,"2018",1.58792662161997
+"330","NT2-30MAR2017",2017-03-30,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",0.357195690654618,2017,"2017",0.305420578749465
+"331","NT2-3APR2017",2017-04-03,"Stacys","tidal","neuston","neuston","San Joaquin","SacSanJ","neuston trawl",0.19720442718772,2017,"2017",0.179989194941223
+"332","NT2-6APR2017",2017-04-06,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",0.947942409814178,2017,"2017",0.666773641032905
+"333","NT2B-13MAR2018",2018-03-13,"Blacklock","tidal","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.863066963505503,2018,"2018",0.622224034884114
+"334","NT3-02MAR2018",2018-03-02,"Miner","channel","neuston","neuston","Miner Slough","Cache","neuston trawl",5.69028044274544,2018,"2018",1.90065579295442
+"335","NT3-09APR2018",2018-04-09,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",15.0472037633683,2018,"2018",2.77553461404701
+"336","NT3-11APR2017",2017-04-11,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.604676782252502,2017,"2017",0.472922354527805
+"337","NT3-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.132520630093985,2018,"2018",0.124445794627665
+"338","NT3-12MAR2018",2018-03-12,"Tule Red","diked","neuston","neuston","Tule Red","Grizzly","neuston trawl",1.36009128364643,2018,"2018",0.858700297800684
+"339","NT3-13APR2017",2017-04-13,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.920110587508058,2017,"2017",0.652382782041456
+"340","NT3-13APR2018",2018-04-13,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",0.635956956813526,2018,"2018",0.492227927818258
+"341","NT3-22MAR2018",2018-03-22,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.799485292803433,2018,"2018",0.58750067556853
+"342","NT3-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",6.9369160349012,2018,"2018",2.07152479110623
+"343","NT3-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Miner Slough","Cache","neuston trawl",0.109906366355267,2017,"2017",0.104275657131296
+"344","NT3-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.565001226915942,2018,"2018",0.447886607963657
+"345","NT3-29MAR2018",2018-03-29,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",24.7445937529466,2018,"2018",3.248224653725
+"346","NT3-30MAR2017",2017-03-30,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",1.18149343831912,2017,"2017",0.780009705701285
+"347","NT3-3APR2017",2017-04-03,"Stacys","tidal","neuston","neuston","San Joaquin","SacSanJ","neuston trawl",0.842848775638822,2017,"2017",0.611312621950979
+"348","NT3-6APR2017",2017-04-06,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",1.52495083317933,2017,"2017",0.926221590529554
+"349","NT3-D-10MAY2018",2018-05-10,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",0.109091918322927,2018,"2018",0.103541588903721
+"350","NT3B-13MAR2018",2018-03-13,"Blacklock","tidal","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",12.4855336644944,2018,"2018",2.60161753048379
+"351","NT3S-13MAR2018",2018-03-13,"Stacys","tidal","neuston","neuston","San Joaquin","SacSanJ","neuston trawl",0.117916831970519,2018,"2018",0.111466981957353
+"352","NT3W-12MAR2018",2018-03-12,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.596361435181967,2018,"2018",0.467726936535305
+"353","NT4-02MAR2018",2018-03-02,"Miner","channel","neuston","neuston","Miner Slough","Cache","neuston trawl",36.4507859113738,2018,"2018",3.62302769536049
+"354","NT4-09APR2018",2018-04-09,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",10.7158707196385,2018,"2018",2.46094439439099
+"355","NT4-10APR2017",2017-04-10,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",10.6736375990909,2017,"2017",2.45733310287769
+"356","NT4-11APR2017",2017-04-11,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",5.14746097592472,2017,"2017",1.8160391471295
+"357","NT4-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.270641948658814,2018,"2018",0.239522244147765
+"358","NT4-12MAR2018",2018-03-12,"Tule Red","diked","neuston","neuston","Tule Red","Grizzly","neuston trawl",1.49747424159051,2018,"2018",0.915279917809913
+"359","NT4-13APR2017",2017-04-13,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.494378499275447,2017,"2017",0.401710400859126
+"360","NT4-13APR2018",2018-04-13,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",2.21731927702397,2018,"2018",1.1685484901535
+"361","NT4-13MAR2018",2018-03-13,"Blacklock","tidal","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.573801998245929,2018,"2018",0.4534943468129
+"362","NT4-22MAR2018",2018-03-22,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",1.83999975688597,2018,"2018",1.04380396656958
+"363","NT4-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",9.1978190992671,2018,"2018",2.32217388363145
+"364","NT4-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Prospect Island","Cache","neuston trawl",0.0549531831776335,2017,"2017",0.0534963898084355
+"365","NT4-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",1.16270990940402,2018,"2018",0.771362023045604
+"366","NT4-29MAR2017",2017-03-29,"Lindsey","tidal","neuston","neuston","Lindsey Slough","Cache","neuston trawl",0.329719099065801,2017,"2017",0.284967716217094
+"367","NT4-29MAR2018",2018-03-29,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",19.3609483073837,2018,"2018",3.01361876758113
+"368","NT4-30MAR2017",2017-03-30,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",4.96616343695232,2017,"2017",1.78610408044618
+"369","NT4-3APR2017",2017-04-03,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.0805779548792091,2017,"2017",0.0774960414046346
+"370","NT4-D-10MAY2018",2018-05-10,"Decker","muted","neuston","neuston","Decker Island","SacSanJ","neuston trawl",0.989157297197403,2018,"2018",0.687711080303167
+"371","NT4W-12MAR2018",2018-03-12,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",1.11294983767782,2018,"2018",0.748084998493072
+"372","NT5-09APR2018",2018-04-09,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.361075648629005,2018,"2018",0.308275305246617
+"373","NT5-10APR2017",2017-04-10,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.424078242334241,2017,"2017",0.353524756939777
+"374","NT5-11APR2017",2017-04-11,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",11.5522242141153,2017,"2017",2.52989787809108
+"375","NT5-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.307810061508952,2018,"2018",0.268354029576946
+"376","NT5-13APR2018",2018-04-13,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",1.15518245279949,2018,"2018",0.767875384843995
+"377","NT5-22MAR2018",2018-03-22,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",1.51121253738492,2018,"2018",0.920765719120322
+"378","NT5-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",4.38206486546101,2018,"2018",1.68307210452882
+"379","NT5-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Miner Slough","Cache","neuston trawl",0.109906366355267,2017,"2017",0.104275657131296
+"380","NT5-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.0458406390530144,2018,"2018",0.0448210013140928
+"381","NT5-29MAR2017",2017-03-29,"Lindsey","tidal","neuston","neuston","Lindsey Slough","Cache","neuston trawl",0.412148873832251,2017,"2017",0.345112568238591
+"382","NT5-29MAR2018",2018-03-29,"Grizzly","channel","neuston","neuston","Ryer Island","Grizzly","neuston trawl",2.26080244409476,2018,"2018",1.18197331358437
+"383","NT5-30MAR2017",2017-03-30,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",0.477795765428644,2017,"2017",0.390551629911981
+"384","NT5-3APR2017",2017-04-03,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.0483808496537608,2017,"2017",0.0472469260409945
+"385","NT5W-12MAR2018",2018-03-12,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",1.00726725240869,2018,"2018",0.696774221093019
+"386","NT6-09APR2018",2018-04-09,"Winter","muted","neuston","neuston","Winter Island","Confluence","neuston trawl",10.5143757146539,2018,"2018",2.44359631683587
+"387","NT6-10APR2017",2017-04-10,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",2.14301027286051,2017,"2017",1.14518102629896
+"388","NT6-11APR2017",2017-04-11,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",10.9970373611631,2017,"2017",2.48465973273675
+"389","NT6-12APR2018",2018-04-12,"Grizzly","channel","neuston","neuston","Grizzly Bay","Grizzly","neuston trawl",0.416061395451738,2018,"2018",0.347879352701452
+"390","NT6-13APR2018",2018-04-13,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",0.856640908489642,2018,"2018",0.618768891829951
+"391","NT6-22MAR2018",2018-03-22,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",0.92324370832711,2018,"2018",0.654013191976077
+"392","NT6-23MAR2018",2018-03-23,"Liberty","tidal","neuston","neuston","Liberty Island","Cache","neuston trawl",7.84063877900572,2018,"2018",2.17935913410744
+"393","NT6-27MAR2017",2017-03-27,"Prospect","muted","neuston","neuston","Prospect Island","Cache","neuston trawl",0.0274765915888167,2017,"2017",0.0271058852200467
+"394","NT6-27MAR2018",2018-03-27,"LHB","channel","neuston","neuston","Nurse-Denverton","NurseDenverton","neuston trawl",0.60572413289883,2018,"2018",0.473574827979667
+"395","NT6-29MAR2017",2017-03-29,"Lindsey","tidal","neuston","neuston","Lindsey Slough","Cache","neuston trawl",0.0824297747664502,2017,"2017",0.0792083055951859
+"396","NT6-29MAR2018",2018-03-29,"Ryer","tidal","neuston","neuston","Suisun","Grizzly","neuston trawl",1.23534269393363,2018,"2018",0.804394546930667
+"397","NT6-30MAR2017",2017-03-30,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",1.53347188307598,2017,"2017",0.92959064781658
+"398","NT6-3APR2017",2017-04-03,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",0.231255303119477,2017,"2017",0.208034220596999
+"399","NT7-09APR2018",2018-04-09,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",5.36840176807425,2018,"2018",1.85134853827208
+"400","NT7-10APR2017",2017-04-10,"Browns","tidal","neuston","neuston","Browns Island","Confluence","neuston trawl",1.41003973506792,2017,"2017",0.879643234946696
+"401","NT7-30MAR2017",2017-03-30,"Horseshoe","channel","neuston","neuston","Horseshoe Bend","SacSanJ","neuston trawl",0.454731218571444,2017,"2017",0.374821154054698
+"402","NT8-09APR2018",2018-04-09,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",15.4898483906108,2018,"2018",2.80274494250928
+"403","NT9-09APR2018",2018-04-09,"Broad","channel","neuston","neuston","Confluence","Confluence","neuston trawl",4.90907893604821,2018,"2018",1.77648997088799
+"404","SAV1-02MAR2018",2018-03-02,"Miner","channel","SAV","sweep net","Miner Slough","Cache","sweep net",5566,2018,"2018",8.62461158818351
+"405","SAV1-10APR2017",2017-04-10,"Tule Red","diked","SAV","sweep net","Tule Red","Grizzly","sweep net",7360,2017,"2017",8.90395107205871
+"406","SAV1-12MAR2018",2018-03-12,"Tule Red","diked","SAV","sweep net","Tule Red","Grizzly","sweep net",568,2018,"2018",6.34388043412633
+"407","SAV1-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",1271,2017,"2017",7.14834574390007
+"408","SAV1-13APR2018",2018-04-13,"Horseshoe","channel","SAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",1139,2018,"2018",7.03878354138854
+"409","SAV1-19MAY2017",2017-05-19,"Ryer","tidal","SAV","sweep net","Suisun","Grizzly","sweep net",274,2017,"2017",5.61677109766657
+"410","SAV1-25APR2017",2017-04-25,"Prospect","muted","SAV","sweep net","Prospect Island","Cache","sweep net",638,2017,"2017",6.45990445437753
+"411","SAV1-27MAR2018",2018-03-27,"LHB","channel","SAV","sweep net","Nurse-Denverton","NurseDenverton","sweep net",19,2018,"2018",2.99573227355399
+"412","SAV1-29MAR2017",2017-03-29,"Lindsey","tidal","SAV","sweep net","Lindsey Slough","Cache","sweep net",280,2017,"2017",5.63835466933375
+"413","SAV1-30MAR2017",2017-03-30,"Horseshoe","channel","SAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",132,2017,"2017",4.89034912822175
+"414","SAV1P-29MAR2018",2018-03-29,"Prospect","muted","SAV","sweep net","Prospect Island","Cache","sweep net",536,2018,"2018",6.28599809450886
+"415","SAV2-10APR2017",2017-04-10,"Tule Red","diked","SAV","sweep net","Tule Red","Grizzly","sweep net",1936,2017,"2017",7.568895663407
+"416","SAV2-12MAR2018",2018-03-12,"Tule Red","diked","SAV","sweep net","Tule Red","Grizzly","sweep net",344,2018,"2018",5.84354441703136
+"417","SAV2-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",1140,2017,"2017",7.03966034986208
+"418","SAV2-13APR2018",2018-04-13,"Decker","muted","SAV","sweep net","Decker Island","SacSanJ","sweep net",792,2018,"2018",6.67582322163485
+"419","SAV2-19MAY2017",2017-05-19,"Ryer","tidal","SAV","sweep net","Suisun","Grizzly","sweep net",1188,2017,"2017",7.08086789669078
+"420","SAV2-30MAR2017",2017-03-30,"Horseshoe","channel","SAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",267,2017,"2017",5.59098698051086
+"421","SAV3-10APR2017",2017-04-10,"Tule Red","diked","SAV","sweep net","Tule Red","Grizzly","sweep net",824,2017,"2017",6.71538338633468
+"422","SAV3-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",516,2017,"2017",6.24804287450843
+"423","SAV3-13APR2018",2018-04-13,"Horseshoe","channel","SAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",1862,2018,"2018",7.52994337060159
+"424","SAV3-19MAY2017",2017-05-19,"Ryer","tidal","SAV","sweep net","Suisun","Grizzly","sweep net",938,2017,"2017",6.84481547920826
+"425","SAV3-30MAR2017",2017-03-30,"Horseshoe","channel","SAV","sweep net","Horseshoe Bend","SacSanJ","sweep net",276,2017,"2017",5.62401750618734
+"426","SAV4-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",484,2017,"2017",6.18414889093748
+"427","SAV4-30MAR2017",2017-03-30,"Decker","muted","SAV","sweep net","Decker Island","SacSanJ","sweep net",167,2017,"2017",5.12396397940326
+"428","SAV4P-29MAR2018",2018-03-29,"Prospect","muted","SAV","sweep net","Prospect Island","Cache","sweep net",357,2018,"2018",5.8805329864007
+"429","SAV5-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",267,2017,"2017",5.59098698051086
+"430","SAV5-30MAR2017",2017-03-30,"Decker","muted","SAV","sweep net","Decker Island","SacSanJ","sweep net",141,2017,"2017",4.95582705760126
+"431","SAV6-13APR2017",2017-04-13,"Browns","tidal","SAV","sweep net","Browns Island","Confluence","sweep net",332,2017,"2017",5.80814248998044
+"432","SAV6-30MAR2017",2017-03-30,"Decker","muted","SAV","sweep net","Decker Island","SacSanJ","sweep net",88,2017,"2017",4.48863636973214
