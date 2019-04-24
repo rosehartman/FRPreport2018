@@ -14,7 +14,7 @@ library(readxl)
 library(simr)
 
 
-source("blitzclean.R")
+source("blitz2/blitzclean.R")
 
 
 #subset teh samples from both blitzes in 2018
@@ -126,28 +126,37 @@ bugsblitzSF.ave = summarize(group_by(bugsblitzSF.1, Region2, targets2,
 
 
 #graph of meanCPUE
-ggplot(bugsblitzSF.ave, aes(x=site, y = mCPUE)) + geom_bar(stat = "identity") +
+ggplot(bugsblitzSF.ave, aes(x=site, y = mCPUE, fill = sitetype)) + geom_bar(stat = "identity") +
   facet_grid(targets2~season, scales = "free") + geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
 
-#hmmmmm.... there was really high catch in mac1-09apr2018. that might make everything hard to interpret.
+#graph of meanCPUE
+ggplot(bugsblitzSF.ave, aes(x=site, y = log(mCPUE), fill = sitetype)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") 
+
+#hmmmmm.... there was really high catch in mac6-22mar2018. that might make everything hard to interpret.
 #lets take it out and see what happens
 #mean and standard deviation by site and gear type
-bugsblitzSF.avex = summarize(group_by(bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC1-09APR2018"),], Region2, targets2, 
-                                     site, sitetype, season),
-                            mCPUE = mean(tCPUE, na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE))
+foo = summarize(group_by(filter( bugsblitzSF.1, SampleID!="MAC6-22MAR2018"), 
+                                      Region2, targets2, site, sitetype, season),
+                            mCPUE = mean(tCPUE, na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), 
+                            seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE))
 
 
 #graph of meanCPUE
-ggplot(bugsblitzSF.avex, aes(x=site, y = mCPUE)) + geom_bar(stat = "identity") +
-  facet_grid(targets2~season, scales = "free") + geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
+ggplot(foo, aes(x=site, y = mCPUE, fill = sitetype)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") + 
+  geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
+
+ggplot(foo, aes(x=site, y = log(mCPUE), fill = sitetype)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") 
 
 #try a linear model
-lm1 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC1-09APR2018"),])
+lm1 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC6-22MAR2018"),])
 summary(lm1)
 
 lm2 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1)
 summary(lm2)
-#so it's seriously affected by that one outlier
+#meh
 
 
 ########################################################################################################

@@ -1,12 +1,12 @@
 #Multivariate analyses
 
-source("blitzclean.R")
+source("blitz2/blitzclean.R")
 source("plotNMDS.R")
 
 #First we'll make a nice stacked bar graph of community composition by region and habitat type
 #to see if anything jumps out at us.
 
-ggplot(bugsblitz, aes(x=site, y = CPUE, fill = Analy2)) + geom_bar(stat = "identity", position = "fill")+
+ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=site, y = CPUE, fill = Analy2)) + geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
   xlab("Site")+ ylab("Relative percent composition") + mytheme
@@ -100,10 +100,12 @@ Com.CN3p = Com.CN3/rowSums(Com.CN3)
 
 ##############################################################################
 #look at multivariates
+#First look at the "Analy2" version, with proportional catch
 a1 = adonis(ComMatp.1 ~ Region2 + sitetype + targets2 + site, data = bugstot2)
 a1
 #The R2 is pretty small, but highly significant.
 
+#now look at it with absolute catch
 a2 = adonis(ComMat2.2 ~ sitetype +Region2 +  targets2 + site, data = bugstot2)
 a2
 
@@ -119,6 +121,8 @@ mds6 = metaMDS(ComMat.22p, try = 50, trymax = 500)
 
 mds7 = metaMDS(Com.CN2, try = 50, trymax = 500)
 mds8 = metaMDS(Com.CN2p, try = 50, trymax = 500)
+
+#Well, that didn't work. 
 
 #Let's look at that "indicspecies" analysis I've done in the past, it would be cool if we can
 #find something associated with managed wetlands

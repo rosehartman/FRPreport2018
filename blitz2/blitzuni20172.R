@@ -1,6 +1,7 @@
 #Linear MOdels and power analysis from teh 2017 and 2018 blitz
 source("blitz2/blitzclean.R")
 library(visreg)
+library(MuMIn)
 
 ################################################################################
 
@@ -26,10 +27,12 @@ summary(blitz2a)
 visreg(blitz2a)
 
 
-blitz2b = aov(log(tCPUE+1) ~ targets2 + sitetype+ Region2 +  Year2 +Error(site), 
+blitz2b = aov(log(tCPUE+1) ~ targets2 + sitetype+ Region2 +  Year2 + Error(site), 
               data = filter(bugstot, targets2 != "benthic"), na.action = "na.fail")
 summary(blitz2b)
-TukeyHSD(blitz2b)
+#TukeyHSD(blitz2b) #can't do a tukey test on a mixed model
+
+
 
 #if I really want to pick out the differences between site types, maybe I should try getting
 #rid of all the extra stuff
@@ -37,6 +40,7 @@ blitz2c = aov(log(tCPUE+1) ~ targets2 +sitetype + site,
               data = filter(bugstot, targets2 != "benthic"))
 summary(blitz2c)
 TukeyHSD(blitz2c)
+visreg(blitz2c)
 
 blitz2d = lmer(log(tCPUE +1) ~ sitetype+targets2+  (1|site), 
               data = filter(bugstot, targets2 != "benthic"))
@@ -47,9 +51,11 @@ visreg(blitz2d)
 #wetlands had higher abundance than channel, no other major differences
 
 #but let's throw some AIC at it
-dredge(blitz2b)
-#the top four models all had identical AIC score
 dredge(blitz2)
+#That reinforces the result that gear type and site type are the most important
+#predictors of catch, when site is used as an error term. 
+
+
 
 
 ###########################################################################################
@@ -90,23 +96,51 @@ tot4 + geom_bar(stat = "identity", aes(fill = Region2)) +
   theme(strip.text = element_text(size = 16), axis.text.y = element_text(size = 16), 
         axis.title = element_text(size = 16), legend.position = "bottom")
 
+tot4x = ggplot(filter(bugstotave2, targets2 != "benthic"), aes(x = site, y = log(mCPUE)))
+tot4x + geom_bar(stat = "identity", aes(fill = Region2)) + 
+  facet_grid(targets2~sitetype, scales = "free", space = "free_x") +
+ # geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal, name = "Region") + ylab("log CPUE") +
+  theme(strip.text = element_text(size = 16), axis.text.y = element_text(size = 16), 
+        axis.title = element_text(size = 16), legend.position = "bottom")
+
 #######################################################################################
 #for the 2018 report, it is probably better to do it by year and region
 # probably also just call it "pre-restoration" rather than seperating by diked versud muted tidal.
 
 
-tot2017 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), aes(x = site, y = mCPUE, fill = sitetype))
+tot2017 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), 
+                 aes(x = site, y = mCPUE, fill = sitetype))
 tot2017 + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("CPUE") 
 
+
+tot2017x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), 
+                  aes(x = site, y = log(mCPUE), fill = sitetype))
+tot2017x + geom_bar(stat = "identity", position = "dodge") + 
+  facet_grid(targets2~Region2, scales = "free", space = "free_x") +
+ # geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal) + ylab("CPUE") 
+
+
 tot2018 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey"), 
                  aes(x = site, y = log(mCPUE), fill = sitetype))
 tot2018 + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
   #geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal) + ylab("log CPUE") 
+
+tot2018x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey"), 
+                 aes(x = site, y = mCPUE, fill = sitetype))
+tot2018x + geom_bar(stat = "identity", position = "dodge") + 
+  facet_grid(targets2~Region2, scales = "free", space = "free_x") +
+  geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("CPUE") 
 

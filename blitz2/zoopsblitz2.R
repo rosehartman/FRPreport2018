@@ -1,5 +1,6 @@
-#zooplankton
-library(dplyr)
+#zooplankton - 2018 update
+library(tidyverse)
+library(lubridate)
 library(ggplot2)
 library(readxl)
 library(reshape2)
@@ -9,27 +10,27 @@ library(simr)
 library(lme4)
 library(lmerTest)
 ################################################################################################################################
+#First load the function I wrote to query the FRP database
+source("querydatabase.R")
 
-zoopsfrp <- read_excel("zoopsfrp.xlsx", col_types = c("numeric", 
-                                                      "text", "text", "numeric", "numeric", 
-                                                      "numeric", "numeric", "numeric", "numeric", 
-                                                      "text", "text", "text", "text", "numeric", 
-                                                      "numeric", "numeric", "date", "text", 
-                                                      "text", "text", "text", "text", "text", 
-                                                      "text", "numeric"))
+#Now specify the path to the FRP database
+path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+zoopsfrp <- GetFRPdata(path, "zoop")
 View(zoopsfrp)
+
+#add more station information
+stations = read_excel("blitz2/Stations2.xlsx")
+zoopsfrp = merge(zoopsfrp, stations)
 
 ################################################################################################################################
 #Calculate CPUE
 
-# Effort for benthic and oblique trawls is based on flowmeter readings and net mouth area
-
 #combine the slides
-totalcells = group_by(zoopsfrp, ZSampleID) %>% 
+totalcells = group_by(zoopsfrp, SampleID) %>% 
   summarise(totcells = max(CellNumber), totCountall = sum(Count))
 
-zoo = group_by(zoopsfrp, Station, Location, Date, ZSampleID, Dilution, ZooCode, CommonName,
-                Phylum, Class, Order, Family,Genus, Species, LifeStage, MeterStart2, MeterEnd2) %>% 
+zoo = group_by(zoopsfrp, Station, site, sitetype, sitetype2, Region2, Date, SampleID, Dilution, CommonName,
+                Volume) %>% 
   summarise(totCount = sum(Count))
 
 zoo = merge(zoo, totalcells)
@@ -37,70 +38,76 @@ zoo = merge(zoo, totalcells)
 #adjust for subsampling
 zoo$atotal = (zoo$totCount/zoo$totcells)*zoo$Dilution
 
-#Volume sampled
-zoo$volume = (zoo$MeterEnd2-zoo$MeterStart2)*0.026873027*0.0167
-
-
-#volume for samples where the flowmeter turned over to zero.
-zoo$volume[which(zoo$volume<0)] = ((1000000 - zoo$MeterStart2[which(zoo$volume<0)])+
-                                     zoo$MeterEnd2[which(zoo$volume<0)])*0.026873027*0.0167 #I've used the factory calibration here
-
-#some of the samples iddn't have flowmeters, so we'll use the average volume for those
-zoo$volume[which(is.na(zoo$volume))] = mean(zoo$volume, na.rm = T)
-
 #Calculate CPUE
-zoo$CPUE = zoo$atotal/zoo$volume
+zoo$CPUE = zoo$atotal/zoo$Volume
 
 
 #figuer out how many critters total
-tot = sum(zoo$CPUE)
+tot = sum(zoo$CPUE, na.rm = T)
 
 #Now how many critters per taxon
 zooptax = group_by(zoo, CommonName) %>% summarise(totaltaxa = sum(CPUE, na.rm = T), 
                                                   prop = totaltaxa/sum(zoo$CPUE, na.rm = T), 
                                                   tax = CommonName[1])
-frptaxa <- read_excel("FRP_EMPcrosswalk.xlsx", 
-                      sheet = "allfrptaxa")
+
+frptaxa <- read_excel("blitz2/zoocodes.xlsx")
 
 zoop = merge(zoo, frptaxa)
 
 #some critters have barely any individuals, lets combine groups
-zoop$Analy[which(zoop$Analy == "platyhelminthes" | zoop$Analy == "mollusca" | 
-                   zoop$Analy=="terrestrial" | zoop$Analy == "cumaceans")] = "other"
-zoop$Analy[which(zoop$Analy == "corophium" | zoop$Analy == "gammarid" )] = "Amphipod"
+zoop$Analy[which(zoop$Analy == "Platyhelminthes" | zoop$Analy == "Bivalvia" | 
+                   zoop$Analy == "Cumacea" | zoop$Analy == "Arachnida" | zoop$Analy == "Cnidaria" )] = "other"
+zoop$Analy[which( zoop$Analy=="terrestrial" | zoop$Analy == "Trichoptera" |
+                   zoop$Analy =="Hymenoptera" |zoop$Analy == "Coleoptera" | zoop$Analy == "Hemiptera" | 
+                    zoop$Analy =="Ephemeroptera" | zoop$Analy =="Diptera" |
+                    zoop$Analy =="Odonata" |  zoop$Analy =="Thysanoptera")] = "Insecta"
 
-zoop$AnalyLS = paste(zoop$Analy, zoop$lifestage)
-zoop$AnalyLS[which(zoop$AnalyLS == "other adult" | zoop$AnalyLS == "other juv" | zoop$AnalyLS == "insect adult")] = "other"
+zoop$Analy[which(zoop$Analy == "corophium" | zoop$Analy == "Gammaridae")] = "Amphipoda"
+
+zoop$AnalyLS = paste(zoop$Analy, zoop$LifeStage)
+zoop$AnalyLS[which(zoop$AnalyLS == "other adult" | zoop$AnalyLS == "other larvae" | 
+                     zoop$AnalyLS == "other juvenile" | zoop$AnalyLS == "NA NA" |zoop$AnalyLS ==  "Insecta NA")] = "other"
+
+zoop$AnalyLS[which(zoop$AnalyLS == "fish adult" | zoop$AnalyLS == "fish larvae" | zoop$AnalyLS == "fish NA")] = "fish"
+zoop$AnalyLS[which(zoop$AnalyLS == "Amphipoda adult" | zoop$AnalyLS == "Amphipoda larvae" )] = "Amphipoda"
+zoop$AnalyLS[which(zoop$AnalyLS == "Insecta pupae")] = "Insecta adult"
+
+
+
+#how many of each do I got?
+zooptax2 = group_by(zoop, AnalyLS) %>% summarise(totaltaxa = sum(CPUE, na.rm = T), 
+                                                prop = totaltaxa/sum(zoo$CPUE, na.rm = T))
+
+
 
 #set up some labels for graphing
-zooLab = c("Amphipoda", "Annelida", "Calanoida", "Cal juv", "Cal nauplii","Cladocera", "Collembola", 
-           "Cyclo nauplii", "Cyclopoda", "Cyclo juv", "fish", "Harpacticoida", "Insect juv", "Isopoda", "Mysidea", 
-           "Ostracoda", "other", "Rotifera", "Tanaid")
-zoop$AnalyLS = factor(zoop$AnalyLS, labels=c("Amphipoda", "Annelida", "Calanoida", "Cal juv", "Cal nauplii","Cladocera", "Collembola", 
-                                                "Cyclo nauplii", "Cyclopoda", "Cyclo juv", "fish", "Harpacticoida", "Insect juv", "Isopoda", "Mysidea", 
-                                                "Ostracoda", "other", "Rotifera", "Tanaid"))
+zooLab = c("Amphipoda", "Annelida", "Calanoida", "Cal juv", "Cladocera", "Collembola", 
+            "Cyclopoda", "Cyclo juv", "Decapoda", "fish","Gastropoda", "Harpacticoida", "Insect adult", "Insect juv",
+           "Isopoda", "Mysidea", "Nematoda","Ostracoda", "other", "Rotifera", "Tanaid")
+zoop$AnalyLS = factor(zoop$AnalyLS, labels=zooLab)
 
 
 #Now let's look at what we got!
 #############################################################################################################
 
 #filter for just samples from the blitz
-samplesBlitz <- read_excel("samplesBlitz.xlsx",  sheet = "blitzzoops", 
-                                      col_types = c("text", "text", "text", "text", "text", "date"))
-zoo2017 = merge(select(zoop,-c(Station, Location, Date)), samplesBlitz)
-zoo2017 = merge(zoo2017, sitetypes)
+zoop$month = month(zoop$Date)
+zooblitz = filter(zoop, month >2 & month <5)
 
 
 #set up a color pallete
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(12, "Set3"), "black", "white", "grey", "pink")
 
+#put zeros back in to get average catch by species
+zoowide = dcast(zooblitz, SampleID~AnalyLS, fun.aggregate = sum, value.var = CPUE)
 
+zooave = group_by(zooblitz, Analy, CommonName, site, AnalyLS) %>% summarize(CPUE = mean(CPUE, na.rm = T))
+zooave =droplevels(zooave)
 
 #quick plot of CPUE by location
-zoo2017ave = group_by(zoo2017, Analy, CommonName, Location, AnalyLS) %>% summarize(CPUE = mean(CPUE, na.rm = T))
-zoo2017ave =droplevels(zoo2017ave)
-z1 = ggplot(zoo2017ave, aes(x=Location, y= CPUE))
-z1 + geom_bar(stat = "identity", aes(fill = Analy)) + scale_fill_manual(values = mypal)
+z1 = ggplot(zooave, aes(x=site, y= CPUE))
+z1 + geom_bar(stat = "identity", aes(fill = AnalyLS)) + scale_fill_manual(values = mypal)+
+  coord_cartesian(ylim = c(0, 4000))
 
 #total CPUE
 zootot = group_by(zoo2017, ZSampleID, date, Station, 
