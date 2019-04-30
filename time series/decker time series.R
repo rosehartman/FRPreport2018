@@ -45,6 +45,9 @@ inverts2$Sampletype[which(inverts2$Sampletype == "Mysid net (no sled)" |
 sitetypes = read_excel("blitz2/Stations2.xlsx")
 inverts3 = merge(inverts2, sitetypes[,c(2,9,10,11)])
 inverts3$year = year(inverts3$Date)
+inverts3$month = month(inverts3$Date)
+inverts3$month2 = as.factor(inverts3$month)
+inverts3$Year2 = as.factor(inverts3$year)
 
 
 #subset teh samples from 2017 and 2018
@@ -111,6 +114,9 @@ Decker = Decker[order(Decker$SampleID),]
 #on the catch of cladocera in sweep nets, but just to make stuff clearer for now...
 Decker = filter(Decker, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracoda")
 
+#Take out the benthic samples
+Decker = filter(Decker, Target != "benthic")
+
 
 sites = group_by(inverts2, Station) %>% summarize(count = length(Station))
 
@@ -118,30 +124,23 @@ sites = group_by(inverts2, Station) %>% summarize(count = length(Station))
 sitetypes = read_excel("blitz2/Stations2.xlsx")
 Decker = merge(Decker, sitetypes[,c(2,9,10,11)])
 
-#put the sties in order along the estuarine/fresh gradient
-Decker$site = factor(Decker$site, levels = c("Ryer", "Grizzly", "Tule Red", "Wings", "Blacklock", "Bradmoor",
-                                                   "L Honker", "Browns","Winter", "Broad", "Dow",
-                                                   "Sherman", "Horseshoe", "Decker", "Stacys",
-                                                   "Lindsey", "Liberty", "Prospect", "Miner", "Flyway"))
-
 #Create a new colum where "targets" (habitat type) combines all the vegetation samples into one type.
 Decker$targets2 = as.character(Decker$Target)
 Decker$targets2[which(Decker$Target == "EAV" | Decker$Target == "SAV"| Decker$Target == "FAV" )] = "sweep net"
 
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
-Decker.1 = summarize(group_by(Decker, SampleID, Station, Region2, Target, targets2, 
-                                 Region, Sampletype, site, sitetype, Date),
+Decker.1 = summarize(group_by(Decker, SampleID,targets2, 
+                                 Sampletype, month, month2, year, Year2, Date),
                         tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), richness = length(unique(Analy)))
 
-Decker.1$site = as.factor(Decker.1$site)
-Decker.1$sitetype = as.factor(Decker.1$sitetype)
+
 Decker.1$targets2 = as.factor(Decker.1$targets2)
 
 #summarize by Region and habitat type so I can make a quick plot
 
 #add up all the critters that are in the same analysis group
-bugssum = summarize(group_by(Decker, site, targets2, 
-                             Region2, Station, sitetype, Sampletype, SampleID, Analy), 
+decksum = summarize(group_by(Decker, targets2, 
+                              Sampletype, SampleID, Analy, Analy2, month, month2, year, Year2), 
                     tCPUE = sum(CPUE))
 
 #I need to add the zeros in for taxa that were not present in a sample so I can take an appropriate mean
@@ -166,89 +165,52 @@ ComMat.CN2 = dcast(Decker, formula = SampleID~CN, value.var="CPUE",
 Decker.2x = melt(ComMat.1, id.vars = "SampleID", variable.name = "Analy2", value.name = "CPUE")
 Decker.2x = merge(Decker.1, Decker.2x)
 
-#Means by analysis group for each location
-bugssum.1 = summarize(group_by(Decker.2x, site, Region2, sitetype, targets2, 
-                               Region, Sampletype, Analy2), mCPUE = mean(CPUE),
+#Means by analysis group for each month
+decksum.1 = summarize(group_by(Decker.2x, targets2, 
+                               Analy2, month, month2, year, Year2), mCPUE = mean(CPUE),
                       sdCPUE = sd(CPUE), seCPUE = sd(CPUE)/length(CPUE))
 
 #Now calculate total CPUE
-bugstot = summarize(group_by(Decker.2x, SampleID, Date, site, sitetype, Target, targets2, 
-                             Region, Region2, Sampletype), tCPUE = sum(CPUE, na.rm = T))
+decktot = summarize(group_by(Decker.2x, SampleID, Date, month, month2, year, Year2, targets2, 
+                              Sampletype), tCPUE = sum(CPUE, na.rm = T))
 
 
-bugstot$Year = year(bugstot$Date)
-bugstot$Year2 = as.factor(bugstot$Year)
-bugstot$logtot = log(bugstot$tCPUE +1)
-bugstotNoB = filter(bugstot, targets2!= "benthic")
+
+decktot$logtot = log(decktot$tCPUE +1)
+decktotNoB = filter(decktot, targets2!= "benthic")
 
 #Mean CPUE, sample size, and standard error for each location and habitat so I can make a pretty graph.
-bugstotave = summarize(group_by(bugstot, site, sitetype, targets2, 
-                                Region2), mCPUE = mean(tCPUE, na.rm = T), 
+decktotave = summarize(group_by(decktot, targets2, month, year, month2, Year2), 
+                       mCPUE = mean(tCPUE, na.rm = T), mlogCPUE = mean(logtot), 
                        sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID))
 
-#Some sites didn't have samples for a particular habitat type, so I added rows to make it easier to graph
-sitetarget = expand.grid(site=unique(bugstotave$site), targets2 = unique(bugstotave$targets2))
-foo = merge(sitetypes[,c(4,6,7)], sitetarget)
-foo = unique(foo)
-
-bugstotave2 = merge(foo, bugstotave, all.x = T)
-bugstotave2$mCPUE[which(is.na(bugstotave2$mCPUE))] = 0
-bugstotave2$N[which(is.na(bugstotave2$N))] = 0
-bugstotave2$site = factor(bugstotave2$site, levels = c("Ryer", "Grizzly", "Tule Red", "Blacklock", "Bradmoor", "LHB", "Browns",
-                                                       "Winter", "Broad", "Horseshoe", "Decker", "Stacys", "Miner", "Prospect",
-                                                       "Liberty", "Lindsey", "Flyway"))
-
-
-
-#we just want to look at spring of 2017
-Deckerbugs = filter(Deckerbugs, Date > "2017-1-1" & Date < "2017-7-1")
-
-
-#take out the zooplankotn
-Deckerbugs = filter(Deckerbugs,  analysisB != "Copepoda" & analysisB != "Cladocera")
-
-
-#Summarize by sample and get rid of the zooplankotn
-Deckerbugs.1 = summarize(group_by(Deckerbugs, miSampleID, Station, Target, 
-                                    sampletype, Date, effort),
-                           tcount = sum(atotal), tCPUE = sum(CPUE), richness = length(unique(analysisA)))
 
 ######################################################################
 #now lets make a few quick plots
-#put zeros in so we can make area plots and stuff
-Deckerbugs2 = dcast(Deckerbugs, formula = miSampleID~analysisB, value.var="CPUE", 
-                    fun.aggregate = sum, fill = 0) %>%
-  melt(id.vars = "miSampleID", variable.name = "analysisB", value.name = "CPUE")
-Deckerbugs2.1 = merge(Deckerbugs2, Deckerbugs.1)
-Deckerbugs2.1$Month = month(Deckerbugs2.1$Date)
-
-#summerize by month
-Deckerbugs3 = group_by(Deckerbugs2.1, Month, sampletype, analysisB) %>% summarise(mCPUE = mean(CPUE, na.rm = T))
 
 #plot catch over time
-c1 = ggplot(Deckerbugs3[which(Deckerbugs3$sampletype != "benthic"),], 
-              aes(x=Month, y = mCPUE))
-c1 +  geom_area(aes(fill =analysisB)) + 
-  facet_wrap(~sampletype, scales = "free_y") +
+c1 = ggplot(decksum.1, 
+              aes(x=month, y = mCPUE))
+c1 +  geom_area(aes(fill =Analy2)) + 
+  facet_wrap(Year2~targets2, scales = "free_y") +
   ylab("CPUE") + 
   scale_fill_manual(values = mypal, name = "Taxon")
 
 ################################################################################
 #try a GLM of total catch by date
-Deckerbugs.1$yday = yday(Deckerbugs.1$Date)
-m1 = glm(log(tCPUE) ~ sampletype + yday, data =Deckerbugs.1)
+Decker.1$yday = yday(Decker.1$Date)
+m1 = glm(log(tCPUE + 1) ~ targets2 + yday, data =Decker.1)
 summary(m1)
-m1l =lm(log(tCPUE) ~ sampletype + yday, data =Deckerbugs.1)
+m1l =lm(log(tCPUE+1) ~ targets2 + yday, data =Decker.1)
 summary(m1l)
 
 # if there are any intermediate peaks, a quadratic should fit better than a linear function
 
-m2 = glm(log(tCPUE) ~ sampletype + I(yday^2), data =Deckerbugs.1)
+m2 = glm(log(tCPUE+1) ~ targets2 + I(yday^2), data =Decker.1)
 summary(m2)
-m2l = lm(log(tCPUE) ~ sampletype + I(yday^2), data =Deckerbugs.1)
+m2l = lm(log(tCPUE+1) ~ targets2 + I(yday^2), data =Decker.1)
 summary(m2l)
 
-#Not really. Linear it is!
 
 ####################################################################################
 #Quick graph of other survey's smelt catch over the past 15 years
