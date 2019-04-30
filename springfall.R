@@ -37,8 +37,8 @@ bugsblitzSF = merge(bugsblitzSF, targets, by = "SampleID")
 bugsblitzSF = filter(bugsblitzSF, Target != "benthic" & Target != "neuston")
 
 #import site types
-sitetypes = read_excel("blitz2/sites.xlsx")
-bugsblitzSF = merge(bugsblitzSF, sitetypes[,c(2,6,7)])
+sitetypes = read_excel("blitz2/Stations2.xlsx")
+bugsblitzSF = merge(bugsblitzSF, sitetypes[,c(2,9,10,11)])
 
 #filter out sampled sites
 bugsblitzSF = filter(bugsblitzSF, site == "Prospect" |site == "Ryer" |site == "Winter"| site == "Browns")
@@ -51,7 +51,7 @@ bugsxSF$effort = rep(NA, nrow(bugsxSF))
 
 #effort for trawls ad sweep nets is volume
 bugsxSF$effort[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="sweep net")]= 
-  bugsxSF$Volume[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="swee pnet")]
+  bugsxSF$Volume[which(bugsxSF$Sampletype=="Mysid net"|bugsxSF$Sampletype=="sweep net")]
 
 
 
@@ -80,12 +80,6 @@ bugsblitzSF = bugsblitzSF[order(bugsblitzSF$SampleID),]
 #on the catch of cladocera in sweep nets, but just to make stuff clearer for now...
 bugsblitzSF = filter(bugsblitzSF, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracoda")
 
-
-sites = group_by(bugsblitzSF, Station, Region, Region2) %>% summarize(count = length(Station))
-
-#import some info on the sites
-sitetypes = read_excel("blitz2/sites.xlsx")
-bugsblitzSF = merge(bugsblitzSF, sitetypes[,c(2,6,7)])
 
 #put the sties in order along the estuarine/fresh gradient
 bugsblitzSF$site = factor(bugsblitzSF$site, levels = c("Ryer",  "Browns",
@@ -156,8 +150,12 @@ summary(lm1)
 
 lm2 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1)
 summary(lm2)
+visreg(lm2)
 #meh
 
+lm3 = aov(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1)
+summary(lm3)
+TukeyHSD(lm3)
 
 ########################################################################################################
 

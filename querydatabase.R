@@ -31,7 +31,7 @@ GetFRPdata = function(path, type) {
                                     (SampleInfo.[Sample type])='sweep net' Or 
                                     (SampleInfo.[Sample type])='PCV core' Or 
                                     (SampleInfo.[Sample type])='Ponar grab' Or 
-                                    (SampleInfo.[Sample type])='Peitite Ponar'));"))
+                                    (SampleInfo.[Sample type])='Petite Ponar'));"))
  return(data)
   }
   

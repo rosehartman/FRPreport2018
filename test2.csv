@@ -1,37 +1,70 @@
-"","SampleID","Station","Region","Volume","Sampletype","total","Region2","Target"
-"2","EAV1-01NOV2018","Ryer1","Suisun",0.375,"sweep net",752,NA,NA
-"8","EAV1-15OCT2018","Winter 5","Winter Island",0.375,"sweep net",195,NA,NA
-"25","EAV2-15OCT2018",NA,NA,0.375,"sweep net",5,NA,NA
-"26","EAV2-17OCT2018","Browns1","Browns Island",0.375,"sweep net",835,NA,NA
-"33","EAV3-01NOV2018","Ryer1","Suisun",0.375,"sweep net",1009,NA,NA
-"37","EAV3-15OCT2018","Winter 2","Winter Island",0.375,"sweep net",151,NA,NA
-"41","EAV3-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",276,NA,NA
-"44","EAV4-01NOV2018","Ryer3","Suisun",0.375,"sweep net",546,NA,NA
-"49","EAV4-17OCT2018","Browns Channel","Browns Island",0.375,"sweep net",487,NA,NA
-"78","FAV1-15OCT2018","Winter 5","Winter Island",0.375,"sweep net",414,NA,NA
-"81","FAV1-9OCT2018","ProBr","Miner Slough",0.375,"sweep net",2732,NA,NA
-"82","FAV10-18APR2018",NA,NA,0.375,"sweep net",261,NA,NA
-"85","FAV2-15OCT2018",NA,NA,0.375,"sweep net",553,NA,NA
-"86","FAV2-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",733,NA,NA
-"90","FAV4-18APR2018","Dow 4","Dow Wetlands",0.375,"sweep net",372,NA,NA
-"91","FAV4-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",284,NA,NA
-"93","FAV6-17OCT2018","Browns Channel","Browns Island",0.375,"sweep net",728,NA,NA
-"96","MAC1-08NOV2018","724 FRP","Miner Slough",45.35307020736,"Mysid net",7,NA,NA
-"102","MAC1-13NOV2018","705 FRP","Horseshoe Bend",45.44336357808,"Mysid net",22,NA,NA
-"105","MAC1-15OCT2018",NA,NA,35.364903532,"Mysid net",46,NA,NA
-"107","MAC1-18APR2018","Dow 4","Dow Wetlands",24.53399872992,"Mysid net",202,NA,NA
-"109","MAC1-1NOV2018","Ryer1","Suisun",48.64232871216,"Mysid net",82,NA,NA
-"112","MAC1-23OCT2018","SoPro2","Prospect Island",2.33472858576,"Mysid net",1664,NA,NA
-"115","MAC1-2NOV2018","WinBR","Winter Island",24.65009020656,"Mysid net",64,NA,NA
-"120","MAC1-9OCT2018","ProBr","Miner Slough",29.1088628464,"Mysid net",1264,NA,NA
-"132","MAC2-11MAY2018","Wings 1","Wings Landing",11.61774703264,"Mysid net",263,NA,NA
-"133","MAC2-12APR2018","Wings 1","Wings Landing",29.47863569792,"Mysid net",8,NA,NA
-"139","MAC2-18OCT2018","Wings 1","Wings Landing",35.84216849152,"Mysid net",34,NA,NA
-"151","MAC3-01NOV2018","501 FRP","Ryer Island",37.05467946976,"Mysid net",6,NA,NA
-"196","MAC8-15MAR2018","Wings 1","Wings Landing",35.02952815504,"Mysid net",33,NA,NA
-"207","NT1-18APR2018","Dow 4","Dow Wetlands",169.218797014233,"neuston trawl",110,NA,NA
-"310","SAV1-01NOV2018","Ryer3","Suisun",0.375,"sweep net",166,NA,NA
-"314","SAV1-15OCT2018","Winter 2","Winter Island",0.375,"sweep net",8,NA,NA
-"315","SAV1-17OCT2018","Browns1","Browns Island",0.375,"sweep net",437,NA,NA
-"316","SAV1-23OCT2018","SoPro2","Prospect Island",0.375,"sweep net",942,NA,NA
-"318","SAV1-9OCT2018","ProBr","Miner Slough",0.375,"sweep net",5908,NA,NA
+"","SampleID","Sampletype","rich"
+"1","EAV1-26MAR2018","sweep net",16
+"2","EAV2-13APR2018","sweep net",14
+"3","EAV2-22MAR2018","sweep net",3
+"4","EAV2-27MAR2018","sweep net",6
+"5","EAV2-29MAR2018","sweep net",15
+"6","EAV3-09APR2018","sweep net",4
+"7","EAV3-20MAR2018","sweep net",7
+"8","EAV3-27MAR2018","sweep net",8
+"9","EAV3B-13MAR2018","sweep net",8
+"10","EAV5-22MAR2018","sweep net",4
+"11","EAV6-22MAR2018","sweep net",8
+"12","EAV7-22MAR2018","sweep net",11
+"13","EAV7-26MAR2018","sweep net",15
+"14","EAV8-22MAR2018","sweep net",19
+"15","FAV10-18APR2018","sweep net",17
+"16","FAV10-22MAR2018","sweep net",18
+"17","FAV1S-13MAR2018","sweep net",13
+"18","FAV4-18APR2018","sweep net",23
+"19","MAC1-18APR2018","Mysid net",21
+"20","MAC2-11MAY2018","Mysid net",16
+"21","MAC2-12APR2018","Mysid net",3
+"22","MAC8-15MAR2018","Mysid net",6
+"23","NT1-18APR2018","neuston trawl",15
+"24","PG1-10APR2018","Petite Ponar",9
+"25","PG1-11APR2018","Petite Ponar",1
+"26","PG1-12APR2018","Petite Ponar",4
+"27","PG1-13APR2018","Petite Ponar",5
+"28","PG1-18APR2018","Petite Ponar",12
+"29","PG1-22MAR2018","Petite Ponar",1
+"30","PG1-23MAR2018","Petite Ponar",7
+"31","PG1-27MAR2018","Petite Ponar",1
+"32","PG1-29MAR2018","Petite Ponar",5
+"33","PG2-10APR2018","Petite Ponar",1
+"34","PG2-11APR2018","Petite Ponar",4
+"35","PG2-12APR2018","Petite Ponar",10
+"36","PG2-13APR2018","Petite Ponar",2
+"37","PG2-18APR2018","Petite Ponar",6
+"38","PG2-23MAR2018","Petite Ponar",1
+"39","PG2-27MAR2018","Petite Ponar",4
+"40","PG2-29MAR2018","Petite Ponar",2
+"41","PG2B-13MAR2018","Petite Ponar",2
+"42","PG3-10APR2018","Petite Ponar",1
+"43","PG3-11APR2018","Petite Ponar",2
+"44","PG3-12APR2018","Petite Ponar",9
+"45","PG3-13APR2018","Petite Ponar",1
+"46","PG3-18APR2018","Petite Ponar",1
+"47","PG3-23MAR2018","Petite Ponar",1
+"48","PG3-27MAR2018","Petite Ponar",1
+"49","PG3-29MAR2018","Petite Ponar",1
+"50","PG3B-13MAR2018","Petite Ponar",10
+"51","PG4-10APR2018","Petite Ponar",1
+"52","PG4-12APR2018","Petite Ponar",6
+"53","PG4-18APR2018","Petite Ponar",7
+"54","PG4-23MAR2018","Petite Ponar",1
+"55","PG4-29MAR2018","Petite Ponar",1
+"56","PG4B-13MAR2018","Petite Ponar",5
+"57","PG5-12APR2018","Petite Ponar",6
+"58","PG5-18APR2018","Petite Ponar",3
+"59","PG5-23MAR2018","Petite Ponar",1
+"60","PG5-27MAR2018","Petite Ponar",7
+"61","PG5-29MAR2018","Petite Ponar",3
+"62","PG6-12APR2018","Petite Ponar",5
+"63","PG6-22MAR2018","Petite Ponar",3
+"64","PG6-23MAR2018","Petite Ponar",1
+"65","PG6-27MAR2018","Petite Ponar",7
+"66","SAV2-02MAR2018","sweep net",15
+"67","SAV2-23MAR2018","sweep net",12
+"68","SAV2P-29MAR2018","sweep net",18
+"69","SAV3P-29MAR2018","sweep net",14

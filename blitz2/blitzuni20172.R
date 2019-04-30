@@ -110,7 +110,7 @@ tot4x + geom_bar(stat = "identity", aes(fill = Region2)) +
 # probably also just call it "pre-restoration" rather than seperating by diked versud muted tidal.
 
 
-tot2017 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), 
+tot2017 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="L Honker"), 
                  aes(x = site, y = mCPUE, fill = sitetype))
 tot2017 + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
@@ -119,16 +119,16 @@ tot2017 + geom_bar(stat = "identity", position = "dodge") +
   scale_fill_manual(values = mypal) + ylab("CPUE") 
 
 
-tot2017x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="LHB"), 
+tot2017x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="L Honker"), 
                   aes(x = site, y = log(mCPUE), fill = sitetype))
 tot2017x + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
  # geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
-  scale_fill_manual(values = mypal) + ylab("CPUE") 
+  scale_fill_manual(values = mypal) + ylab("log CPUE") 
 
 
-tot2018 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey"), 
+tot2018 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey" & site != "Wings"), 
                  aes(x = site, y = log(mCPUE), fill = sitetype))
 tot2018 + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
@@ -136,7 +136,7 @@ tot2018 + geom_bar(stat = "identity", position = "dodge") +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("log CPUE") 
 
-tot2018x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey"), 
+tot2018x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey" & site != "Wings"), 
                  aes(x = site, y = mCPUE, fill = sitetype))
 tot2018x + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +

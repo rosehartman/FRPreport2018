@@ -53,7 +53,8 @@ bugsblitz <- filter(inverts2, year(Date) >= 2017 & (month(Date) >= 3 & month(Dat
 #add some more info
 targets <- read.csv("blitz2/targets.csv")
 
-bugsblitz = merge(bugsblitz, targets, by = "SampleID")
+bugsblitz = merge(bugsblitz, targets, by = "SampleID", all.x = T)
+test2 = group_by(bugsblitz[which(is.na(bugsblitz$Target)),], SampleID, Sampletype) %>% summarize(rich = length(SampleID))
 
 bugsx = summarize(group_by(bugsblitz, SampleID, Station, Region, Volume, Sampletype, Target), total = sum(TotalCount, na.rm = T))
 
@@ -69,7 +70,11 @@ bugsx$effort[which(bugsx$Sampletype=="sweepnet")]= bugsx$Volume[which(bugsx$Samp
 #effort for benthic cores and grabs is per unit area
 
 bugsx$effort[which(bugsx$Sampletype=="Ponar grab")]=
-  rep(0.0231, nrow(bugsx[which(bugsx$Sampletype=="Ponar grab"),]))
+  rep(0.05226, nrow(bugsx[which(bugsx$Sampletype=="Ponar grab"),]))
+
+bugsx$effort[which(bugsx$Sampletype=="Petite Ponar")]=
+  rep(0.0231, nrow(bugsx[which(bugsx$Sampletype=="Petite Ponar"),]))
+
 
 bugsx$effort[which(bugsx$Sampletype=="PCV core")]=
   rep(0.00811, nrow(bugsx[which(bugsx$Sampletype=="PCV core"),]))
@@ -103,16 +108,17 @@ bugsblitz = bugsblitz[order(bugsblitz$SampleID),]
 bugsblitz = filter(bugsblitz, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracoda")
 
 
-sites = group_by(bugsblitz, Station, Region, Region2) %>% summarize(count = length(Station))
+sites = group_by(inverts2, Station) %>% summarize(count = length(Station))
 
 #import some info on the sites
-sitetypes = read_excel("blitz2/sites.xlsx")
-bugsblitz = merge(bugsblitz, sitetypes[,c(2,6,7)])
+sitetypes = read_excel("blitz2/Stations2.xlsx")
+bugsblitz = merge(bugsblitz, sitetypes[,c(2,9,10,11)])
 
 #put the sties in order along the estuarine/fresh gradient
-bugsblitz$site = factor(bugsblitz$site, levels = c("Ryer", "Grizzly", "Tule Red", "Blacklock", "Bradmoor", "LHB", "Browns",
-                                                     "Winter", "Broad", "Horseshoe", "Decker", "Stacys", "Miner", "Prospect",
-                                                     "Liberty", "Lindsey", "Flyway"))
+bugsblitz$site = factor(bugsblitz$site, levels = c("Ryer", "Grizzly", "Tule Red", "Wings", "Blacklock", "Bradmoor",
+                                                   "L Honker", "Browns","Winter", "Broad", "Dow",
+                                                   "Sherman", "Horseshoe", "Decker", "Stacys",
+                                                   "Lindsey", "Liberty", "Prospect", "Miner", "Flyway"))
 
 #Create a new colum where "targets" (habitat type) combines all the vegetation samples into one type.
 bugsblitz$targets2 = as.character(bugsblitz$Target)
@@ -121,7 +127,7 @@ bugsblitz$targets2[which(bugsblitz$Target == "EAV" | bugsblitz$Target == "SAV"| 
 
 #remove samples from Dow Wetlands, since some of it's wierd and it isn't an FRP site anymore,
 #plus some that weren't sampled during the Blitz
-bugsblitz = filter(bugsblitz, site != "Dow" & site != "Honker" & site != "Sherman")
+bugsblitz = filter(bugsblitz, site != "Dow" & site != "Lindsey" & site != "Sherman")
 
 
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
@@ -205,7 +211,7 @@ benMat.2 = dcast(ben, formula = SampleID~CN, value.var="CPUE",
 #take out the non-clams
 benMat.2 = benMat.2[,c("SampleID", "Corbicula", "Potamocorbula", "Clam Other")]
 ben.2x = melt(benMat.2, id.vars = "SampleID", variable.name = "CN", value.name = "CPUE")
-ben.2x = merge(ben[,c(1,3,4,6,8,26, 34,35,36)], ben.2x, by = "SampleID")
+ben.2x = merge(ben[,c(1,3,4,7,8,33, 34,35,36)], ben.2x, by = "SampleID")
 ben.2x = ben.2x[(!duplicated(ben.2x)),]
 
 
@@ -215,7 +221,6 @@ ben.1 = summarize(group_by(ben.2x, SampleID,
 
 ben.1$site = as.factor(ben.1$site)
 ben.1$sitetype = as.factor(ben.1$sitetype)
-
 
 bensum = summarize(group_by(ben.2x, site, targets2, Region2,
                              sitetype, SampleID, CN, Date), 

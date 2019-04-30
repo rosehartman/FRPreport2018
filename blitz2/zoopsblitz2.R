@@ -1,7 +1,5 @@
 #zooplankton - 2018 update
 library(tidyverse)
-library(lubridate)
-library(ggplot2)
 library(readxl)
 library(reshape2)
 library(RColorBrewer)
@@ -9,6 +7,7 @@ library(vegan)
 library(simr)
 library(lme4)
 library(lmerTest)
+library(visreg)
 ################################################################################################################################
 #First load the function I wrote to query the FRP database
 source("querydatabase.R")
@@ -29,7 +28,7 @@ zoopsfrpx = merge(zoopsfrp, stations)
 totalcells = group_by(zoopsfrpx, SampleID) %>% 
   summarise(totcells = max(CellNumber), totCountall = sum(Count))
 
-zoo = group_by(zoopsfrpx, Station, site, sitetype, sitetype2, Region2, Date, SampleID, Dilution, CommonName,
+zoo = group_by(zoopsfrpx, Station, site, sitetype, Region2, Date, SampleID, Dilution, CommonName,
                 Volume) %>% 
   summarise(totCount = sum(Count))
 
@@ -103,10 +102,12 @@ zooblitz = filter(zooblitz, site != "Lindsey" &
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(12, "Set3"), "black", "white", "grey", "pink")
 
 #put zeros back in to get average catch by species
-zoowide = dcast(zooblitz, SampleID+Region2+site+Date+month+year+sitetype2~AnalyLS, fun.aggregate = sum, na.rm = T, value.var = "CPUE")
-zooblitz0 = melt(zoowide, id.vars = c("SampleID", "site", "Region2","sitetype2", "year", "Date", "month"), variable.name = "AnalyLS", value.name = "CPUE" )
+zoowide = dcast(zooblitz, SampleID+Region2+site+Date+month+year+sitetype~AnalyLS, 
+                fun.aggregate = sum, na.rm = T, value.var = "CPUE")
+zooblitz0 = melt(zoowide, id.vars = c("SampleID", "site", "Region2","sitetype", "year", "Date", "month"), 
+                 variable.name = "AnalyLS", value.name = "CPUE" )
 
-zooave = group_by(zooblitz0, site, sitetype2, Region2, AnalyLS, year) %>% summarize(CPUE = mean(CPUE, na.rm = T))
+zooave = group_by(zooblitz0, site, sitetype, Region2, AnalyLS, year) %>% summarize(CPUE = mean(CPUE, na.rm = T))
 zooave =droplevels(zooave)
 
 #quick plot of CPUE by location
@@ -122,41 +123,68 @@ z1 + geom_bar(stat = "identity", aes(fill = AnalyLS), position = "fill") +
 
 #total CPUE
 zootot = group_by(zooblitz0, SampleID, Date, site, year, month, 
-                 Region2, sitetype2) %>% summarize(CPUE = sum(CPUE, na.rm = T))
+                 Region2, sitetype) %>% summarize(CPUE = sum(CPUE, na.rm = T))
 
 z2 = ggplot(zootot, aes(x=site, y= CPUE))
-z2+geom_boxplot()
+z2+geom_boxplot(aes(fill = sitetype)) + facet_grid(year~Region2, scales = "free")
 #Bradmoor had crzy high CPUE.
-z2+geom_boxplot() + coord_cartesian(ylim = c(0,5000))
+z2+geom_boxplot(aes(fill = sitetype)) + facet_grid(year~Region2, scales = "free") +
+  scale_y_log10()
 
 
 #average total cpue for bar plot
-
-zoototave = group_by(zootot, site, Region2, sitetype2, year) %>% 
-  summarize(mCPUE = mean(CPUE, na.rm = T), seCPUE = sd(CPUE)/length(CPUE), N = length(CPUE))
+zootot$logCPUE = log(zootot$CPUE)
+zoototave = group_by(zootot, site, Region2, sitetype, year) %>% 
+  summarize(mCPUE = mean(CPUE, na.rm = T), seCPUE = sd(CPUE)/length(CPUE), 
+            N = length(CPUE),  mlogCPUE = mean(logCPUE) )
 
 z3 = ggplot(zoototave, aes(x=site, y=mCPUE))
-z3 + geom_bar(stat = "identity", aes(fill = site)) +
+z3 + geom_bar(stat = "identity", aes(fill = sitetype)) +
   facet_grid(year~Region2, scales = "free", space = "free_x") + 
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE)) +
-  scale_fill_manual(values = mypal, guide = "none")+
+  scale_fill_manual(values = mypal)+
   geom_label(aes(label = paste("n = ", N), y = mCPUE+ 300), label.padding = unit(0.1, "lines"), size = 4) +
-   ylab("CPUE") + xlab(label = NULL)+
-coord_cartesian(ylim = c(0,10000))
+   ylab("CPUE") + xlab(label = NULL) #+
+#coord_cartesian(ylim = c(0,10000))
 
-#GLMm of total CPUE
+#log-transformed
+z3.1 = ggplot(zoototave, aes(x=site, y=mlogCPUE))
+z3.1 + geom_bar(stat = "identity", aes(fill = sitetype2)) +
+  facet_grid(year~Region2, scales = "free", space = "free_x") + 
+  scale_fill_manual(values = mypal)+
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 4) +
+  ylab("mean log CPUE") + xlab(label = NULL)
+
+#GLMm of total CPUE ############################ This is probably the best one to use.
 zootot$sitetype2 = as.factor(zootot$sitetype2)
-zblitz = lmer(log(CPUE) ~ Region2 + sitetype2 + (1|site), data = zootot)
+zootot$year = as.factor(zootot$year)
+zblitz = lmer(logCPUE ~ Region2 + sitetype2 + year + (1|site), data = zootot)
 summary(zblitz)
 visreg(zblitz)
+
+
 #Differences by site type, not region
-zblitza = glm(log(CPUE) ~ Region2 + sitetype2, data = zootot)
+zblitza = glm(log(CPUE) ~ Region2 + sitetype2 + year, data = zootot)
 summary(zblitza)
 visreg(zblitza)
 
-zblitzb = aov(log(CPUE) ~ Region2 + sitetype2 + site,  data = zootot)
+zblitzb = aov(log(CPUE) ~ Region2 + sitetype2 + year+ Error(site),  data = zootot)
 summary(zblitzb)
 TukeyHSD(zblitzb)
+
+#GLMm of total CPUE - 2018 only
+zblitz18 = lmer(logCPUE ~ Region2 + sitetype2 +(1|site), data = filter(zootot, year == 2018))
+summary(zblitz18)
+visreg(zblitz18)
+#GROSS
+
+#try removing Bradmoor
+zblitz18x = lmer(logCPUE ~ Region2 + sitetype2 +(1|site), data = filter(zootot, year == 2018 & site != "Bradmoor"))
+summary(zblitz18x)
+visreg(zblitz18x)
+#huh
+
+
 #################################################################################
 
 #calculate coefficient of variation in CPUE
@@ -218,7 +246,7 @@ PlotNMDS2(zNMDS, data = zootot, group = "sitetype2")
 #I'm just going to run the 2018 data
 
 #######################################################################################################
-
+#Do just 2018
 
 #Community matrix by CPUE
 zMat2018 = filter(zoowide, year != 2017)[,8:27]

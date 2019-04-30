@@ -1,4 +1,4 @@
-#decker time series analysis - clean
+#decker time series analysis - 2018
 
 
 library(dplyr)
@@ -13,105 +13,196 @@ library(readxl)
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(8, "Set2"), brewer.pal(8, "Dark2"))
 mytheme = theme(text = element_text(size=14), legend.text.align = 0)
 
+source("querydatabase.R")
+
+#Now specify the path to the FRP database
+path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+
+#Query the invertebrate data
+inverts2 <- GetFRPdata(path, type = "inverts")
+
+#Query the station information
+stations = GetFRPdata(path, type = "stations")
+
+#attatch station information
+inverts2 = merge(inverts2, stations[,c(2,7)], all.x = T)
+
+#assume that if "subsampled" is left blankn, it's 100%
+inverts2$subsampled[which(is.na(inverts2$subsampled))]= 100
+
+#convert the date from factor to date
+inverts2$Date <- ymd(inverts2$Date)
+
+#clean up the 'sample types' column
+inverts2$Sampletype = as.character(inverts2$Sampletype)
+inverts2$Sampletype[which(inverts2$Sampletype == "Mysid net (no sled)" | 
+                            inverts2$Sampletype == "larval sled oblique"|
+                            inverts2$Sampletype == "larval sled benthic")]=
+  "Mysid net"
 
 
-#Check out macroinvertebrates
-Deckerbugs <- read_excel("Deckerbugs.xlsx", 
-                         sheet = "deckerbugs", col_types = c("text", 
-                                                             "numeric", "numeric", "numeric", 
-                                                             "text", "text", "date", "text", "text", 
-                                                             "text", "text", "text", "text", "text", 
-                                                             "text", "logical", "text", "numeric", 
-                                                             "numeric", "numeric", "numeric", 
-                                                             "numeric", "numeric", "numeric", 
-                                                             "numeric"))
+#import some info on the sites
+sitetypes = read_excel("blitz2/Stations2.xlsx")
+inverts3 = merge(inverts2, sitetypes[,c(2,9,10,11)])
+inverts3$year = year(inverts3$Date)
+
+
+#subset teh samples from 2017 and 2018
+Decker <- filter(inverts3, site == "Decker" & (year ==2017 | year == 2018))
+
+#add some more info
+targets <- read.csv("blitz2/targets.csv")
+
+#check to see if we haven't assigned targets for any samples
+#bugsx = summarize(group_by(Decker, SampleID, Station, site, Region, Volume, Sampletype), total = sum(TotalCount, na.rm = T))
+#test = merge(bugsx, targets, all.x = T)
+#test2 = test[which(is.na(test$Target)),]
+
+Decker = merge(Decker, targets, by = "SampleID", all.x = T)
+
+bugsx = summarize(group_by(Decker, SampleID, Station, Volume, Sampletype, Target), total = sum(TotalCount, na.rm = T))
+
+
+bugsx$effort = rep(NA, nrow(bugsx))
+
+#effort for trawls and sweepnets is volume
+bugsx$effort[which(bugsx$Sampletype=="Mysid net")]= bugsx$Volume[which(bugsx$Sampletype=="Mysid net")]
+bugsx$effort[which(bugsx$Sampletype=="neuston trawl")]= bugsx$Volume[which(bugsx$Sampletype=="neuston trawl")]
+bugsx$effort[which(bugsx$Sampletype=="sweepnet")]= bugsx$Volume[which(bugsx$Sampletype=="sweepnet")]
+
+
+#effort for benthic cores and grabs is per unit area
+
+bugsx$effort[which(bugsx$Sampletype=="Ponar grab")]=
+  rep(0.05226, nrow(bugsx[which(bugsx$Sampletype=="Ponar grab"),]))
+
+bugsx$effort[which(bugsx$Sampletype=="Petite Ponar")]=
+  rep(0.0231, nrow(bugsx[which(bugsx$Sampletype=="Petite Ponar"),]))
+
+
+bugsx$effort[which(bugsx$Sampletype=="PCV core")]=
+  rep(0.00811, nrow(bugsx[which(bugsx$Sampletype=="PCV core"),]))
+
+#everything else has an effort of "1"
+
+bugsx$effort[which(is.na(bugsx$effort))] = 1
+
+#attach the efforts to the origional dataset
+Decker= merge(Decker, bugsx)
+Decker$TotalCount[which(is.na(Decker$TotalCount))] =0
+Decker$subsampled[which(is.na(Decker$subsampled))] =100
+
+
+# Adjust total count for subsampling
+Decker$atotal = Decker$TotalCount*(1/(Decker$subsampled/100))
+
+#Calculate CPUE
+Decker$CPUE = Decker$atotal/Decker$effort
+
+#add some analysis groups
+zoocodes <- read_excel("blitz2/zoocodes.xlsx")
+zoocodes <- zoocodes[,c(3,12,13, 14)]
+Decker = merge(Decker, zoocodes)
+Decker = Decker[order(Decker$SampleID),]
+
+
+
+#I'm going to go ahead and remove the mesozooplanktoton from all the blitz bugs samples. I may want to make some extra notes 
+#on the catch of cladocera in sweep nets, but just to make stuff clearer for now...
+Decker = filter(Decker, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 != "Ostracoda")
+
+
+sites = group_by(inverts2, Station) %>% summarize(count = length(Station))
+
+#import some info on the sites
+sitetypes = read_excel("blitz2/Stations2.xlsx")
+Decker = merge(Decker, sitetypes[,c(2,9,10,11)])
+
+#put the sties in order along the estuarine/fresh gradient
+Decker$site = factor(Decker$site, levels = c("Ryer", "Grizzly", "Tule Red", "Wings", "Blacklock", "Bradmoor",
+                                                   "L Honker", "Browns","Winter", "Broad", "Dow",
+                                                   "Sherman", "Horseshoe", "Decker", "Stacys",
+                                                   "Lindsey", "Liberty", "Prospect", "Miner", "Flyway"))
+
+#Create a new colum where "targets" (habitat type) combines all the vegetation samples into one type.
+Decker$targets2 = as.character(Decker$Target)
+Decker$targets2[which(Decker$Target == "EAV" | Decker$Target == "SAV"| Decker$Target == "FAV" )] = "sweep net"
+
+#Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
+Decker.1 = summarize(group_by(Decker, SampleID, Station, Region2, Target, targets2, 
+                                 Region, Sampletype, site, sitetype, Date),
+                        tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), richness = length(unique(Analy)))
+
+Decker.1$site = as.factor(Decker.1$site)
+Decker.1$sitetype = as.factor(Decker.1$sitetype)
+Decker.1$targets2 = as.factor(Decker.1$targets2)
+
+#summarize by Region and habitat type so I can make a quick plot
+
+#add up all the critters that are in the same analysis group
+bugssum = summarize(group_by(Decker, site, targets2, 
+                             Region2, Station, sitetype, Sampletype, SampleID, Analy), 
+                    tCPUE = sum(CPUE))
+
+#I need to add the zeros in for taxa that were not present in a sample so I can take an appropriate mean
+#I usually do this by transfering it from "long" to "wide" and back again.
+
+#Make it wide
+ComMat.1 = dcast(Decker, formula = SampleID~Analy2, value.var="CPUE", 
+                 fun.aggregate = sum, fill = 0)
+#do it by smaller grouping
+ComMat.2 = dcast(Decker, formula = SampleID~Analy, value.var="CPUE", 
+                 fun.aggregate = sum, fill = 0)
+
+#do it by common name
+ComMat.CN = dcast(Decker, formula = SampleID~CommonName, value.var="CPUE", 
+                  fun.aggregate = sum, fill = 0)
+
+#do it by cleaned up common name
+ComMat.CN2 = dcast(Decker, formula = SampleID~CN, value.var="CPUE", 
+                   fun.aggregate = sum, fill = 0)
+
+#Go back to long
+Decker.2x = melt(ComMat.1, id.vars = "SampleID", variable.name = "Analy2", value.name = "CPUE")
+Decker.2x = merge(Decker.1, Decker.2x)
+
+#Means by analysis group for each location
+bugssum.1 = summarize(group_by(Decker.2x, site, Region2, sitetype, targets2, 
+                               Region, Sampletype, Analy2), mCPUE = mean(CPUE),
+                      sdCPUE = sd(CPUE), seCPUE = sd(CPUE)/length(CPUE))
+
+#Now calculate total CPUE
+bugstot = summarize(group_by(Decker.2x, SampleID, Date, site, sitetype, Target, targets2, 
+                             Region, Region2, Sampletype), tCPUE = sum(CPUE, na.rm = T))
+
+
+bugstot$Year = year(bugstot$Date)
+bugstot$Year2 = as.factor(bugstot$Year)
+bugstot$logtot = log(bugstot$tCPUE +1)
+bugstotNoB = filter(bugstot, targets2!= "benthic")
+
+#Mean CPUE, sample size, and standard error for each location and habitat so I can make a pretty graph.
+bugstotave = summarize(group_by(bugstot, site, sitetype, targets2, 
+                                Region2), mCPUE = mean(tCPUE, na.rm = T), 
+                       sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID))
+
+#Some sites didn't have samples for a particular habitat type, so I added rows to make it easier to graph
+sitetarget = expand.grid(site=unique(bugstotave$site), targets2 = unique(bugstotave$targets2))
+foo = merge(sitetypes[,c(4,6,7)], sitetarget)
+foo = unique(foo)
+
+bugstotave2 = merge(foo, bugstotave, all.x = T)
+bugstotave2$mCPUE[which(is.na(bugstotave2$mCPUE))] = 0
+bugstotave2$N[which(is.na(bugstotave2$N))] = 0
+bugstotave2$site = factor(bugstotave2$site, levels = c("Ryer", "Grizzly", "Tule Red", "Blacklock", "Bradmoor", "LHB", "Browns",
+                                                       "Winter", "Broad", "Horseshoe", "Decker", "Stacys", "Miner", "Prospect",
+                                                       "Liberty", "Lindsey", "Flyway"))
+
+
 
 #we just want to look at spring of 2017
 Deckerbugs = filter(Deckerbugs, Date > "2017-1-1" & Date < "2017-7-1")
 
-#add some more info
-targets <- read.csv("targets.csv")
-Deckerbugs = merge(Deckerbugs, targets, all.x = T)
-
-Deckerbugs.e = summarize(group_by(Deckerbugs, miSampleID, Station, Target,VegWeight,
-                                  sampletype, Date, NetMeterSTart, NetMeterEnd, LatStart, LongStart,
-                                  LatEnd, LongEnd),
-                         mean.en= mean(NetMeterSTart))
-
-
-
-
-# Calculate effort for the trawls
-Deckerbugs.e$distance = rep(NA, nrow(Deckerbugs.e))
-
-Deckerbugs.e$distance[which(Deckerbugs.e$sampletype=="neuston")]= apply(Deckerbugs.e[which(Deckerbugs.e$sampletype=="neuston"),c(9:12)], 1, function(x) {
-  R <- 6371
-  rads <- x * pi/180
-  d <- sin(rads[1])*sin(rads[3])+cos(rads[1])*cos(rads[3])*cos(abs(rads[2]-rads[4]))
-  d <- acos(d)
-  R*d*1000
-} )
-
-Deckerbugs.e$effort = rep(NA, nrow(Deckerbugs.e))
-
-# Effort for neuston trawl is surface area sampled, distance in m * width of net mouth (45cm)
-
-# Some of the neuston trawls didn't have GPS coordinates, so I'll just average the distance
-# for the rest of the 3-minute trawls.
-#meandis = mean(Deckerbugs.e$distance[which(Deckerbugs.e$sampletype =="neuston")], na.rm=T)
-#Deckerbugs.e$distance[which(is.na(Deckerbugs.e$distance) & Deckerbugs.e$sampletype=="neuston")] = meandis
-#Deckerbugs.e$effort[which(Deckerbugs.e$sampletype=="neuston")] = Deckerbugs.e$distance[which(Deckerbugs.e$sampletype=="neuston")]*.45
-
-# Effort for benthic and oblique trawls is based on flowmeter readings and net mouth area
-
-Deckerbugs.e$effort[which(Deckerbugs.e$sampletype=="trawl")]= 
-  (Deckerbugs.e$NetMeterEnd[which(Deckerbugs.e$sampletype=="trawl") ]-
-     Deckerbugs.e$NetMeterSTart[which(Deckerbugs.e$sampletype=="trawl")])*0.026873027*0.16 #I've used the factory calibration here
-
-Deckerbugs.e$effort[which(Deckerbugs.e$effort<0)] = ((1000000 - Deckerbugs.e$NetMeterEnd[which(Deckerbugs.e$effort<0)])+
-                                                       Deckerbugs.e$NetMeterSTart[which(Deckerbugs.e$effort<0)])*0.026873027*0.16 #I've used the factory calibration here
-
-meantrawl = mean(Deckerbugs.e$effort[which(Deckerbugs.e$sampletype=="trawl" &
-                                             Deckerbugs.e$miSampleID != "MAC1-8MAY2017" &
-                                             Deckerbugs.e$miSampleID != "MAC1D-7JUN2017" )], na.rm = T)
-
-#Something's wrong with a couple of the mysid trawls
-Deckerbugs.e$effort[which(Deckerbugs.e$miSampleID == "MAC1-8MAY2017" | 
-                            Deckerbugs.e$miSampleID == "MAC1D-7JUN2017"|
-                            Deckerbugs.e$miSampleID == "MYSID1-14feb2017"|
-                            Deckerbugs.e$miSampleID == "MYSID1-25jan2017")] = meantrawl
-
-
-
-Deckerbugs.e$effort[which(Deckerbugs.e$sampletype=="sweepnet" & Deckerbugs.e$VegWeight>0)] =
-  Deckerbugs.e$VegWeight[which(Deckerbugs.e$sampletype=="sweepnet" & Deckerbugs.e$VegWeight>0)]
-
-#everything else has an effort of "1"
-
-Deckerbugs.e$effort[which(is.na(Deckerbugs.e$effort))] = 1
-
-#attach the efforts to the origional dataset
-Deckerbugs= merge(Deckerbugs, Deckerbugs.e)
-
-
-# Adjust total count for subsampling
-Deckerbugs$atotal = Deckerbugs$TotalCount*(1/(Deckerbugs$subsampled/100))
-
-#Calculate CPUE
-Deckerbugs$CPUE = Deckerbugs$atotal/Deckerbugs$effort
-
-#add some analysis groups
-zoocodes <- read.csv("zoocodes.csv", as.is=F)
-zoocodes <- zoocodes[,c(1,11,12, 13)]
-zoocodes$InvertCode = zoocodes$Zoo.Code
-Deckerbugs = merge(Deckerbugs, zoocodes)
-Deckerbugs = Deckerbugs[order(Deckerbugs$miSampleID),]
-
-#Summarize by order, family, taxon
-tax = summarize(group_by(Deckerbugs,  analysisB, Phylum, Class, Order), total = sum(TotalCount))
-
-#take out the blank ones
-Deckerbugs = Deckerbugs[-which(is.na(Deckerbugs$analysisA)),]
 
 #take out the zooplankotn
 Deckerbugs = filter(Deckerbugs,  analysisB != "Copepoda" & analysisB != "Cladocera")
