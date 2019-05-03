@@ -117,8 +117,12 @@ Decker = filter(Decker, Analy2 != "Copepoda" & Analy2 != "Cladocera" & Analy2 !=
 #Take out the benthic samples
 Decker = filter(Decker, Target != "benthic")
 
-
+#We didn't have FAV or SAV samples in all months, which I think is throwing us off
 sites = group_by(inverts2, Station) %>% summarize(count = length(Station))
+Decker = filter(Decker, Target != "SAV" & Target != "FAV")
+
+#One of the january MAC samples got totally filled with vegetation
+Decker = filter(Decker, SampleID != "MAC1-23JAN2018")
 
 #import some info on the sites
 sitetypes = read_excel("blitz2/Stations2.xlsx")
@@ -130,7 +134,7 @@ Decker$targets2[which(Decker$Target == "EAV" | Decker$Target == "SAV"| Decker$Ta
 
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
 Decker.1 = summarize(group_by(Decker, SampleID,targets2, 
-                                 Sampletype, month, month2, year, Year2, Date),
+                                 Sampletype, month, month2, year, Year2, Date, Volume),
                         tcount = sum(atotal, na.rm = T), tCPUE = sum(CPUE, na.rm = T), richness = length(unique(Analy)))
 
 
@@ -194,13 +198,16 @@ c1 = ggplot(decksum.1,
 c1 +  geom_area(aes(fill =Analy2)) + 
   facet_wrap(Year2~targets2, scales = "free_y") +
   ylab("CPUE") + 
-  scale_fill_manual(values = mypal, name = "Taxon")
+  scale_fill_manual(values = mypal, name = "Taxon") +
+  coord_cartesian(xlim = c(1,6))
 
 ################################################################################
 #try a GLM of total catch by date
 Decker.1$yday = yday(Decker.1$Date)
-m1 = glm(log(tCPUE + 1) ~ targets2 + yday, data =Decker.1)
+m1 = glm(log(tCPUE + 1) ~ targets2 + yday*Year2, data =Decker.1)
 summary(m1)
+visreg(m1)
+visreg(m1, xvar = "yday", by = "Year2")
 m1l =lm(log(tCPUE+1) ~ targets2 + yday, data =Decker.1)
 summary(m1l)
 
