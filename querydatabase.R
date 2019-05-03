@@ -61,7 +61,7 @@ else if (type == "stations"){
 SiteVisit.Date, SiteVisit.Temp, SiteVisit.SC, SiteVisit.pH, SiteVisit.DO, SiteVisit.Secchi, 
 SiteVisit.Turbidity, SiteVisit.Chlorophyll, SiteVisit.FDOM, SiteVisit.PC, SiteVisit.Microcystis, 
 SampleInfo.[Habitat type], SampleInfo.SampleName, phytoplankton.Volume, phytoplankton.PercentCounted, 
-phytoplankton.Taxon, phytoplankton.CellCount, phytoplankton.CellspermL, SampleInfo.Comments
+phytoplankton.Taxon, phytoplankton.CellCount, phytoplankton.CellspermL, SampleInfo.Comments,  phytoplankton.BiovolumeperuL
 FROM Stations2 INNER JOIN ((SiteVisit INNER JOIN SampleInfo ON SiteVisit.VisitNo = SampleInfo.[Site visit]) 
                                               INNER JOIN phytoplankton ON SampleInfo.SampleName = phytoplankton.SampleID) ON Stations2.Station = SiteVisit.Station;"))
     return(data)
