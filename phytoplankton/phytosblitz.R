@@ -40,7 +40,8 @@ phytos2 = merge(phytos2, taxa2, by = "Genus")
 
 
 #combine into one row per sample
-physum = group_by(phytos2, SiteID, Region, Location, SiteType) %>% summarize(CPUE = sum(CellspermL))
+physum = group_by(phytos2, SampleName, Region2, site, sitetype, Date, year) %>% 
+  summarize(CPUE = sum(CellspermL), BPUE = sum(BiovolumeperuL))
 
 ######################################################################################
 #some exploritory plots

@@ -7,7 +7,7 @@ source("plotNMDS.R")
 #to see if anything jumps out at us.
 
 ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=site, y = CPUE, fill = Analy2)) + geom_bar(stat = "identity", position = "fill")+
-  facet_grid(targets2~Region2, scales = "free", space = "free_x") +
+  facet_grid(targets2 + year~Region2, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
   xlab("Site")+ ylab("Relative percent composition") + mytheme
 
@@ -124,6 +124,9 @@ mds8 = metaMDS(Com.CN2p, try = 50, trymax = 500)
 
 #Well, that didn't work. 
 
+#Try summarizing by site and year
+
+
 #Let's look at that "indicspecies" analysis I've done in the past, it would be cool if we can
 #find something associated with managed wetlands
 
@@ -185,6 +188,8 @@ envfit(NMDS2b~SiteType2,data = ben.1)
 ###############################################################################################
 #mysids
 
+#we only had one trawl in a diked wetland, so I am taking tha out
+mys.2x = filter(mys.2x, site != "Bradmoor")
 
 ComMatnx = dcast(mys.2x, formula = SampleID~Analy2, value.var="CPUE", 
                  fun.aggregate = sum, fill = 0)
@@ -197,14 +202,15 @@ ComMatpnx = ComMat2nx/rowSums(ComMat2nx)
 
 
 #PERMANOVA with relative abundance
-pn1 = adonis(ComMatpnx~Region2+sitetype + site, data = mys.1x)
+pn1 = adonis(ComMatpnx~sitetype+ Region2/site, strata = mys.1x$Region2, data = mys.1x)
 pn1
 #NMDS
 
-NMDS2n = metaMDS(ComMatpnx, try = 50, trymax = 500)
+NMDS2n = metaMDS(ComMatpnx, try = 50, trymax = 1000)
 NMDS2n
 
 #plot it
+mys.1x$Region2 = as.factor(mys.1x$Region2)
 PlotNMDS(NMDS2n, data = mys.1x, group = "Region2")
 #test significance
 envfit(NMDS2n~Region2,data = mys.1x)
@@ -229,7 +235,7 @@ ComMat2n = ComMatn[,2:ncol(ComMatn)]
 ComMatpn = ComMat2n/rowSums(ComMat2n)
 
 #PERMANOVA with relative abundance
-pn1 = adonis(ComMatpn~Region2+sitetype + site, data = neu.1)
+pn1 = adonis(ComMatpn~sitetype + Region2/site, strata = neu.1$Region2, data = neu.1)
 pn1
 #NMDS
 
@@ -243,7 +249,7 @@ envfit(NMDS2n~Region,data = neu.1)
 
 #plot it based on site type
 PlotNMDS(NMDS2n, data = neu.1, group = "sitetype")
-envfit(NMDS2n~SiteType2,data = neu.1)
+envfit(NMDS2n~sitetype,data = neu.1)
 
 
 #########################################################################################
@@ -264,7 +270,7 @@ ComMat2sw = ComMat2sw[which(rowSums(ComMat2sw, na.rm=T)!=0),]
 ComMatpsw = ComMat2sw/rowSums(ComMat2sw)
 
 #PERMANOVA with relative abundance
-psw1 = adonis(ComMatpsw~Region2+sitetype + site, data = sw.1x)
+psw1 = adonis(ComMatpsw~Region2/site+sitetype, data = sw.1x)
 psw1
 #NMDS
 
@@ -276,19 +282,11 @@ PlotNMDS(NMDS2sw, data = sw.1x, group = "Region2")
 #test the significance of the different groups
 envfit(NMDS2sw~Region2,data = sw.1x)
 
-#plot it based on site type
-PlotNMDS(NMDS2sw, data = sw.1x, group = "sitetype")
-envfit(NMDS2sw~sitetype,data = sw.1x)
-
-#plot it based on veg type
-PlotNMDS(NMDS2sw, data = sw.1x, group = "Target")
-
-#plot it based on year
-sw.1x$year = as.factor(year(sw.1x$Date))
-PlotNMDS(NMDS2sw, data = sw.1x, group = "year")
 
 
 #Maybe if I just use 2018 I can get it to converge?
+sw.1x$year = year(sw.1x$Date)
+sw.1x$Region2 = as.factor(sw.1x$Region2)
 SN2018 = filter(sw.1x, year == 2018)
 Matsn2018 = ComMatpsw[which(sw.1x$year == 2018),]
 sw2018 = metaMDS(Matsn2018, trymax = 2000,  sratmax = 0.99999999, sfgrmin = 1e-8)

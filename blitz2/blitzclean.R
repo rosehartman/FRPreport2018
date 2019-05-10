@@ -42,6 +42,7 @@ inverts2$Sampletype[which(inverts2$Sampletype == "Mysid net (no sled)" |
   "Mysid net"
 
 #subset teh samples from 2017 and 2018
+bugsblitz$year = year(bugsblitz$Date)
 bugsblitz <- filter(inverts2, year(Date) >= 2017 & (month(Date) >= 3 & month(Date)<=5))
 
 #check to see if we haven't assigned targets for any samples
@@ -120,14 +121,13 @@ bugsblitz$site = factor(bugsblitz$site, levels = c("Ryer", "Grizzly", "Tule Red"
                                                    "Sherman", "Horseshoe", "Decker", "Stacys",
                                                    "Lindsey", "Liberty", "Prospect", "Miner", "Flyway"))
 
+#Take out Dow, Lindsey, and Wings for the 2018 report
+bugsblitz = filter(bugsblitz, site != "Lindsey" & site != "Dow" & site != "Wings" & site != "Sherman")
+
 #Create a new colum where "targets" (habitat type) combines all the vegetation samples into one type.
 bugsblitz$targets2 = as.character(bugsblitz$Target)
 bugsblitz$targets2[which(bugsblitz$Target == "EAV" | bugsblitz$Target == "SAV"| bugsblitz$Target == "FAV" )] = "sweep net"
 
-
-#remove samples from Dow Wetlands, since some of it's wierd and it isn't an FRP site anymore,
-#plus some that weren't sampled during the Blitz
-bugsblitz = filter(bugsblitz, site != "Dow" & site != "Lindsey" & site != "Sherman")
 
 
 #Summarize by sample and calculate the total CPUE of all the macroinvertebrates in the sample
@@ -186,7 +186,8 @@ bugstotNoB = filter(bugstot, targets2!= "benthic")
 #Mean CPUE, sample size, and standard error for each location and habitat so I can make a pretty graph.
 bugstotave = summarize(group_by(bugstot, site, sitetype, targets2, 
                                  Region2), mCPUE = mean(tCPUE, na.rm = T), 
-                       sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID))
+                       sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID), 
+                       mlogtot = mean(logtot), selogtot = sd(logtot)/length(logtot))
 
 #Some sites didn't have samples for a particular habitat type, so I added rows to make it easier to graph
 sitetarget = expand.grid(site=unique(bugstotave$site), targets2 = unique(bugstotave$targets2))
@@ -231,10 +232,10 @@ bensum = summarize(group_by(ben.2x, site, targets2, Region2,
 
 #######################################################################################
 
-mys = filter(bugsblitz, Target == "mysid")
-mys.1 = filter(bugsblitz.1, Target == "mysid")
-mys.2x = filter(bugsblitz.2x, Target == "mysid")
-myssum.1 = filter(bugssum.1, targets2 == "mysid")
+mys = filter(bugsblitz, Target == "mysid", site != "Bradmoor")
+mys.1 = filter(bugsblitz.1, Target == "mysid", site != "Bradmoor")
+mys.2x = filter(bugsblitz.2x, Target == "mysid", site != "Bradmoor")
+myssum.1 = filter(bugssum.1, targets2 == "mysid", site != "Bradmoor")
 
 #######################################################################################
 
@@ -245,10 +246,10 @@ neusum.1 = filter(bugssum.1, targets2 == "neuston")
 
 #######################################################################################
 
-sweeps = filter(bugsblitz, targets2 == "vegetation")
-sweeps.1 = filter(bugsblitz.1, targets2 == "vegetation")
-sweeps.2x = filter(bugsblitz.2x, targets2 == "vegetation")
-sweepssum.1 = filter(bugssum.1, targets2 == "vegetation")
+sweeps = filter(bugsblitz, targets2 == "sweep net")
+sweeps.1 = filter(bugsblitz.1, targets2 == "sweep net")
+sweeps.2x = filter(bugsblitz.2x, targets2 == "sweep net")
+sweepssum.1 = filter(bugssum.1, targets2 == "sweep net")
 
 
 ############################################################################################

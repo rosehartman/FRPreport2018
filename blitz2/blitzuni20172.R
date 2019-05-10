@@ -15,9 +15,9 @@ library(MuMIn)
 
 #Linear mixed model of log total CPUE, as predicted by habitat type (targets2), Region2, and Site Type. 
 #I'm going to take out the benthic samples since we changed the way we do those
-
+bugstot2 = filter(bugstotNoB, site != "Dow" & site != "Wings")
 blitz2 = lmer(logtot ~ targets2+ sitetype+ Region2  + Year2+ (1|site), 
-              data = bugstotNoB, na.action = "na.fail")
+              data = bugstot2, na.action = "na.fail")
 summary(blitz2)
 visreg(blitz2)
 
@@ -28,7 +28,7 @@ visreg(blitz2a)
 
 
 blitz2b = aov(log(tCPUE+1) ~ targets2 + sitetype+ Region2 +  Year2 + Error(site), 
-              data = filter(bugstot, targets2 != "benthic"), na.action = "na.fail")
+              data = bugstot2, na.action = "na.fail")
 summary(blitz2b)
 #TukeyHSD(blitz2b) #can't do a tukey test on a mixed model
 
@@ -55,7 +55,49 @@ dredge(blitz2)
 #That reinforces the result that gear type and site type are the most important
 #predictors of catch, when site is used as an error term. 
 
+####################################################################
+#I'm gonna look rea quick and see what happens if I analyze the gear types sepertely
+sweeps = filter(bugstot2, targets2 == "sweep net")
+SN1 = lmer(logtot ~ Target+ sitetype+ Region2  + Year2+ (1|site), 
+           data = sweeps, na.action = "na.fail")
+summary(SN1)
+dredge(SN1)
 
+swbest = lmer(logtot~ Target + sitetype + (1|site), data = sweeps)
+summary(swbest)
+visreg(swbest)
+
+swbesta = aov(logtot~ Target + sitetype + site, data = sweeps)
+TukeyHSD(swbesta)
+
+################################################################33
+mysids = filter(bugstot2, targets2 == "mysid", sitetype != "diked")
+m1 = lmer(logtot ~ sitetype+ Region2  + Year2+ (1|site), 
+           data = mysids, na.action = "na.fail")
+summary(m1)
+dredge(m1)
+
+#best model
+mbest = lmer(logtot ~ sitetype+  Year2+ (1|site), 
+             data = mysids)
+summary(mbest)
+visreg(mbest)
+
+mbesta = aov(logtot ~ sitetype+  Year2+ site, 
+             data = mysids)
+TukeyHSD(mbesta)
+
+#############################################################################
+#neuston
+neuston = filter(bugstot2, targets2 == "neuston", sitetype != "diked")
+n1 = lmer(logtot ~ sitetype+ Region2  + Year2+ (1|site), 
+          data = neuston, na.action = "na.fail")
+summary(n1)
+dredge(n1)
+
+nbest = lmer(logtot ~ (1|site), data = neuston)
+summary(nbest)
+visreg(n1)
 
 
 ###########################################################################################
@@ -71,7 +113,8 @@ tot2 + geom_bar(stat = "identity", aes(fill = site)) +
 #I should seperate by year...
 bugstotave3 = summarize(group_by(bugstot, site, sitetype, targets2, 
                                  Region2, Year), mCPUE = mean(tCPUE, na.rm = T), 
-                        sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID))
+                        sdCPUE = sd(tCPUE, na.rm = T), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID),
+                        mlogtot = mean(logtot), selogtot = sd(logtot)/length(logtot))
 
 
 tot3 = ggplot(filter(bugstotave3, targets2 != "benthic"), aes(x = site, y = mCPUE))
@@ -118,21 +161,21 @@ tot2017 + geom_bar(stat = "identity", position = "dodge") +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("CPUE") 
 
-
+#log-transformed, seperate by year
 tot2017x = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2017, site !="L Honker"), 
-                  aes(x = site, y = log(mCPUE), fill = sitetype))
+                  aes(x = site, y = mlogtot, fill = sitetype))
 tot2017x + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
- # geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_errorbar(aes(ymin = mlogtot - selogtot, ymax = mlogtot + selogtot), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("log CPUE") 
 
 
 tot2018 = ggplot(filter(bugstotave3, targets2 != "benthic", Year == 2018, site != "Lindsey" & site != "Wings"), 
-                 aes(x = site, y = log(mCPUE), fill = sitetype))
+                 aes(x = site, y = mlogtot, fill = sitetype))
 tot2018 + geom_bar(stat = "identity", position = "dodge") + 
   facet_grid(targets2~Region2, scales = "free", space = "free_x") +
-  #geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
+  geom_errorbar(aes(ymin = mlogtot - selogtot, ymax = mlogtot + selogtot), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("log CPUE") 
 
@@ -143,6 +186,16 @@ tot2018x + geom_bar(stat = "identity", position = "dodge") +
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
   scale_fill_manual(values = mypal) + ylab("CPUE") 
+
+
+#####################THIS IS thE ONE I WANT IN THE REPORT
+totboth = ggplot(filter(bugstotave3, targets2 != "benthic", site != "Lindsey" & site != "Wings"), 
+                 aes(x = site, y = mlogtot))
+totboth + geom_bar(stat = "identity", position = "dodge", aes(fill = sitetype)) + 
+  facet_grid(targets2+Year~Region2, scales = "free", space = "free_x") +
+  geom_errorbar(aes(ymin = mlogtot - selogtot, ymax = mlogtot + selogtot), width = 0.7) +
+  geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
+  scale_fill_manual(values = mypal) + ylab("mean log-transformed CPUE")
 
 ####################################################################################
 #Look at the coefficient of variation within sites for each sample type
