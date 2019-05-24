@@ -42,8 +42,8 @@ inverts2$Sampletype[which(inverts2$Sampletype == "Mysid net (no sled)" |
   "Mysid net"
 
 #subset teh samples from 2017 and 2018
-bugsblitz$year = year(bugsblitz$Date)
 bugsblitz <- filter(inverts2, year(Date) >= 2017 & (month(Date) >= 3 & month(Date)<=5))
+bugsblitz$year = year(bugsblitz$Date)
 
 #check to see if we haven't assigned targets for any samples
 #bugsx = summarize(group_by(bugsblitz, SampleID, Station, Region, Volume, Sampletype), total = sum(TotalCount, na.rm = T))
@@ -212,7 +212,7 @@ benMat.2 = dcast(ben, formula = SampleID~CN, value.var="CPUE",
 #take out the non-clams
 benMat.2 = benMat.2[,c("SampleID", "Corbicula", "Potamocorbula", "Clam Other")]
 ben.2x = melt(benMat.2, id.vars = "SampleID", variable.name = "CN", value.name = "CPUE")
-ben.2x = merge(ben[,c(1,3,4,7,8,33, 34,35,36)], ben.2x, by = "SampleID")
+ben.2x = merge(ben[,c(3,6,8,34,35,36)], ben.2x, by = "SampleID")
 ben.2x = ben.2x[(!duplicated(ben.2x)),]
 
 
@@ -223,7 +223,7 @@ ben.1 = summarize(group_by(ben.2x, SampleID,
 ben.1$site = as.factor(ben.1$site)
 ben.1$sitetype = as.factor(ben.1$sitetype)
 
-bensum = summarize(group_by(ben.2x, site, targets2, Region2,
+bensum = summarize(group_by(ben.2x, site, Region2,
                              sitetype, SampleID, CN, Date), 
                     tCPUE = sum(CPUE))
 

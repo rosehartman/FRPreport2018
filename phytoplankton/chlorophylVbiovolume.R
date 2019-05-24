@@ -69,3 +69,39 @@ p3 + geom_point() + geom_smooth(method = "lm") + xlab("cells/mL") +
   ylab("Chlorophyll ug/L") + scale_y_continuous(limits = c(0,30))+
   scale_x_continuous(limits = c(4, 10))
 
+#########################################################################################
+#look at chlorophyll by site
+physum = filter(physum, !is.na(Chlorophyll))
+ph = lmer(log(Chlorophyll)~ sitetype + Region2 +(1|site), data = physum)
+summary(ph)
+visreg(ph)
+
+#hm. That's not getting very far. I may need a new query to grab all the chlorophyll data.
+
+chla = GetFRPdata(path, type = "chlorophyll")
+stations = read_xlsx("blitz2/Stations2.xlsx")
+chla1 = merge(chla, stations)
+chla1 = filter(chla1, site != "Dow" & site != "Lindsey" & site != "Wings", Chlorophyll >=0 & month(Date) >2 & month(Date) <6 & year(Date) == 2018)
+chla1$logchla = log(chla1$Chlorophyll)
+
+ph = lmer(log(Chlorophyll)~ sitetype + Region2 + Date +(1|site), data = chla1, na.action = na.fail)
+summary(ph)
+visreg(ph)
+dredge(ph)
+
+ph1 = lmer(log(Chlorophyll)~ sitetype + (1|site), data = chla1, na.action = na.fail)
+summary(ph1)
+visreg(ph1)
+
+
+ch = ggplot(chla1, aes(x= site, y = Chlorophyll))
+ch + geom_point()
+
+chlasum = group_by(chla1, site, sitetype, Region2) %>% summarize(mCHL = mean(Chlorophyll), 
+                                                                mlogchl = mean(logchla), selc = sd(logchla)/length(logchla))
+
+ch = ggplot(chlasum, aes(x= site, y = mlogchl))
+ch + geom_bar(stat = "identity", aes(fill = sitetype)) +
+  facet_grid(.~Region2, scales = "free_x", space = "free") +
+  geom_errorbar(aes(ymin = mlogchl - selc, ymax = mlogchl + selc), width = 0.7) +
+  ylab("mean ln chlorophyll concentration(ug/L)")

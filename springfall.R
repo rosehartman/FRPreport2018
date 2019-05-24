@@ -132,8 +132,8 @@ ggplot(bugsblitzSF.ave, aes(x=site, y = log(mCPUE), fill = sitetype)) + geom_bar
 #mean and standard deviation by site and gear type
 foo = summarize(group_by(filter( bugsblitzSF.1, SampleID!="MAC6-22MAR2018"), 
                                       Region2, targets2, site, sitetype, season),
-                            mCPUE = mean(tCPUE, na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), 
-                            seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE))
+                            mCPUE = mean(tCPUE, na.rm = T), mlogCPUE = mean(log(tCPUE), na.rm = T),  sdCPUE = sd(tCPUE, na.rm = T), 
+                            seCPUE = sd(tCPUE, na.rm = T)/length(tCPUE), selCPUE = sd(log(tCPUE), na.rm = T)/length(tCPUE))
 
 
 #graph of meanCPUE
@@ -141,8 +141,9 @@ ggplot(foo, aes(x=site, y = mCPUE, fill = sitetype)) + geom_bar(stat = "identity
   facet_grid(targets2~season, scales = "free") + 
   geom_errorbar(aes(ymin = mCPUE-seCPUE, ymax = mCPUE+seCPUE))
 
-ggplot(foo, aes(x=site, y = log(mCPUE), fill = sitetype)) + geom_bar(stat = "identity") +
-  facet_grid(targets2~season, scales = "free") 
+ggplot(foo, aes(x=site, y = mlogCPUE, fill = sitetype)) + geom_bar(stat = "identity") +
+  facet_grid(targets2~season, scales = "free") + 
+  geom_errorbar(aes(ymin = mlogCPUE-selCPUE, ymax = mlogCPUE+selCPUE))
 
 #try a linear model
 lm1 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC6-22MAR2018"),])

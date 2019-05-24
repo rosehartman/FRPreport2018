@@ -68,8 +68,18 @@ FROM Stations2 INNER JOIN ((SiteVisit INNER JOIN SampleInfo ON SiteVisit.VisitNo
   }
   
   
-  else print("Sorry, haven't gotten that far yet")
  
+  else if (type == "chlorophyll"){
+    data =   sqlQuery(channel, query = paste( "SELECT SiteVisit.Station, SiteVisit.Date, SiteVisit.Chlorophyll, 
+Stations2.Region, SiteVisit.VisitNo
+FROM Stations2 INNER JOIN SiteVisit ON Stations2.Station = SiteVisit.Station
+                                              WHERE (((SiteVisit.Chlorophyll) Is Not Null));"))
+    return(data)
+  }
+  
+  
+  else print("Sorry, haven't gotten that far yet")
+  
   odbcClose(channel)
                                              
   

@@ -101,7 +101,7 @@ Com.CN3p = Com.CN3/rowSums(Com.CN3)
 ##############################################################################
 #look at multivariates
 #First look at the "Analy2" version, with proportional catch
-a1 = adonis(ComMatp.1 ~ Region2 + sitetype + targets2 + site, data = bugstot2)
+a1 = adonis(ComMatp.1 ~ Region2 + sitetype + site/targets2, strata = bugstot2$Region2, data = bugstot2)
 a1
 #The R2 is pretty small, but highly significant.
 
@@ -158,32 +158,6 @@ summary(indi4)
 #one habitat at a time
 
 #######################################################################################
-#benthics
-#community data matrix
-ComMatb = dcast(ben.2x, formula = SampleID~Analy2, value.var="CPUE", 
-                fun.aggregate = sum, fill = 0)
-row.names(ComMatb) = ComMatb$SampleID
-ComMat2b = ComMatb[,2:ncol(ComMatb)]
-#make one based on proportion of total catch for each sample
-ComMatpb = ComMat2b/rowSums(ComMat2b)
-
-#PERMANOVA with relative abundance
-pb1 = adonis(ComMatpb~Region+sitetype + site, data = ben.1)
-pb1
-
-#NMDS
-NMDS2b = metaMDS(ComMatpb, try = 99, trymax = 100)
-NMDS2b
-
-#Plot the NMDS by region
-PlotNMDS(NMDS2b, data = ben.1, group = "Region")
-#test the significance of the hull groupings.
-envfit(NMDS2b~Region, data = ben.1)
-
-#plot the NMDS by site type
-PlotNMDS(NMDS2b, data = ben.1, group = "SiteType2")
-#significance test
-envfit(NMDS2b~SiteType2,data = ben.1)
 
 ###############################################################################################
 #mysids
@@ -191,18 +165,19 @@ envfit(NMDS2b~SiteType2,data = ben.1)
 #we only had one trawl in a diked wetland, so I am taking tha out
 mys.2x = filter(mys.2x, site != "Bradmoor")
 
-ComMatnx = dcast(mys.2x, formula = SampleID~Analy2, value.var="CPUE", 
+ComMatMx = dcast(mys.2x, formula = SampleID~Analy2, value.var="CPUE", 
                  fun.aggregate = sum, fill = 0)
-row.names(ComMatnx) = ComMatnx$SampleID
-ComMat2nx = ComMatnx[,2:ncol(ComMatnx)]
-mys.1x = mys.1[which(rowSums(ComMat2nx )!=0),]
-ComMat2nx = ComMat2nx[which(rowSums(ComMat2nx )!=0),]
+row.names(ComMatMx) = ComMatMx$SampleID
+ComMat2Mx = ComMatMx[,2:ncol(ComMatMx)]
+mys.1x = mys.1[which(rowSums(ComMat2Mx )!=0),]
+ComMat2Mx = ComMat2nx[which(rowSums(ComMat2Mx )!=0),]
 #make one based on proportion of total catch for each sample
-ComMatpnx = ComMat2nx/rowSums(ComMat2nx)
+ComMatpMx = ComMat2nx/rowSums(ComMat2Mx)
 
 
 #PERMANOVA with relative abundance
-pn1 = adonis(ComMatpnx~sitetype+ Region2/site, strata = mys.1x$Region2, data = mys.1x)
+mys.1x$Year = year(mys.1x$Date)
+pn1 = adonis(ComMatpMx~ sitetype+Year + Region2/site, strata = mys.1x$Region2, data = mys.1x)
 pn1
 #NMDS
 
@@ -227,6 +202,9 @@ envfit(NMDS2n~sitetype,data = mys.1x)
 #########################################################################################
 #neuston
 #community data matrix
+#I'm goig to try filtering out anything with less than three individuals
+neu.2x = filter(neu.2x, tcount > 3)
+
 ComMatn = dcast(neu.2x, formula = SampleID~Analy2, value.var="CPUE", 
                 fun.aggregate = sum, fill = 0)
 row.names(ComMatn) = ComMatn$SampleID
@@ -235,27 +213,31 @@ ComMat2n = ComMatn[,2:ncol(ComMatn)]
 ComMatpn = ComMat2n/rowSums(ComMat2n)
 
 #PERMANOVA with relative abundance
-pn1 = adonis(ComMatpn~sitetype + Region2/site, strata = neu.1$Region2, data = neu.1)
+neu.1$Year = year(neu.1$Date)
+neu.1 = filter(neu.1, tcount >3)
+pn1 = adonis(ComMatpn~sitetype +Year+ Region2/site, strata = neu.1$Region2, data = neu.1)
 pn1
 #NMDS
 
-NMDS2n = metaMDS(ComMatpn, trymax = 500)
-NMDS2n
+NMDS2nu = metaMDS(ComMatpn, trymax = 4999)
+NMDS2nu
 
 #Plot the NMDS by region
-PlotNMDS(NMDS2n, data = neu.1, group = "Region2")
+neu.1 = filter(neu.1, tcount >3)
+neu.1$Region2 = as.factor(neu.1$Region2)
+PlotNMDS(NMDS2nu, data = neu.1, group = "Region2")
 #test the significance of the different groups
-envfit(NMDS2n~Region,data = neu.1)
+envfit(NMDS2nu~Region,data = neu.1)
 
 #plot it based on site type
-PlotNMDS(NMDS2n, data = neu.1, group = "sitetype")
-envfit(NMDS2n~sitetype,data = neu.1)
+PlotNMDS(NMDS2nu, data = neu.1, group = "sitetype")
+envfit(NMDS2nu~sitetype,data = neu.1)
 
 
 #########################################################################################
 #sweepnets
 #community data matrix
-sweeps.2xx = filter(sweeps.2x, SampleID != "EAV2-14FEB2017")
+sweeps.2xx = filter(sweeps.2x, SampleID != "EAV2-14FEB2017" & tcount >3)
 ComMatsw = dcast(sweeps.2xx, formula = SampleID~Analy2, value.var="CPUE", 
                 fun.aggregate = sum, fill = 0)
 row.names(ComMatsw) = ComMatsw$SampleID
@@ -263,17 +245,19 @@ ComMat2sw = ComMatsw[,2:ncol(ComMatsw)]
 
 #EAV2-14FEB2017 is giving us trouble. I'm going to take it ou
 
-sw.1x = filter(sweeps.1[which(sweeps.1$tCPUE!=0),], SampleID != "EAV2-14FEB2017")
+sw.1x = filter(sweeps.1[which(sweeps.1$tCPUE!=0),], SampleID != "EAV2-14FEB2017" & tcount>3)
 ComMat2sw = ComMat2sw[which(rowSums(ComMat2sw, na.rm=T)!=0),]
 
 #make one based on proportion of total catch for each sample
 ComMatpsw = ComMat2sw/rowSums(ComMat2sw)
 
 #PERMANOVA with relative abundance
-psw1 = adonis(ComMatpsw~Region2/site+sitetype, data = sw.1x)
+sw.1x$Year = year(sw.1x$Date)
+psw1 = adonis(ComMatpsw~sitetype+ Year+ Target+ Region2/site, data = sw.1x)
 psw1
 #NMDS
 
+NMDS2sw = metaMDS(ComMatpsw, trymax = 2000)
 NMDS2sw = metaMDS(ComMatpsw, trymax = 2000,  sratmax = 0.99999999, sfgrmin = 1e-8)
 NMDS2sw = metaMDS(ComMatpsw, previous.best = NMDS2sw, trymax = 2000,  sratmax = 0.99999999, sfgrmin = 1e-8)
 
@@ -289,8 +273,8 @@ sw.1x$year = year(sw.1x$Date)
 sw.1x$Region2 = as.factor(sw.1x$Region2)
 SN2018 = filter(sw.1x, year == 2018)
 Matsn2018 = ComMatpsw[which(sw.1x$year == 2018),]
-sw2018 = metaMDS(Matsn2018, trymax = 2000,  sratmax = 0.99999999, sfgrmin = 1e-8)
-#well, that was easy
+sw2018 = metaMDS(Matsn2018, trymax = 1999)
+sw2018
 
 
 #Plot the NMDS by region

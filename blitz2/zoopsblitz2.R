@@ -118,7 +118,8 @@ z1 + geom_bar(stat = "identity", aes(fill = AnalyLS)) + scale_fill_manual(values
 #relative abundance
 z1 + geom_bar(stat = "identity", aes(fill = AnalyLS), position = "fill") + 
   scale_fill_manual(values = mypal) +
-  facet_grid(year~Region2, scales = "free_x")
+  facet_grid(year~Region2, scales = "free_x") + mytheme
+
 
 
 #total CPUE
@@ -136,7 +137,7 @@ z2+geom_boxplot(aes(fill = sitetype)) + facet_grid(year~Region2, scales = "free"
 zootot$logCPUE = log(zootot$CPUE)
 zoototave = group_by(zootot, site, Region2, sitetype, year) %>% 
   summarize(mCPUE = mean(CPUE, na.rm = T), seCPUE = sd(CPUE)/length(CPUE), 
-            N = length(CPUE),  mlogCPUE = mean(logCPUE) )
+            N = length(CPUE),  mlogCPUE = mean(logCPUE), selCPUE = sd(logCPUE)/length(logCPUE) )
 
 z3 = ggplot(zoototave, aes(x=site, y=mCPUE))
 z3 + geom_bar(stat = "identity", aes(fill = sitetype)) +
@@ -144,24 +145,25 @@ z3 + geom_bar(stat = "identity", aes(fill = sitetype)) +
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE)) +
   scale_fill_manual(values = mypal)+
   geom_label(aes(label = paste("n = ", N), y = mCPUE+ 300), label.padding = unit(0.1, "lines"), size = 4) +
-   ylab("CPUE") + xlab(label = NULL) #+
-#coord_cartesian(ylim = c(0,10000))
+   ylab("CPUE") + xlab(label = NULL) +
+scale_y_log10()
 
 #log-transformed
 z3.1 = ggplot(zoototave, aes(x=site, y=mlogCPUE))
-z3.1 + geom_bar(stat = "identity", aes(fill = sitetype2)) +
+z3.1 + geom_bar(stat = "identity", aes(fill = sitetype)) +
+  geom_errorbar(aes(ymin = mlogCPUE - selCPUE, ymax = mlogCPUE + selCPUE)) +
   facet_grid(year~Region2, scales = "free", space = "free_x") + 
   scale_fill_manual(values = mypal)+
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 4) +
-  ylab("mean log CPUE") + xlab(label = NULL)
+  ylab("mean log CPUE") + xlab(label = NULL) + mytheme
 
 #GLMm of total CPUE ############################ This is probably the best one to use.
-zootot$sitetype2 = as.factor(zootot$sitetype2)
+zootot$sitetype = as.factor(zootot$sitetype)
 zootot$year = as.factor(zootot$year)
-zblitz = lmer(logCPUE ~ Region2 + sitetype2 + year + (1|site), data = zootot)
+zblitz = lmer(logCPUE ~ Region2 + sitetype + year + (1|site), data = zootot, na.action = na.fail)
 summary(zblitz)
 visreg(zblitz)
-
+dredge(zblitz)
 
 #Differences by site type, not region
 zblitza = glm(log(CPUE) ~ Region2 + sitetype2 + year, data = zootot)
@@ -226,7 +228,7 @@ zMat = zoowide[,8:28]
 zMatp = zMat/rowSums(zMat)
 
 #PerMANOVA
-za1 = adonis(zMatp~ Region2 + sitetype2 + year, data = zootot)
+za1 = adonis(zMatp~ Region2 + sitetype + year + site, data = zootot)
 za1
 #region and site type are both significant, and year
 

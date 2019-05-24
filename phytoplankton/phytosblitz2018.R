@@ -22,7 +22,7 @@ phytos <- GetFRPdata(path, type = "phytoplankton")
 stations = read_xlsx("blitz2/Stations2.xlsx")
 
 phytos1 = merge(phytos, stations)
-phytos1 = filter(phytos1, site != "Dow")
+phytos1 = filter(phytos1, site != "Dow" & site != "Lindsey")
 
 #see what taxa we got
 FRPtax = group_by(phytos1, Taxon) %>% summarize(count = sum(CellspermL))
@@ -48,7 +48,7 @@ phytos2 = merge(phytos1, taxa2, by = "Taxon")
 phytos2$year = year(phytos2$Date)
 
 #combine into one row per sample
-physum = group_by(phytos2, SampleName, site, sitetype, Region2, Chlorophyll) %>% 
+physum = group_by(phytos2, SampleName, site, sitetype, Region2, Chlorophyll, year) %>% 
   summarize(CPUE = sum(CellspermL), BPUE = sum(BiovolumeperuL))
 
 
@@ -74,7 +74,7 @@ p2.2 = ggplot(phytos2, aes(x=site, y = CellspermL, fill = Type2))
 p2.2+ geom_bar(stat = "identity", position = "fill") + 
   facet_grid(year~Region2, scales = "free_x", space = "free_x")+
   theme(axis.text.x = element_text(angle = 90)) +
-  scale_fill_manual(values = mypal)
+  scale_fill_manual(values = mypal, name = NULL) + ylab("Relative abundance")
 p2.2 + geom_bar(stat = "identity", position = "fill") + facet_wrap(~sitetype, scales = "free")
 
 ####################################################################################################
@@ -83,13 +83,18 @@ Phy2 = group_by(phytos2, SampleName, `Habitat type`, Region2, Date, year, site, 
 Mat = spread(Phy2, key = taxon2, value = cells, fill =0)
 Mat$Region2 = as.factor(Mat$Region2)
 Mat$sitetype = as.factor(Mat$sitetype)
-Mat2 = Mat[, c(8:94)]
+Mat2 = Mat[, c(8:93)]
 Mat2p = Mat2/rowSums(Mat2)
 
-m1 = metaMDS(Mat2p, trymax = 100)
+m1 = metaMDS(Mat2p, try = 99, trymax = 100)
+m1
 source("plotNMDS.R")
 PlotNMDS2(m1, group = "Region2", data = Mat, xlimits = c(-1.5, 1.2), ylimits = c(-1.5, 1.5), textp = F)
 PlotNMDS2(m1, group = "sitetype", data = Mat, xlimits = c(-1.5, 1.2), ylimits = c(-1.5, 1.5), textp = F)
+
+a0 = adonis(Mat2p~ sitetype + year +Region2/site, strata = Mat$Region2, data = Mat)
+a0
+
 
 #Do it again with larger categories
 Phy3 = group_by(phytos2, SampleName, `Habitat type`, Region2, Date, year, site, sitetype, Type2) %>% summarize(cells = sum(CellspermL))
@@ -105,7 +110,7 @@ PlotNMDS(m2, group = "Region2", data = Mat3,textp = T)
 PlotNMDS(m2, group = "sitetype", data = Mat3,textp = T)
 
 #Permanova
-a1 = adonis(Mat3p~ Region2/sitetype/site, strata = Mat3$Region2, data = Mat3)
+a1 = adonis(Mat3p~ Region2+ sitetype+ site, strata = Mat3$Region2, data = Mat3)
 a1
 
 ###################################################################################################3

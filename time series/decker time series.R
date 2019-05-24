@@ -8,6 +8,8 @@ library(RColorBrewer)
 library(vegan)
 library(lubridate)
 library(readxl)
+library(MuMIn)
+library(visreg)
 
 
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(8, "Set2"), brewer.pal(8, "Dark2"))
@@ -222,29 +224,29 @@ summary(m2l)
 ####################################################################################
 #Quick graph of other survey's smelt catch over the past 15 years
 
-decksmelt <- read_excel("deckersmelt.xlsx",     sheet = "2002-2017")
+decksmelt <- read_excel("time series/deckersmelt.xlsx",     sheet = "2002-2017")
 
 #calculate total catch by month and mean catch by month
 dssum = group_by(decksmelt, month, Survey) %>% 
-  summarize(tcatch = sum(Catch), mcatch = tcatch/16)
+  summarize(tcatch = sum(Catch), mcatch = tcatch/17)
 
 dssum1 = dcast(dssum, month ~ Survey, value.var = "tcatch")
 dssum2 = melt(dssum1, id.vars = "month", variable.name = "Survey", value.name = "tcatch")
 #do total catch instead, and add zeros, just to make graphing easier
 dssum2$tcatch[which(is.na(dssum2$tcatch))] = 0
-dssum2$mcatch = dssum2$tcatch/16
+dssum2$mcatch = dssum2$tcatch/18
 
 
 ds3 = ggplot(dssum2, aes(x=month, y = mcatch, fill = Survey))
-ds3 + geom_area(stat= "identity") + xlab("Month") + ylab("Mean Catch, 2002-2017") +
+ds3 + geom_area(stat= "identity") + xlab("Month") + ylab("Mean Catch, 2002-2018") +
   scale_x_continuous(breaks = c(1:12))
 
 ###########################################################################################
 #Chinook salmon
-
-Chipps <- read_excel("Chipps Island Trawls CHN & POD Species 2012-2018.xlsx")
-Chipps$Date = as.Date(Chipps$Date)
-Chipps$month = month(Chipps$Date)
+chipps = read.csv("time series/DJFMP_fish_and_WQ.csv")
+chipps$SampleDate = as.Date(chipps$SampleDate) 
+chipps = filter(chipps, Location == "Chipps Island" & OrganismCode == "CHN" & year(SampleDate) >2002)
+chipps$month = month(chipps$SampleDate)
 
 stagelabs = data.frame(Stage = factor(c("1","2","3","4","5","6", "N/P")), 
                        labels = factor(x=c("yolk-sac","fry", "par", "silver par",
@@ -253,11 +255,10 @@ stagelabs = data.frame(Stage = factor(c("1","2","3","4","5","6", "N/P")),
                                                   "smolt", "adult", "Not Provided" ),
                                        ordered = T))
 
-Chipps1 = filter(Chipps, Species == "CHN" & Date < "2018-1-1")
-Chipps1 = merge(Chipps, stagelabs)
+Chipps1 = merge(chipps, stagelabs)
 #calculate total catch by month and mean catch by month
 chipsum = group_by(Chipps1, Stage, labels, month) %>% 
-  summarize(tcatch = sum(Catch), mcatch = tcatch/6)
+  summarize(tcatch = sum(Count), mcatch = tcatch/6)
 
 chipsum1 = dcast(chipsum, month ~ labels, value.var = "tcatch")
 chipsum2 = melt(chipsum1, id.vars = "month", variable.name = "Stage", value.name = "tcatch")
@@ -265,7 +266,7 @@ chipsum2$tcatch[which(is.na(chipsum2$tcatch))] = 0
 chipsum2$mcatch = chipsum2$tcatch/16
 
 
-chip2 = ggplot(filter(chipsum2, Stage != "adult" & Stage != "fry"), aes(x=month, y = tcatch, fill = Stage))
+chip2 = ggplot(filter(chipsum2, Stage != "adult"), aes(x=month, y = tcatch, fill = Stage))
 chip2 + geom_area(stat= "identity") + xlab("Month") + ylab("Total Catch, 2012-2017") +
   scale_x_continuous(breaks = c(1:12))
 
@@ -284,25 +285,27 @@ chip2 + geom_area(stat= "identity") + xlab("Month") + ylab("Total Catch, 2012-20
 
 
 #now macroinvertebrates
-Deckerbugs.1$month = month(Deckerbugs.1$Date)
-dbug = group_by(Deckerbugs.1, month, sampletype) %>% summarise(mCPUE = mean(tCPUE))
-bugtot = group_by(dbug, sampletype) %>% summarise(tot = sum(mCPUE))
-dbug = merge(dbug, bugtot)
-dbug$prop = dbug$mCPUE/dbug$tot
-dbug$tot = NULL
-dbug = filter(dbug, sampletype != "benthic")
+bugtot = group_by(decktot,month, targets2) %>% summarise(tot = sum(tCPUE))
+bugtot2 = group_by(bugtot, targets2) %>% summarise(totall = sum(tot))
+dbug = merge(bugtot, bugtot2)
+dbug$prop = dbug$tot/dbug$totall
+dbug$tot = dbug$totall
+dbug$totall = NULL
+dbug$sampletype = dbug$targets2
+dbug$targets2 = NULL
+
 
 #now salmon
 chipMonth = group_by(filter(Chipps1, labels == "smolt"), month) %>% 
-  summarize(mCPUE = sum(Catch)/6)
-tot = sum(chipMonth$mCPUE)
-chipMonth$prop = chipMonth$mCPUE/tot
+  summarize(tot = sum(Count)/6)
+totall = sum(chipMonth$tot)
+chipMonth$prop = chipMonth$tot/totall
 chipMonth$sampletype = "Chinook smolts"
 
 #now smelt
-dstot = group_by(filter(dssum2, Survey == "SKT"), month) %>% summarise(mCPUE = mean(mcatch))
-tot = sum(dstot$mCPUE)
-dstot$prop = dstot$mCPUE/tot
+dstot = group_by(filter(dssum2, Survey == "SKT"), month) %>% summarise(tot = mean(mcatch))
+totall = sum(dstot$tot)
+dstot$prop = dstot$tot/totall
 dstot$sampletype = "Delta Smelt adults"
 
 #combine the datasets
@@ -335,3 +338,85 @@ fish + geom_bar(aes(fill = sampletype), stat = "identity") +
   ylab("Percentage of total catch per month") +
   scale_color_manual(name = NULL, values = "blue")
 
+
+#See how EMP's mysid data compares
+EMPMysid <- read_excel("time series/1972-2018MysidMatrix.xlsx", 
+                       sheet = "Mysid CPUE Matrix 1972-2018 ", 
+                       col_types = c("numeric", "numeric", "numeric", 
+                                     "numeric", "date", "text", "text", 
+                                     "text", "numeric", "text", "numeric", 
+                                     "numeric", "numeric", "numeric", 
+                                     "numeric", "numeric", "numeric", 
+                                     "numeric", "numeric", "numeric", 
+                                     "numeric", "numeric", "numeric", 
+                                     "numeric"))
+
+#filter out just the station near Decker, just the past few years
+EMPDeck = filter(EMPMysid, Station == "NZ064", Year >2001)
+
+#total mysids
+EMPDeck$tCPUE = rowSums(EMPDeck[,c(17:24)])
+EMPDeck$month = month(EMPDeck$SampleDate)
+EMPmonth = group_by(EMPDeck, month) %>% summarize(tot = mean(tCPUE))
+totall = sum(EMPmonth$tot)
+EMPmonth$prop = EMPmonth$tot/totall
+
+#try graphing it again
+fish + geom_bar(aes(fill = sampletype), stat = "identity") + 
+  coord_cartesian(xlim = c(1, 6), ylim = c(0,0.6)) +
+  scale_x_continuous(breaks = c(1,2,3,4,5,6), 
+                     labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun"))+
+  scale_fill_manual(values = mypal, name = NULL) +
+  geom_smooth(aes(x=month, y = prop, color = "FRP Macroinverts"), data = dbug, method = "lm")+
+  geom_smooth(aes(x=month, y = prop, color = "EMP Mysids"), data = EMPmonth, method = "lm")+
+  ylab("Percentage of total catch per month") +
+  scale_color_manual(name = NULL, values = c("green", "cyan"))
+
+
+###########################################################################################
+#Dan suggested trying to use flow rather than day of the year to see what the trend looks like
+dayflow2017 <- read_csv("time series/dayflowCalculations2017.csv")
+dayflow2018 <- read_csv("time series/dayflowCalculations2018.csv")
+dayflow = rbind(dayflow2017, dayflow2018)
+dayflow$Date = as.Date(dayflow$Date)
+
+#Average sacramento river flow by month
+monthflow = group_by(dayflow, Mo, Year) %>% summarize(sac = mean(SAC))
+monthflow$month = monthflow$Mo
+monthflow$year = monthflow$Year
+
+deckday = merge(Decker.1, monthflow)
+
+#try a GLM of total catch by flow
+m1 = glm(log(tCPUE +1) ~ targets2 + sac + month + year + sac:year, data =deckday, na.action = na.fail)
+dredge(m1)
+#best model had just river flow and gear type
+mbest = glm(log(tCPUE +1) ~ targets2 + sac*year, data =deckday)
+summary(mbest)
+visreg(mbest)
+visreg(mbest,xvar = "sac", by = "year")
+
+mfl = glm(log(tCPUE +1) ~ targets2 + sac, data =deckday)
+summary(mfl)
+visreg(mfl)
+
+#just a plot of catch versus flow
+ggplot(deckday, aes(x=sac, y = tCPUE)) + geom_point(aes(color = Year2)) + geom_smooth(method = "lm")
+
+ggplot(deckday, aes(x=sac, y = tCPUE)) + geom_point(aes(color = Year2)) +
+  scale_y_log10()+ geom_smooth(method = "lm") + xlab("Sacramento River Flow (CFS)") +
+  ylab("total CPUE of macroinvertebrates per sample")
+
+#add the fish in there
+chipp1718 <- read_excel("time series/Chipps Island Trawls CHN & POD Species 2012-2019.xlsx")
+chipps1718 = droplevels(filter(chipp1718, year(Date) >2016 & Species == "CHN" & (Stage == "5" | Stage == "4")))
+str(chipps1718)
+chipps1718$month = month(chipps1718$Date)
+chipps1718$year = year(chipps1718$Date)
+chipps1718 = merge(chipps1718, monthflow)
+chipps1718m = group_by(chipps1718, month, year, sac) %>% summarize(tcatch = sum(Catch)) 
+
+ggplot(chipps1718m, aes(x=sac, y = tcatch)) + geom_point(aes(color = as.factor(year)))
+
+ggplot(chipps1718m, aes(x=sac, y = tcatch)) + geom_point(aes(color = as.factor(year))) +
+  scale_y_log10()
