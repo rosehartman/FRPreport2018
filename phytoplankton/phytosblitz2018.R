@@ -11,13 +11,14 @@ library(RColorBrewer)
 library(indicspecies)
 
 #load the function to get into the FRP database
-source("querydatabase.R")
+#source("querydatabase.R")
 
 #Now specify the path to the FRP database
-path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+#path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
 
 #Query the invertebrate data
-phytos <- GetFRPdata(path, type = "phytoplankton")
+#phytos <- GetFRPdata(path, type = "phytoplankton")
+phytos <- read_excel("phytoplankton/phytoquery.xlsx")
 
 stations = read_xlsx("blitz2/Stations2.xlsx")
 
@@ -151,6 +152,7 @@ pL3+ geom_bar(stat = "identity", position = "fill") +
 PhyLib2 = group_by(PhyLib, SampleName, `Habitat type`, taxon2) %>% summarize(cells = sum(CellspermL))
 LMat = spread(PhyLib2, key = taxon2, value = cells, fill =0)
 LMat = mutate(LMat, Habitat = as.factor(`Habitat type`))
+LMat$Habitat= as.factor(LMat$`Habitat type`)
 LMat2 = LMat[, c(3:33)]
 LMat2p = LMat2/rowSums(LMat2)
 
@@ -158,10 +160,11 @@ m1 = metaMDS(LMat2p)
 source("plotNMDS.R")
 PlotNMDS2(m1, group = "Habitat", data = LMat, xlimits = c(-1.5, 1.2), ylimits = c(-.7, 1.5))
 
+
 #Do it again with larger categories
 PhyLib3 = group_by(PhyLib, SampleName, `Habitat type`, Type2) %>% summarize(cells = sum(CellspermL))
 LMat1 = spread(PhyLib3, key = Type2, value = cells, fill =0)
-LMat1 = mutate(LMat1, Habitat = as.factor(`Habitat type`))
+LMat1$Habitat= as.factor(LMat1$`Habitat type`)
 LMat12 = LMat1[, c(3:11)]
 LMat12p = LMat12/rowSums(LMat12)
 
@@ -169,7 +172,40 @@ m2 = metaMDS(LMat12p)
 
 PlotNMDS2(m2, group = "Habitat", data = LMat, xlimits = c(-1, 1), ylimits = c(-1, 1))
 
-#######################################################################################################
+#If I multiply the species scores from m2 by the speceis from a given sample, it might give me th
+#coordinates for the NMDS plot
+
+mscores = as.data.frame(m2$species)
+mscores$Type2 = rownames(mscores)
+
+#not all types were represented, but this is the best we got
+Mat3x = cbind(Mat3[,1], Mat3p)
+phytest = gather(Mat3x, key = "Type2", value = "prop", -SampleName)
+phytest2 = merge(phytest, mscores)
+phytest2$x = phytest2$MDS1*phytest2$prop
+phytest2$y = phytest2$MDS2*phytest2$prop
+
+#calculate coordinates
+physcores = group_by(phytest2, SampleName) %>% summarize(xcoor = sum(x, na.rm=T), ycoor = sum(y, na.rm = T))
+
+points(x=physcores$xcoor, y = physcores$ycoor)
+
+#I'm not sure that was quite right, let's test it:
+Mat3xl = cbind(LMat1[,1], LMat12p)
+phytestl = gather(Mat3xl, key = "Type2", value = "prop", -SampleName)
+
+phytest2l = merge(phytestl, mscores)
+phytest2l$x = phytest2l$MDS1*phytest2l$prop
+phytest2l$y = phytest2l$MDS2*phytest2l$prop
+
+#calculate coordinates
+physcoresl = group_by(phytest2l, SampleName) %>% summarize(xcoor = sum(x, na.rm=T), ycoor = sum(y, na.rm = T))
+
+plot(m2, type="n", shrink = F, cex=1, xlim=c(-1, 1))
+points(m2)
+points(x=physcoresl$xcoor, y = physcoresl$ycoor, col = "red")
+
+ #######################################################################################################
 #Indicator species
 LMat3 = droplevels(filter(LMat, Habitat != "6 = other"))
 LMat3p = droplevels(LMat2p[which(LMat$Habitat != "6 = other"),])

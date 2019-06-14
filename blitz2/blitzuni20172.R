@@ -200,20 +200,15 @@ totboth + geom_bar(stat = "identity", position = "dodge", aes(fill = sitetype)) 
 ####################################################################################
 #Look at the coefficient of variation within sites for each sample type
 
-CVs = summarize(group_by(bugstot, site, SiteType, sitetype, targets2, 
-                         Region2), mCPUE = mean(tCPUE), 
+CVs = summarize(group_by(bugstot, site, sitetype, targets2, 
+                         Region2, Year), mCPUE = mean(tCPUE), 
                 sdCPUE = sd(tCPUE), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID), CV = sdCPUE/mCPUE)
 
 #Calculate average withing-site CV and the CV of within-site means by sampling type.
-mCVs = summarize(group_by(CVs, targets2), mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
+mCVs = summarize(group_by(CVs, targets2, Year), mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
                  sdmCPUE= sd(mCPUE), CV2 = sdmCPUE/mmCPUE)
 
-#Repeat the analysis with the vegetation types sepearated
-CVs2 = summarize(group_by(bugstot, site, SiteType, sitetype, targets, 
-                         Region2), mCPUE = mean(tCPUE), 
-                sdCPUE = sd(tCPUE), seCPUE = sd(tCPUE)/length(tCPUE), N = length(SampleID), CV = sdCPUE/mCPUE)
-
 #Calculate average withing-site CV and the CV of within-site means by sampling type.
-mCVs2 = summarize(group_by(CVs, targets), mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
+mCVs2 = summarize(group_by(CVs, targets2, Year), mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
                  sdmCPUE= sd(mCPUE), CV2 = sdmCPUE/mmCPUE)
 

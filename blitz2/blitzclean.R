@@ -14,16 +14,19 @@ library(simr)
 
 #Upload the data
 #First load the function I wrote to query the FRP database
-source("querydatabase.R")
+#THIS ISN"T WORKING ON MY DWR COMPUTER!!! POOP!!!
+#source("querydatabase.R")
 
 #Now specify the path to the FRP database
-path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+#path = "C:/Users/rhartman/OneDrive - California Department of Water Resources/FRP stuff/FRPdata28DEC2018.accdb"
 
 #Query the invertebrate data
-inverts2 <- GetFRPdata(path, type = "inverts")
+#inverts2 <- GetFRPdata(path, type = "inverts")
+inverts2 <- read_excel("invertsqry.xlsx")
 
 #Query the station information
-stations = GetFRPdata(path, type = "stations")
+#stations = GetFRPdata(path, type = "stations")
+stations = read_excel("Stations2.xlsx")
 
 #attatch station information
 inverts2 = merge(inverts2, stations[,c(2,7)], all.x = T)

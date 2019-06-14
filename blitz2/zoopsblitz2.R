@@ -10,11 +10,13 @@ library(lmerTest)
 library(visreg)
 ################################################################################################################################
 #First load the function I wrote to query the FRP database
-source("querydatabase.R")
+#source("querydatabase.R")
 
 #Now specify the path to the FRP database
-path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
-zoopsfrp <- GetFRPdata(path, "zoop")
+#path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+#zoopsfrp <- GetFRPdata(path, "zoop")
+
+zoopsfrp <- read_excel("blitz2/zoopsexportqry.xlsx")
 View(zoopsfrp)
 
 #add more station information
@@ -190,11 +192,11 @@ visreg(zblitz18x)
 #################################################################################
 
 #calculate coefficient of variation in CPUE
-zCVs = summarize(group_by(zootot, site), mCPUE = mean(CPUE), 
+zCVs = summarize(group_by(zootot, site, year), mCPUE = mean(CPUE), 
                 sdCPUE = sd(CPUE), seCPUE = sd(CPUE)/length(CPUE), N = length(SampleID), CV = sdCPUE/mCPUE)
 
 #Calculate average withing-site CV and the CV of within-site means by sampling type.
-zmCVs = summarize(zCVs, mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
+zmCVs = summarize(group_by(zCVs, year), mCV = mean(CV, na.rm = T), mmCPUE = mean(mCPUE), 
                  sdmCPUE= sd(mCPUE), CV2 = sdmCPUE/mmCPUE)
 
 

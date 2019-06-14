@@ -27,6 +27,13 @@ ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=sitetype, y = CPUE, fill =
   scale_fill_manual(values = mypal, name = NULL) + 
   xlab("Site Type")+ ylab("Relative percent composition") + mytheme
 
+#ow group everything within a year together
+ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=year, y = CPUE, fill = Analy2)) + 
+  geom_bar(stat = "identity", position = "fill")+
+  facet_grid(targets2~., scales = "free", space = "free_x") +
+  scale_fill_manual(values = mypal, name = NULL) + 
+  xlab("Site Type")+ ylab("Relative percent composition") + mytheme
+
 ##############################################################################################
 #community matricies for the different methods
 
