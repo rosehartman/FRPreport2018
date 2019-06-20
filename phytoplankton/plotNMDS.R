@@ -81,7 +81,7 @@ PlotNMDS2 = function(NMDS1, # results of the NMDS you want to plot
   par(xpd=NA,oma=c(3,0,0,0)) 
   
   # plot the sample points
-  plot(NMDS1, type="n", shrink = T, cex=1, xlim=xlimits, ylim = ylimits)
+  plot(NMDS1, type="n", cex=1, xlim=xlimits, ylim = ylimits)
   if (is.na(taxa[1])) points(NMDS1, pch=as.numeric(data$group), cex=1, col="blue")  else {
     # scale the points by relative abundance of a certain taxa
     scalef = max(taxa) - min(taxa)
