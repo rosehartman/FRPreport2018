@@ -9,6 +9,7 @@ library(reshape2)
 library(vegan)
 library(RColorBrewer)
 library(indicspecies)
+library(patternplot)
 
 #load the function to get into the FRP database
 #source("querydatabase.R")
@@ -38,6 +39,10 @@ phytos1 = merge(phytos1, FRPtax[,c(1,3)])
 
 p1 = ggplot(phytos1, aes(x=SampleName, y = CellspermL, fill = taxon2))
 p1+ geom_bar(stat = "identity") + theme(axis.text.x = element_text(angle = 90))
+
+patternbar(phytos1,x="Region2", y = "CellspermL", 
+           pattern.type = c('blank', 'bricks', 'circles1','circles2',  'vdashes'),
+           density = c(10,20,10,20,20))
 
 #import tiffanys info
 taxa2 <- read_excel("phytoplankton/FRPtaxa T Brown edits.xlsx", 
@@ -244,10 +249,11 @@ PlotNMDS2(Nor, group = "Habitat", data = North)
 #Indicator species
 LMat3 = droplevels(filter(LMat, Habitat != "Filamentous"))
 LMat3p = droplevels(LMat2p[which(LMat$Habitat != "Filamentous"),])
-m = multipatt(LMat3p, cluster = LMat3$Habitat, max.order = 2)
+m = multipatt(LMat3p, cluster = LMat3$Habitat, max.order = 1)
 m
 summary(m)
 mm =signassoc(LMat3p, cluster = LMat3$Habitat)
+mm
 
 #What if we lump the classes into "pelagic" and "not pelagic"
 LMat3$habitat2 = as.character(LMat3$Habitat)
@@ -262,3 +268,5 @@ mm2 =signassoc(LMat3p, cluster = LMat3$Habitat)
 #larger groups
 m3 = multipatt(LMat12p, cluster = LMat1$Habitat)
 summary(m3)
+
+Achn = filter(PhyLib, Taxon == "Achnanthidium sp.")
