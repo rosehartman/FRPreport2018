@@ -261,6 +261,9 @@ sweepssum.1 = filter(bugssum.1, targets2 == "sweep net")
 #set up a color pallete
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(12, "Set3"), "black")
 
+#color pallette for wetland types
+mypal2 = c("cyan3", "orange", "red", "limegreen")
+
 #set up a theme
 mytheme = theme(strip.text.x = element_text(size=14),strip.text.y = element_text(size=18),
                 axis.text.x  = element_text(angle=90, hjust=1, vjust = 0.5, size=12),

@@ -195,7 +195,7 @@ totboth + geom_bar(stat = "identity", position = "dodge", aes(fill = sitetype)) 
   facet_grid(targets2+Year~Region2, scales = "free", space = "free_x") +
   geom_errorbar(aes(ymin = mlogtot - selogtot, ymax = mlogtot + selogtot), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 3) +
-  scale_fill_manual(values = mypal) + ylab("mean log-transformed CPUE")
+  scale_fill_manual(values = mypal2, name = "Site Type") + ylab("mean log-transformed CPUE")
 
 ####################################################################################
 #Look at the coefficient of variation within sites for each sample type

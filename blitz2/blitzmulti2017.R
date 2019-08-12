@@ -9,7 +9,7 @@ source("plotNMDS.R")
 ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=site, y = CPUE, fill = Analy2)) + geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2 + year~Region2, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
-  xlab("Site")+ ylab("Relative percent composition") + mytheme
+  xlab("Site")+ ylab("Relative composition") + mytheme
 
 #clams = filter(bugs2017, Analy2 == "Mollusca" & targets2 == "benthic" & Region == "Suisun")
 
@@ -18,21 +18,21 @@ ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=site, y = CPUE, fill = Ana
   geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2~sitetype, scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
-  xlab("Site")+ ylab("Relative percent composition") + mytheme
+  xlab("Site")+ ylab("Relative composition") + mytheme
 
 #ow group everything within a site type together
 ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=sitetype, y = CPUE, fill = Analy2)) + 
   geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2~., scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
-  xlab("Site Type")+ ylab("Relative percent composition") + mytheme
+  xlab("Site Type")+ ylab("Relative composition") + mytheme
 
 #ow group everything within a year together
 ggplot(filter(bugsblitz, targets2!= "benthic"), aes(x=year, y = CPUE, fill = Analy2)) + 
   geom_bar(stat = "identity", position = "fill")+
   facet_grid(targets2~., scales = "free", space = "free_x") +
   scale_fill_manual(values = mypal, name = NULL) + 
-  xlab("Site Type")+ ylab("Relative percent composition") + mytheme
+  xlab("Site Type")+ ylab("Relative composition") + mytheme
 
 ##############################################################################################
 #community matricies for the different methods

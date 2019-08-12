@@ -78,7 +78,8 @@ visreg(ph)
 
 #hm. That's not getting very far. I may need a new query to grab all the chlorophyll data.
 
-chla = GetFRPdata(path, type = "chlorophyll")
+#chla = GetFRPdata(path, type = "chlorophyll")
+chla = read_xlsx("phytoplankton/ChlorophyllQRY.xlsx")
 stations = read_xlsx("blitz2/Stations2.xlsx")
 chla1 = merge(chla, stations)
 chla1 = filter(chla1, site != "Dow" & site != "Lindsey" & site != "Wings", Chlorophyll >=0 & month(Date) >2 & month(Date) <6 & year(Date) == 2018)
@@ -100,8 +101,11 @@ ch + geom_point()
 chlasum = group_by(chla1, site, sitetype, Region2) %>% summarize(mCHL = mean(Chlorophyll), 
                                                                 mlogchl = mean(logchla), selc = sd(logchla)/length(logchla))
 
+mypal2 = c("cyan3", "orange", "red", "limegreen")
+
 ch = ggplot(chlasum, aes(x= site, y = mlogchl))
 ch + geom_bar(stat = "identity", aes(fill = sitetype)) +
   facet_grid(.~Region2, scales = "free_x", space = "free") +
   geom_errorbar(aes(ymin = mlogchl - selc, ymax = mlogchl + selc), width = 0.7) +
-  ylab("mean ln chlorophyll concentration(ug/L)")
+  ylab("mean log chlorophyll concentration(ug/L)") + scale_fill_manual(values = mypal2, name = "Site type")
+

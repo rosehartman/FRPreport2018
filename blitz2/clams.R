@@ -31,7 +31,7 @@ clP+ geom_bar(stat = "identity", aes(fill = sitetype)) +
   facet_grid(Year2~Region2, scales = "free", space = "free_x") +
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE), width = 0.7) +
   geom_label(aes(label = paste("n = ", N), y = mCPUE*1.1), label.padding = unit(0.1, "lines"), size = 3) +
-  scale_fill_manual(values = mypal) + ylab("CPUE") 
+  scale_fill_manual(values = mypal2, name = "Site Type") + ylab("Catch per square meter")  + xlab("Site")
 
 clP+ geom_bar(stat = "identity", aes(fill = site)) + 
   facet_grid(.~sitetype, scales = "free", space = "free_x") +

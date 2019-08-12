@@ -120,7 +120,7 @@ z1 + geom_bar(stat = "identity", aes(fill = AnalyLS)) + scale_fill_manual(values
 #relative abundance
 z1 + geom_bar(stat = "identity", aes(fill = AnalyLS), position = "fill") + 
   scale_fill_manual(values = mypal) +
-  facet_grid(year~Region2, scales = "free_x") + mytheme
+  facet_grid(year~Region2, scales = "free_x") + mytheme + xlab("Site") + ylab("Relative abundance")
 
 
 
@@ -145,7 +145,7 @@ z3 = ggplot(zoototave, aes(x=site, y=mCPUE))
 z3 + geom_bar(stat = "identity", aes(fill = sitetype)) +
   facet_grid(year~Region2, scales = "free", space = "free_x") + 
   geom_errorbar(aes(ymin = mCPUE - seCPUE, ymax = mCPUE + seCPUE)) +
-  scale_fill_manual(values = mypal)+
+  scale_fill_manual(values = mypal2)+
   geom_label(aes(label = paste("n = ", N), y = mCPUE+ 300), label.padding = unit(0.1, "lines"), size = 4) +
    ylab("CPUE") + xlab(label = NULL) +
 scale_y_log10()
@@ -155,7 +155,7 @@ z3.1 = ggplot(zoototave, aes(x=site, y=mlogCPUE))
 z3.1 + geom_bar(stat = "identity", aes(fill = sitetype)) +
   geom_errorbar(aes(ymin = mlogCPUE - selCPUE, ymax = mlogCPUE + selCPUE)) +
   facet_grid(year~Region2, scales = "free", space = "free_x") + 
-  scale_fill_manual(values = mypal)+
+  scale_fill_manual(values = mypal2)+
   geom_label(aes(label = paste("n = ", N), y = 0), label.padding = unit(0.1, "lines"), size = 4) +
   ylab("mean log CPUE") + xlab(label = NULL) + mytheme
 

@@ -154,7 +154,8 @@ PhyLib$Taxon2[which(PhyLib$prop < 0.0001)] = "other"
 pL3 = ggplot(PhyLib, aes(x=Habitat, y = CellspermL, fill = Taxon2))
 pL3+ geom_bar(stat = "identity", position = "fill") + 
   theme(axis.text.x = element_text(angle = 90)) + 
-  scale_fill_manual(values = mypal, name = "Taxa")
+  scale_fill_manual(values = mypal, name = "Taxa") +
+  ylab("Relative abundance (cells/mL)")
 
 
 
