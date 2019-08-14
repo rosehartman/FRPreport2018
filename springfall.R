@@ -143,7 +143,9 @@ ggplot(foo, aes(x=site, y = mCPUE, fill = sitetype)) + geom_bar(stat = "identity
 
 ggplot(foo, aes(x=site, y = mlogCPUE, fill = sitetype)) + geom_bar(stat = "identity") +
   facet_grid(targets2~season, scales = "free") + 
-  geom_errorbar(aes(ymin = mlogCPUE-selCPUE, ymax = mlogCPUE+selCPUE))
+  geom_errorbar(aes(ymin = mlogCPUE-selCPUE, ymax = mlogCPUE+selCPUE)) +
+  scale_fill_manual(values = c("red", "limegreen"), name = "Site type") +
+  ylab("mean log CPUE") 
 
 #try a linear model
 lm1 = lm(log(tCPUE)~site +targets2+ season, data =bugsblitzSF.1[which(bugsblitzSF.1$SampleID!="MAC6-22MAR2018"),])

@@ -15,16 +15,23 @@ library(visreg)
 mypal = c(brewer.pal(9, "Set1"), brewer.pal(8, "Set2"), brewer.pal(8, "Dark2"))
 mytheme = theme(text = element_text(size=14), legend.text.align = 0)
 
-source("querydatabase.R")
+#source("querydatabase.R")
 
 #Now specify the path to the FRP database
-path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
+#path = "U:/FRPA/MONITORING/Labs/Databases/FRPdata28DEC2018.accdb"
 
 #Query the invertebrate data
-inverts2 <- GetFRPdata(path, type = "inverts")
+#inverts2 <- GetFRPdata(path, type = "inverts")
 
 #Query the station information
-stations = GetFRPdata(path, type = "stations")
+#stations = GetFRPdata(path, type = "stations")
+
+#Load the invertebrate data
+inverts2 <- read_excel("invertsqry.xlsx")
+
+#load the station information
+stations = read_excel("Stations2.xlsx")
+
 
 #attatch station information
 inverts2 = merge(inverts2, stations[,c(2,7)], all.x = T)
@@ -243,12 +250,12 @@ ds3 + geom_area(stat= "identity") + xlab("Month") + ylab("Mean Catch, 2002-2018"
 
 ###########################################################################################
 #Chinook salmon
-chipps = read.csv("time series/DJFMP_fish_and_WQ.csv")
+chipps = read.csv("time series/2002-2018_DJFMP_trawl_fish_and_water_quality_data.csv")
 chipps$SampleDate = as.Date(chipps$SampleDate) 
 chipps = filter(chipps, Location == "Chipps Island" & OrganismCode == "CHN" & year(SampleDate) >2002)
 chipps$month = month(chipps$SampleDate)
 
-stagelabs = data.frame(Stage = factor(c("1","2","3","4","5","6", "N/P")), 
+stagelabs = data.frame(StageCode = factor(c("1","2","3","4","5","6", "n/p")), 
                        labels = factor(x=c("yolk-sac","fry", "par", "silver par",
                                            "smolt", "adult", "Not Provided" ), 
                                        levels = c("yolk-sac","fry", "par", "silver par",
@@ -257,7 +264,7 @@ stagelabs = data.frame(Stage = factor(c("1","2","3","4","5","6", "N/P")),
 
 Chipps1 = merge(chipps, stagelabs)
 #calculate total catch by month and mean catch by month
-chipsum = group_by(Chipps1, Stage, labels, month) %>% 
+chipsum = group_by(Chipps1, StageCode, labels, month) %>% 
   summarize(tcatch = sum(Count), mcatch = tcatch/6)
 
 chipsum1 = dcast(chipsum, month ~ labels, value.var = "tcatch")
@@ -267,7 +274,7 @@ chipsum2$mcatch = chipsum2$tcatch/16
 
 
 chip2 = ggplot(filter(chipsum2, Stage != "adult"), aes(x=month, y = tcatch, fill = Stage))
-chip2 + geom_area(stat= "identity") + xlab("Month") + ylab("Total Catch, 2012-2017") +
+chip2 + geom_area(stat= "identity") + xlab("Month") + ylab("Total Catch, 2002-2017") +
   scale_x_continuous(breaks = c(1:12))
 
 
@@ -362,15 +369,16 @@ totall = sum(EMPmonth$tot)
 EMPmonth$prop = EMPmonth$tot/totall
 
 #try graphing it again
-fish + geom_bar(aes(fill = sampletype), stat = "identity") + 
+fish + geom_bar(aes(fill = sampletype, color = sampletype), stat = "identity") + 
   coord_cartesian(xlim = c(1, 6), ylim = c(0,0.6)) +
   scale_x_continuous(breaks = c(1,2,3,4,5,6), 
                      labels = c("Jan", "Feb", "Mar", "Apr", "May", "Jun"))+
   scale_fill_manual(values = mypal, name = NULL) +
-  geom_smooth(aes(x=month, y = prop, color = "FRP Macroinverts"), data = dbug, method = "lm")+
-  geom_smooth(aes(x=month, y = prop, color = "EMP Mysids"), data = EMPmonth, method = "lm")+
+  geom_smooth(aes(x=month, y = prop, color = "FRP Macroinverts", fill = "FRP Macroinverts"), data = dbug, method = "lm")+
+  geom_smooth(aes(x=month, y = prop, color = "EMP Mysids", fill = "EMP Mysids"), data = EMPmonth, method = "lm")+
   ylab("Percentage of total catch per month") +
-  scale_color_manual(name = NULL, values = c("green", "cyan"))
+  scale_color_manual(name = NULL, values = c("red", "blue", "limegreen", "purple")) +
+  scale_fill_manual(name = NULL, values = c("red", "blue", "limegreen", "purple"))
 
 
 ###########################################################################################
@@ -401,11 +409,12 @@ summary(mfl)
 visreg(mfl)
 
 #just a plot of catch versus flow
-ggplot(deckday, aes(x=sac, y = tCPUE)) + geom_point(aes(color = Year2)) + geom_smooth(method = "lm")
+ggplot(deckday, aes(x=sac, y = tCPUE)) + geom_point(aes(color = Year2)) + geom_smooth(method = "lm", color = "black")
 
 ggplot(deckday, aes(x=sac, y = tCPUE)) + geom_point(aes(color = Year2)) +
-  scale_y_log10()+ geom_smooth(method = "lm") + xlab("Sacramento River Flow (CFS)") +
-  ylab("total CPUE of macroinvertebrates per sample")
+  scale_y_log10()+ geom_smooth(method = "lm", color = "black") + xlab("Sacramento River Flow (CFS)") +
+  ylab("total CPUE of macroinvertebrates per sample") +
+  scale_color_manual(values = c("red", "blue"), name = NULL)
 
 #add the fish in there
 chipp1718 <- read_excel("time series/Chipps Island Trawls CHN & POD Species 2012-2019.xlsx")
